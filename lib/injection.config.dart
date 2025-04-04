@@ -19,8 +19,6 @@ import 'package:liveness_detection/application/passport/passport_form/passport_f
     as _i807;
 import 'package:liveness_detection/domain/passport/i_passport_repository.dart'
     as _i529;
-import 'package:liveness_detection/infrastructure/core/dio_settings.dart'
-    as _i985;
 import 'package:liveness_detection/infrastructure/core/injectable_modules.dart'
     as _i776;
 import 'package:liveness_detection/infrastructure/passport/passport_repository.dart'
@@ -47,14 +45,15 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i471.LivenessDetectionBloc());
     gh.singleton<_i959.AppRouter>(() => _i959.AppRouter());
     gh.lazySingleton<_i807.PassportFormBloc>(() => _i807.PassportFormBloc());
-    gh.lazySingleton<_i985.DioSettings>(
-        () => firebaseInjectableModule.dioSettings);
-    gh.lazySingleton<_i361.Dio>(() => firebaseInjectableModule.dio);
     gh.lazySingleton<_i739.AppSizes>(() => _i739.AppSizes());
     gh.lazySingleton<_i527.Errors>(() => _i527.Errors());
     gh.lazySingleton<_i527.ValueErrors>(() => _i527.ValueErrors());
-    gh.lazySingleton<_i529.IPassportRepository>(
-        () => _i1057.PassportRepository(gh<_i361.Dio>()));
+    gh.lazySingleton<_i361.Dio>(
+      () => firebaseInjectableModule.dio,
+      instanceName: 'livenessDio',
+    );
+    gh.lazySingleton<_i529.IPassportRepository>(() =>
+        _i1057.PassportRepository(gh<_i361.Dio>(instanceName: 'livenessDio')));
     gh.lazySingleton<_i563.PassportActorBloc>(
         () => _i563.PassportActorBloc(gh<_i529.IPassportRepository>()));
     return this;

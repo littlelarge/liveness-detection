@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:liveness_detection/application/passport/passport_actor/passport_actor_bloc.dart';
 import 'package:liveness_detection/application/passport/passport_form/passport_form_bloc.dart';
@@ -25,7 +26,12 @@ final appRouter = getIt<AppRouter>();
 Future<void> initializeLivenessDetection() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await configureInjection(Environment.dev);
+  GetIt.instance.pushNewScope(
+    scopeName: 'liveness-module',
+  );
+
+  configureInjection(Environment.dev, instance: GetIt.instance);
+
   HttpOverrides.global = MyHttpOverrides();
 
   await SystemChrome.setPreferredOrientations([

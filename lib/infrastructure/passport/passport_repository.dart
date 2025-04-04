@@ -6,10 +6,11 @@ import 'package:injectable/injectable.dart';
 import 'package:liveness_detection/domain/core/typedef/typedefs.dart';
 import 'package:liveness_detection/domain/passport/i_passport_repository.dart';
 import 'package:liveness_detection/domain/passport/passport_failure.dart';
+import 'package:liveness_detection/infrastructure/core/dio_names.dart';
 
 @LazySingleton(as: IPassportRepository)
 final class PassportRepository implements IPassportRepository {
-  PassportRepository(this._dio);
+  PassportRepository(@Named(DioNames.dio) this._dio);
 
   final Dio _dio;
 

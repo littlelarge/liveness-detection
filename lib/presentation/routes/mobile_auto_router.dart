@@ -13,5 +13,6 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(page: CameraOverlayRoute.page),
         AutoRoute(page: PassportFormRoute.page),
+        AutoRoute(page: WebViewRoute.page),
       ];
 }

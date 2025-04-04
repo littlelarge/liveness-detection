@@ -5,4 +5,5 @@ import 'package:liveness_detection/injection.config.dart';
 final getIt = GetIt.instance;
 
 @injectableInit
-GetIt configureInjection(String env) => getIt.init(environment: env);
+GetIt configureInjection(String env, {GetIt? instance}) => 
+    (instance ?? getIt).init(environment: env);
