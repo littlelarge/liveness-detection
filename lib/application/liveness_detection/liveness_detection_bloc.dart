@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_init_to_null
+library liveness_detection;
 
 import 'dart:async';
 import 'dart:io';

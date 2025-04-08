@@ -16,7 +16,7 @@ import 'package:liveness_detection/presentation/passport/camera/camera_overlay_s
     as _i1;
 import 'package:liveness_detection/presentation/passport/passport_form_screen.dart'
     as _i3;
-import 'package:liveness_detection/presentation/web_view/web_view.dart' as _i4;
+import 'package:liveness_detection/presentation/web_view/web_view_screen.dart' as _i4;
 
 abstract class $AppRouter extends _i5.RootStackRouter {
   $AppRouter({super.navigatorKey});
