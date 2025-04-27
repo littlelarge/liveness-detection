@@ -19,10 +19,7 @@ class LivenessDetectionScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final livenessDetectionBloc = useMemoized(
-      () => getIt<LivenessDetectionBloc>()
-        ..add(
-          const LivenessDetectionEvent.initialized(),
-        ),
+      () => getIt<LivenessDetectionBloc>(),
     );
 
     useEffect(
@@ -55,7 +52,9 @@ class LivenessDetectionScreen extends HookWidget {
 
                 return Scaffold(
                   body: SafeArea(
-                    child: livenessDetectionBloc.controller != null
+                    child: livenessDetectionBloc.controller != null &&
+                            livenessDetectionBloc
+                                .controller!.value.isInitialized
                         ? Stack(
                             children: [
                               Builder(
