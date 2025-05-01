@@ -37,4 +37,41 @@ final class PassportRepository implements IPassportRepository {
       return left(PassportFailure.unexpectedError(e));
     }
   }
+
+  @override
+  Future<TPassportResult> compareCheburashkaPhoto({
+    required Uint8List image,
+  }) async {
+    try {
+      final payloada = {
+        'photo': image,
+      };
+
+      final response = await _dio.post(
+        '/api/upload-pasport-photo/',
+      );
+
+      return right(unit);
+    } on DioException catch (e) {
+      //    400: Missing base64 photo
+
+      // 400: Only .jpg/.jpeg and .png are allowed
+
+      // 413: File too large. Max size is 5 MB.
+
+      // 502: Facetagr error: ...
+
+      // 500: Внутренняя ошибка
+
+      // final statusCode = e.response?.statusCode;
+      // final message = e.message;
+      // if (statusCode == 400) {
+
+      //   return left(PassportFailure.missingPhoto());
+      // }
+      return left(PassportFailure.serverError(e));
+    } catch (e) {
+      return left(PassportFailure.unexpectedError(e));
+    }
+  }
 }

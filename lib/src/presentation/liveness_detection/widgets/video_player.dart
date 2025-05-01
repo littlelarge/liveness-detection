@@ -5,13 +5,16 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoPlayerWidget extends HookWidget {
-  const VideoPlayerWidget({
+class PreviewVideo extends HookWidget {
+  const PreviewVideo({
     super.key,
     required this.capturedVideo,
+    this.onVideoPlayerControllerInitialized,
   });
 
   final File capturedVideo;
+  final void Function(VideoPlayerController value)?
+      onVideoPlayerControllerInitialized;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +33,8 @@ class VideoPlayerWidget extends HookWidget {
           await videoPlayerController.initialize();
           isInitialized.value = true;
         });
+
+        onVideoPlayerControllerInitialized?.call(videoPlayerController);
 
         return () {
           videoPlayerController.dispose();

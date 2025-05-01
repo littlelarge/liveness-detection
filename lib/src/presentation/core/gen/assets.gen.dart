@@ -24,6 +24,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/camera.svg
   SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
 
+  /// File path: assets/icons/cheburashka_photo.svg
+  SvgGenImage get cheburashkaPhoto =>
+      const SvgGenImage('assets/icons/cheburashka_photo.svg');
+
   /// File path: assets/icons/check.svg
   SvgGenImage get check => const SvgGenImage('assets/icons/check.svg');
 
@@ -195,6 +199,7 @@ class $AssetsIconsGen {
         back,
         briefcase,
         camera,
+        cheburashkaPhoto,
         check,
         completed,
         declined,
@@ -591,6 +596,8 @@ class $AssetsImagesGen {
 class Assets {
   const Assets._();
 
+  static const String package = 'liveness_detection';
+
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
@@ -603,6 +610,8 @@ class AssetGenImage {
   });
 
   final String _assetName;
+
+  static const String package = 'liveness_detection';
 
   final Size? size;
   final Set<String> flavors;
@@ -627,7 +636,8 @@ class AssetGenImage {
     bool matchTextDirection = false,
     bool gaplessPlayback = true,
     bool isAntiAlias = false,
-    String? package,
+    @Deprecated('Do not specify package for a generated library asset')
+    String? package = package,
     FilterQuality filterQuality = FilterQuality.medium,
     int? cacheWidth,
     int? cacheHeight,
@@ -662,7 +672,8 @@ class AssetGenImage {
 
   ImageProvider provider({
     AssetBundle? bundle,
-    String? package,
+    @Deprecated('Do not specify package for a generated library asset')
+    String? package = package,
   }) {
     return AssetImage(
       _assetName,
@@ -673,7 +684,7 @@ class AssetGenImage {
 
   String get path => _assetName;
 
-  String get keyName => _assetName;
+  String get keyName => 'packages/liveness_detection/$_assetName';
 }
 
 class SvgGenImage {
@@ -694,11 +705,14 @@ class SvgGenImage {
   final Set<String> flavors;
   final bool _isVecFormat;
 
+  static const String package = 'liveness_detection';
+
   _svg.SvgPicture svg({
     Key? key,
     bool matchTextDirection = false,
     AssetBundle? bundle,
-    String? package,
+    @Deprecated('Do not specify package for a generated library asset')
+    String? package = package,
     double? width,
     double? height,
     BoxFit fit = BoxFit.contain,
@@ -750,5 +764,5 @@ class SvgGenImage {
 
   String get path => _assetName;
 
-  String get keyName => _assetName;
+  String get keyName => 'packages/liveness_detection/$_assetName';
 }

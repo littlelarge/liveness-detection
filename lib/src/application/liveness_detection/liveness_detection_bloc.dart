@@ -53,10 +53,7 @@ class LivenessDetectionBloc
                 await _controller!.initialize();
 
                 getIt<VideoRecordingDuringIdentificationBloc>().add(
-                  VideoRecordingDuringIdentificationEvent.initialized(
-                    camera: frontCamera,
-                    controller: _controller!,
-                  ),
+                  const VideoRecordingDuringIdentificationEvent.initialized(),
                 );
               }
 
@@ -154,7 +151,7 @@ class LivenessDetectionBloc
                 ),
               );
 
-              emit (
+              emit(
                 const LivenessDetectionState.capturingConfirmationVideo(),
               );
 

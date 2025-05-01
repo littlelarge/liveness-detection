@@ -7,6 +7,7 @@ class VideoRecordingDuringIdentificationState
     CameraController? controller,
     @Default(false) bool isRecording,
     CameraDescription? camera,
+    File? capturedVideo,
   }) = _VideoRecordingDuringIdentificationState;
 
   factory VideoRecordingDuringIdentificationState.initial() =>

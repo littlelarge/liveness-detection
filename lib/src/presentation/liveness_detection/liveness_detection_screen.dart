@@ -9,8 +9,6 @@ import 'package:liveness_detection/src/application/passport/passport_form/passpo
 import 'package:liveness_detection/src/application/video_recording_during_identification/video_recording_during_identification_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/presentation/core/core.dart';
-import 'package:liveness_detection/src/presentation/liveness_detection/widgets/video_player.dart';
-import 'package:liveness_detection/src/presentation/passport/camera/widgets/capture_button.dart';
 import 'package:liveness_detection/src/presentation/presentation.dart';
 
 class LivenessDetectionScreen extends HookWidget {
@@ -114,7 +112,7 @@ class LivenessDetectionScreen extends HookWidget {
                                           ),
                                           child: Column(
                                             children: [
-                                              VideoPlayerWidget(
+                                              PreviewVideo(
                                                 capturedVideo: capturedVideo,
                                               ),
                                               Gap(20.r),

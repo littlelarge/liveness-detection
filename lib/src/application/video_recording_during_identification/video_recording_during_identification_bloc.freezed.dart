@@ -18,25 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$VideoRecordingDuringIdentificationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CameraDescription camera, CameraController controller)
-        initialized,
+    required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
     required TResult orElse(),
@@ -96,8 +92,6 @@ abstract class _$$InitializedImplCopyWith<$Res> {
   factory _$$InitializedImplCopyWith(
           _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
       __$$InitializedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({CameraDescription camera, CameraController controller});
 }
 
 /// @nodoc
@@ -110,95 +104,57 @@ class __$$InitializedImplCopyWithImpl<$Res>
 
   /// Create a copy of VideoRecordingDuringIdentificationEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? camera = null,
-    Object? controller = null,
-  }) {
-    return _then(_$InitializedImpl(
-      camera: null == camera
-          ? _value.camera
-          : camera // ignore: cast_nullable_to_non_nullable
-              as CameraDescription,
-      controller: null == controller
-          ? _value.controller
-          : controller // ignore: cast_nullable_to_non_nullable
-              as CameraController,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$InitializedImpl implements _Initialized {
-  const _$InitializedImpl({required this.camera, required this.controller});
-
-  @override
-  final CameraDescription camera;
-  @override
-  final CameraController controller;
+  const _$InitializedImpl();
 
   @override
   String toString() {
-    return 'VideoRecordingDuringIdentificationEvent.initialized(camera: $camera, controller: $controller)';
+    return 'VideoRecordingDuringIdentificationEvent.initialized()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InitializedImpl &&
-            (identical(other.camera, camera) || other.camera == camera) &&
-            (identical(other.controller, controller) ||
-                other.controller == controller));
+        (other.runtimeType == runtimeType && other is _$InitializedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, camera, controller);
-
-  /// Create a copy of VideoRecordingDuringIdentificationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
-      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CameraDescription camera, CameraController controller)
-        initialized,
+    required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
   }) {
-    return initialized(camera, controller);
+    return initialized();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
   }) {
-    return initialized?.call(camera, controller);
+    return initialized?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(camera, controller);
+      return initialized();
     }
     return orElse();
   }
@@ -239,18 +195,7 @@ class _$InitializedImpl implements _Initialized {
 }
 
 abstract class _Initialized implements VideoRecordingDuringIdentificationEvent {
-  const factory _Initialized(
-      {required final CameraDescription camera,
-      required final CameraController controller}) = _$InitializedImpl;
-
-  CameraDescription get camera;
-  CameraController get controller;
-
-  /// Create a copy of VideoRecordingDuringIdentificationEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Initialized() = _$InitializedImpl;
 }
 
 /// @nodoc
@@ -295,9 +240,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CameraDescription camera, CameraController controller)
-        initialized,
+    required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
   }) {
@@ -307,8 +250,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
   }) {
@@ -318,8 +260,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
     required TResult orElse(),
@@ -411,9 +352,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CameraDescription camera, CameraController controller)
-        initialized,
+    required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
   }) {
@@ -423,8 +362,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
   }) {
@@ -434,8 +372,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CameraDescription camera, CameraController controller)?
-        initialized,
+    TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
     required TResult orElse(),
@@ -491,6 +428,7 @@ mixin _$VideoRecordingDuringIdentificationState {
   CameraController? get controller => throw _privateConstructorUsedError;
   bool get isRecording => throw _privateConstructorUsedError;
   CameraDescription? get camera => throw _privateConstructorUsedError;
+  File? get capturedVideo => throw _privateConstructorUsedError;
 
   /// Create a copy of VideoRecordingDuringIdentificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -511,7 +449,8 @@ abstract class $VideoRecordingDuringIdentificationStateCopyWith<$Res> {
   $Res call(
       {CameraController? controller,
       bool isRecording,
-      CameraDescription? camera});
+      CameraDescription? camera,
+      File? capturedVideo});
 }
 
 /// @nodoc
@@ -534,6 +473,7 @@ class _$VideoRecordingDuringIdentificationStateCopyWithImpl<$Res,
     Object? controller = freezed,
     Object? isRecording = null,
     Object? camera = freezed,
+    Object? capturedVideo = freezed,
   }) {
     return _then(_value.copyWith(
       controller: freezed == controller
@@ -548,6 +488,10 @@ class _$VideoRecordingDuringIdentificationStateCopyWithImpl<$Res,
           ? _value.camera
           : camera // ignore: cast_nullable_to_non_nullable
               as CameraDescription?,
+      capturedVideo: freezed == capturedVideo
+          ? _value.capturedVideo
+          : capturedVideo // ignore: cast_nullable_to_non_nullable
+              as File?,
     ) as $Val);
   }
 }
@@ -564,7 +508,8 @@ abstract class _$$VideoRecordingDuringIdentificationStateImplCopyWith<$Res>
   $Res call(
       {CameraController? controller,
       bool isRecording,
-      CameraDescription? camera});
+      CameraDescription? camera,
+      File? capturedVideo});
 }
 
 /// @nodoc
@@ -585,6 +530,7 @@ class __$$VideoRecordingDuringIdentificationStateImplCopyWithImpl<$Res>
     Object? controller = freezed,
     Object? isRecording = null,
     Object? camera = freezed,
+    Object? capturedVideo = freezed,
   }) {
     return _then(_$VideoRecordingDuringIdentificationStateImpl(
       controller: freezed == controller
@@ -599,6 +545,10 @@ class __$$VideoRecordingDuringIdentificationStateImplCopyWithImpl<$Res>
           ? _value.camera
           : camera // ignore: cast_nullable_to_non_nullable
               as CameraDescription?,
+      capturedVideo: freezed == capturedVideo
+          ? _value.capturedVideo
+          : capturedVideo // ignore: cast_nullable_to_non_nullable
+              as File?,
     ));
   }
 }
@@ -608,7 +558,10 @@ class __$$VideoRecordingDuringIdentificationStateImplCopyWithImpl<$Res>
 class _$VideoRecordingDuringIdentificationStateImpl
     implements _VideoRecordingDuringIdentificationState {
   const _$VideoRecordingDuringIdentificationStateImpl(
-      {this.controller, this.isRecording = false, this.camera});
+      {this.controller,
+      this.isRecording = false,
+      this.camera,
+      this.capturedVideo});
 
   @override
   final CameraController? controller;
@@ -617,10 +570,12 @@ class _$VideoRecordingDuringIdentificationStateImpl
   final bool isRecording;
   @override
   final CameraDescription? camera;
+  @override
+  final File? capturedVideo;
 
   @override
   String toString() {
-    return 'VideoRecordingDuringIdentificationState(controller: $controller, isRecording: $isRecording, camera: $camera)';
+    return 'VideoRecordingDuringIdentificationState(controller: $controller, isRecording: $isRecording, camera: $camera, capturedVideo: $capturedVideo)';
   }
 
   @override
@@ -632,11 +587,14 @@ class _$VideoRecordingDuringIdentificationStateImpl
                 other.controller == controller) &&
             (identical(other.isRecording, isRecording) ||
                 other.isRecording == isRecording) &&
-            (identical(other.camera, camera) || other.camera == camera));
+            (identical(other.camera, camera) || other.camera == camera) &&
+            (identical(other.capturedVideo, capturedVideo) ||
+                other.capturedVideo == capturedVideo));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, controller, isRecording, camera);
+  int get hashCode =>
+      Object.hash(runtimeType, controller, isRecording, camera, capturedVideo);
 
   /// Create a copy of VideoRecordingDuringIdentificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -655,7 +613,8 @@ abstract class _VideoRecordingDuringIdentificationState
   const factory _VideoRecordingDuringIdentificationState(
           {final CameraController? controller,
           final bool isRecording,
-          final CameraDescription? camera}) =
+          final CameraDescription? camera,
+          final File? capturedVideo}) =
       _$VideoRecordingDuringIdentificationStateImpl;
 
   @override
@@ -664,6 +623,8 @@ abstract class _VideoRecordingDuringIdentificationState
   bool get isRecording;
   @override
   CameraDescription? get camera;
+  @override
+  File? get capturedVideo;
 
   /// Create a copy of VideoRecordingDuringIdentificationState
   /// with the given fields replaced by the non-null parameter values.

@@ -22,15 +22,30 @@ class VideoRecordingDuringIdentificationBloc extends Bloc<
       (event, emit) async {
         await event.map(
           initialized: (e) async {
-            // await Permission.camera.request();
-            // await Permission.microphone.request();
+            final cameras = await availableCameras();
+            if (cameras.isNotEmpty) {
+              final frontCamera = cameras.firstWhere(
+                (camera) => camera.lensDirection == CameraLensDirection.front,
+                orElse: () => cameras[0],
+              );
 
-            emit(
-              state.copyWith(
-                camera: e.camera,
-                controller: e.controller,
-              ),
-            );
+              final controller = CameraController(
+                frontCamera,
+                ResolutionPreset.medium,
+              );
+
+              if (!(controller.value.isInitialized)) {
+                await controller.initialize();
+              }
+
+              emit(
+                state.copyWith(
+                  controller: controller,
+                ),
+              );
+            } else {
+              Utils.liveness_detectionPrint('Нет доступных камер');
+            }
           },
           recordingStarted: (e) async {
             if (!state.controller!.value.isInitialized) return;
@@ -63,6 +78,7 @@ class VideoRecordingDuringIdentificationBloc extends Bloc<
             emit(
               state.copyWith(
                 isRecording: false,
+                capturedVideo: file,
               ),
             );
 

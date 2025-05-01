@@ -1,11 +1,9 @@
 import 'package:dio/dio.dart';
 
 class DioSettings {
-  final CancelToken cancelToken = CancelToken();
-
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: '',
+      baseUrl: 'https://146.190.145.30',
       responseType: ResponseType.json,
       contentType: "application/json; charset=utf-8",
       validateStatus: (status) {

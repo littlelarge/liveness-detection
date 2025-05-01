@@ -8,4 +8,7 @@ abstract interface class IPassportRepository {
     required Uint8List backSide,
     required Uint8List face,
   });
+  Future<TPassportResult> compareCheburashkaPhoto({
+    required Uint8List image,
+  });
 }

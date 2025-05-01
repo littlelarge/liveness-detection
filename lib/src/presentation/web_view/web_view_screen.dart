@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:liveness_detection/src/presentation/core/router/app_router.dart';
-import 'package:liveness_detection/src/presentation/presentation.dart';
+import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/cheburashka_photo_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewScreen extends HookWidget {
@@ -13,7 +13,6 @@ class WebViewScreen extends HookWidget {
       () => WebViewController(),
       [],
     );
-    // Флаг для предотвращения повторных переходов
     final hasNavigated = useRef(false);
 
     useEffect(
@@ -48,14 +47,14 @@ class WebViewScreen extends HookWidget {
 
                 AppNavigator.push(
                   context,
-                  const LivenessDetectionScreen(),
+                  const CheburashkaPhotoScreen(),
                 );
               }
             },
           )
           ..loadRequest(
             Uri.parse(
-              'https://sign.signillion.site/documents/sign_document/8da0f0e1-83cf-41d2-8d78-235951b1dc71/?mobile=true',
+              'https://sign.signillion.site/documents/sign_document/e75c3681-e7a7-4398-aa83-fb0ae7fe0664/?mobile=true',
             ),
           );
         return () {};

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:liveness_detection/src/application/application.dart';
+import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 
 class AppNavigator {
@@ -12,11 +12,13 @@ class AppNavigator {
       MaterialPageRoute(
         builder: (context) => MultiBlocProvider(
           providers: [
-            BlocProvider.value(value: getIt<PassportFormBloc>()),
-            BlocProvider.value(value: getIt<PassportActorBloc>()),
-            BlocProvider.value(
-              value: getIt<VideoRecordingDuringIdentificationBloc>(),
+            BlocProvider(create: (context) => getIt<PassportFormBloc>()),
+            BlocProvider(create: (context) => getIt<PassportActorBloc>()),
+            BlocProvider(
+              create: (context) =>
+                  getIt<VideoRecordingDuringIdentificationBloc>(),
             ),
+            BlocProvider(create: (context) => getIt<CheburashkaPhotoBloc>()),
           ],
           child: page,
         ),
