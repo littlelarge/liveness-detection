@@ -37,7 +37,7 @@ abstract final class AppThemes {
           disabledBackgroundColor: AppColors.disabled,
         ),
       ),
-      scaffoldBackgroundColor: AppColors.white,
+      scaffoldBackgroundColor: AppColors.primary,
       splashColor: AppColors.grayscale200,
     );
   }
@@ -77,7 +77,7 @@ abstract final class AppThemes {
           disabledBackgroundColor: AppColors.disabled,
         ),
       ),
-      scaffoldBackgroundColor: AppColors.grayscale1000,
+      scaffoldBackgroundColor: AppColors.primary,
       splashColor: AppColors.grayscale600,
     );
   }

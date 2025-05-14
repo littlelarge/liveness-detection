@@ -38,6 +38,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: EdgeInsets.only(top: 10.r),
       child: AppBar(
+        backgroundColor: AppColors.white,
         actions: actions,
         toolbarHeight: height,
         centerTitle: centerTitle,
@@ -50,7 +51,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     },
                   )
                 : null),
-        title: titleWidget,
+        title: Assets.images.abn.image(
+          width: 120.r,
+        ),
         titleSpacing: 0,
       ),
     );

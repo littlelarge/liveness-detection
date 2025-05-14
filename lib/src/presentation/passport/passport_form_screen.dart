@@ -12,6 +12,7 @@ import 'package:liveness_detection/src/presentation/core/bloc_listeners/passport
 import 'package:liveness_detection/src/presentation/core/gen/assets.gen.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_app_bar.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_button.dart';
+import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/camera/camera_overlay_screen.dart';
 import 'package:liveness_detection/src/presentation/passport/widgets/passport_image_field.dart';
 
@@ -24,7 +25,7 @@ class PassportFormScreen extends HookWidget {
       listener: passportActorListener,
       child: BlocBuilder<PassportFormBloc, PassportFormState>(
         builder: (context, passportFormState) {
-          return Scaffold(
+          return CustomScaffold(
             appBar: CustomAppBar(
               customTitle: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.r),

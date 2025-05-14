@@ -22,31 +22,46 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomInkWell(
-      onTap: !isLoading ? onTap : null,
-      padding: EdgeInsets.symmetric(
-        vertical: 17.r,
-        horizontal: 20.r,
-      ),
+    final effectiveColor = onTap != null
+        ? (backgroundColor ?? AppColors.primary)
+        : AppColors.disabled;
+
+    return Container(
       decoration: BoxDecoration(
         borderRadius: _borderRadius,
-        color: onTap != null
-            ? (backgroundColor ?? Theme.of(context).primaryColor)
-            : AppColors.disabled,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(.4.toAlpha()),
+            blurRadius: 4.r,
+            blurStyle: BlurStyle.normal,
+            offset: Offset(0, 4.r),
+          ),
+        ],
       ),
-      child: isLoading
-          ? CustomCircularProgressIndicator(
-              radius: 30.r,
-              strokeWidth: 3.r,
-            )
-          : Center(
-              child: Text(
-                text,
-                style: AppTextStyles.notoSans14Regular(
-                  color: textColor ?? AppColors.white,
+      child: CustomInkWell(
+        onTap: !isLoading ? onTap : null,
+        padding: EdgeInsets.symmetric(
+          vertical: 17.r,
+          horizontal: 20.r,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: _borderRadius,
+          color: effectiveColor,
+        ),
+        child: isLoading
+            ? CustomCircularProgressIndicator(
+                radius: 30.r,
+                strokeWidth: 3.r,
+              )
+            : Center(
+                child: Text(
+                  text,
+                  style: AppTextStyles.notoSans14Regular(
+                    color: textColor ?? AppColors.white,
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 }

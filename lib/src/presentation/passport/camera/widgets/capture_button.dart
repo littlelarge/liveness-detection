@@ -22,45 +22,46 @@ class CaptureButton extends StatelessWidget {
 
   final _ButtonType _buttonType;
 
-  BorderRadius get _borderRadius => BorderRadius.circular(30.r);
-
   @override
   Widget build(BuildContext context) {
-    IconData icon;
-    double size = 30.r;
     Color? color;
+    Widget? icon;
 
     switch (_buttonType) {
       case _ButtonType.image:
-        icon = Icons.camera;
+        color = AppColors.primaryText;
+        icon = Assets.icons.capture.svg(
+          colorFilter: color.toColorFilter(),
+        );
       case _ButtonType.captureVideo:
-        icon = Icons.fiber_manual_record;
-        size = 60.r;
         color = AppColors.failure;
+        icon = Assets.icons.capture.svg(
+          colorFilter: color.toColorFilter(),
+        );
       case _ButtonType.stopVideo:
-        icon = Icons.stop;
         color = AppColors.failure;
+        icon = Icon(
+          Icons.stop,
+          color: color,
+          size: 60.r,
+        );
         break;
     }
-    return Container(
-      height: 70.r,
+
+    return CustomInkWell(
       width: 70.r,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: _borderRadius,
-      ),
-      child: CustomInkWell(
-        onTap: onTap,
-        customBorder: const CircleBorder(),
-        decoration: const BoxDecoration(
-          shape: BoxShape.rectangle,
-        ),
-        child: Icon(
-          icon,
-          size: size,
-          color: color,
-        ),
-      ),
+      height: 70.r,
+      onTap: onTap,
+      customBorder: const CircleBorder(),
+      // decoration: const BoxDecoration(
+      //   shape: BoxShape.rectangle,
+      // ),
+      // child: Icon(
+      //   icon,
+      //   size: size,
+      //   color: color,
+      // ),
+      child: icon,
     );
   }
 }

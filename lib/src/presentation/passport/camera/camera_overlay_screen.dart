@@ -11,6 +11,7 @@ import 'package:liveness_detection/src/common/l10n/gen_l10n/app_localizations.da
 import 'package:liveness_detection/src/presentation/core/app_colors.dart';
 
 import 'package:liveness_detection/src/presentation/core/app_text_styles.dart';
+import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/camera/widgets/capture_button.dart';
 import 'package:liveness_detection/src/presentation/passport/camera/widgets/capture_frame_overlay.dart';
 
@@ -80,7 +81,7 @@ class CameraOverlayScreen extends HookWidget {
     final overlayWidth = 1.sw - 60.r;
     final overlayHeight = (135.r / 196.r) * overlayWidth;
 
-    return Scaffold(
+    return CustomScaffold(
       body: SafeArea(
         child: GestureDetector(
           onTapDown: (details) async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:liveness_detection/src/presentation/core/router/app_router.dart';
+import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/cheburashka_photo_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -62,7 +63,7 @@ class WebViewScreen extends HookWidget {
       [],
     );
 
-    return Scaffold(
+    return CustomScaffold(
       body: SafeArea(
         child: WebViewWidget(
           controller: webViewController,

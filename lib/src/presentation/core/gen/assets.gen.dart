@@ -24,6 +24,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/camera.svg
   SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
 
+  /// File path: assets/icons/capture.svg
+  SvgGenImage get capture => const SvgGenImage('assets/icons/capture.svg');
+
   /// File path: assets/icons/cheburashka_photo.svg
   SvgGenImage get cheburashkaPhoto =>
       const SvgGenImage('assets/icons/cheburashka_photo.svg');
@@ -199,6 +202,7 @@ class $AssetsIconsGen {
         back,
         briefcase,
         camera,
+        capture,
         cheburashkaPhoto,
         check,
         completed,
@@ -263,6 +267,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/abc_icon_svg.svg
   SvgGenImage get abcIconSvg =>
       const SvgGenImage('assets/images/abc_icon_svg.svg');
+
+  /// File path: assets/images/abn.png
+  AssetGenImage get abn => const AssetGenImage('assets/images/abn.png');
 
   /// File path: assets/images/add_icon_svg.svg
   SvgGenImage get addIconSvg =>
@@ -525,6 +532,7 @@ class $AssetsImagesGen {
   List<dynamic> get values => [
         aaIconSvg,
         abcIconSvg,
+        abn,
         addIconSvg,
         archiveIconSvg,
         bookIconSvg,

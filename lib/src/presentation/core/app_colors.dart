@@ -7,8 +7,9 @@ abstract final class AppColors {
   static Color get failure => const Color(0xFFFF5858);
   static Color get success => const Color(0xFF00D02E);
   static Color get warning => const Color(0xFFFFB800);
-  static Color get link => const Color(0xFF324DE5);
-  static Color get primary => const Color(0xFF0821AF);
+  static Color get link => const Color(0xFFC7AE51);
+  static Color get primary => const Color(0xFF077046);
+  static Color get primaryText => const Color(0xFFC7AE51);
   static Color get disabled => const Color(0xFF4C5161);
   static Color get grayscale12 => const Color(0xFF121212);
   static Color get grayscaleDE => const Color(0xFFDEDFE6);

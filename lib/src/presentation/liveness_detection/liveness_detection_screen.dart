@@ -9,6 +9,7 @@ import 'package:liveness_detection/src/application/passport/passport_form/passpo
 import 'package:liveness_detection/src/application/video_recording_during_identification/video_recording_during_identification_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/presentation/core/core.dart';
+import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/presentation.dart';
 
 class LivenessDetectionScreen extends HookWidget {
@@ -48,7 +49,7 @@ class LivenessDetectionScreen extends HookWidget {
                 final livenessDetectionBloc =
                     context.read<LivenessDetectionBloc>();
 
-                return Scaffold(
+                return CustomScaffold(
                   body: SafeArea(
                     child: livenessDetectionBloc.controller != null &&
                             livenessDetectionBloc

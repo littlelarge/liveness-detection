@@ -8,6 +8,7 @@ import 'package:gap/gap.dart';
 import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:liveness_detection/src/presentation/confirm_code/confirm_code_screen.dart';
 import 'package:liveness_detection/src/presentation/core/core.dart';
+import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:video_player/video_player.dart';
 
 class ConfirmationVideoRecordingScreen extends HookWidget {
@@ -30,7 +31,8 @@ class ConfirmationVideoRecordingScreen extends HookWidget {
     return BlocBuilder<VideoRecordingDuringIdentificationBloc,
         VideoRecordingDuringIdentificationState>(
       builder: (context, videoRecordingDuringIdentificationState) {
-        return Scaffold(
+        return CustomScaffold(
+          appBar: const CustomAppBar(),
           body: SafeArea(
             child: videoRecordingDuringIdentificationState.controller != null &&
                     videoRecordingDuringIdentificationState
@@ -41,7 +43,7 @@ class ConfirmationVideoRecordingScreen extends HookWidget {
                         builder: (context) {
                           final cameraPreviewOvalWidget = Padding(
                             padding: EdgeInsets.only(
-                              top: 1.sh / 3,
+                              top: 1.sh / 2.8,
                             ),
                             child: Align(
                               alignment: AlignmentDirectional.topCenter,
@@ -127,20 +129,25 @@ class ConfirmationVideoRecordingScreen extends HookWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: 20.r),
-                                child: Text(
-                                  videoRecordingDuringIdentificationState
-                                              .capturedVideo ==
-                                          null
-                                      ? 'Глядя в камеру, чётко и без пауз произнесите текст подтверждения.\n\nЯ, [ФИО], подтверждаю свою личность и добровольно подписываю данный документ с использованием электронной цифровой подписи. Я ознакомлен(а) с содержанием документа, понимаю его значение и подтверждаю своё согласие на подписание.'
-                                      : '',
-                                  style: AppTextStyles.notoSans14SemiBold(),
+                              if (videoRecordingDuringIdentificationState
+                                      .capturedVideo ==
+                                  null) ...[
+                                Text(
+                                  'Запишите видео',
+                                  textAlign: TextAlign.center,
+                                  style: AppTextStyles.notoSans24SemiBold(
+                                    color: AppColors.primaryText,
+                                  ),
+                                ),
+                                Gap(4.r),
+                                Text(
+                                  'Глядя в камеру, чётко и без пауз произнесите текст подтверждения.\n\nЯ, [ФИО], подтверждаю свою личность и добровольно подписываю данный документ с использованием электронной цифровой подписи. Я ознакомлен(а) с содержанием документа, понимаю его значение и подтверждаю своё согласие на подписание.',
+                                  style: AppTextStyles.notoSans16Regular(),
                                   textAlign: TextAlign.center,
                                 ),
-                              ),
+                              ],
+                              const Spacer(),
                               BlocBuilder<
                                   VideoRecordingDuringIdentificationBloc,
                                   VideoRecordingDuringIdentificationState>(

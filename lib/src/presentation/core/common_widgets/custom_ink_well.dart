@@ -26,6 +26,7 @@ class CustomInkWell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       type: materialType ?? MaterialType.transparency,
+      color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
         borderRadius: decoration?.borderRadius as BorderRadius?,
@@ -39,7 +40,6 @@ class CustomInkWell extends StatelessWidget {
             image: decoration?.image,
             border: decoration?.border,
             borderRadius: decoration?.borderRadius,
-            boxShadow: decoration?.boxShadow,
             gradient: decoration?.gradient,
             backgroundBlendMode: decoration?.backgroundBlendMode,
             shape: decoration?.shape ?? BoxShape.rectangle,

@@ -7,6 +7,7 @@ import 'package:gap/gap.dart';
 import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:liveness_detection/src/presentation/core/bloc_listeners/cheburashka_photo_listener.dart';
 import 'package:liveness_detection/src/presentation/core/core.dart';
+import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 
 class CheburashkaPhotoScreen extends HookWidget {
   const CheburashkaPhotoScreen({super.key});
@@ -15,14 +16,15 @@ class CheburashkaPhotoScreen extends HookWidget {
   Widget build(BuildContext context) {
     useEffect(
       () {
-        WidgetsBinding.instance.addPostFrameCallback(
-          (_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (context.mounted) {
             context.read<CheburashkaPhotoBloc>().add(
                   const CheburashkaPhotoEvent.initialized(),
                 );
-          },
-        );
-        return () {};
+          }
+        });
+
+        return null;
       },
       [],
     );
@@ -30,7 +32,8 @@ class CheburashkaPhotoScreen extends HookWidget {
     return BlocConsumer<CheburashkaPhotoBloc, CheburashkaPhotoState>(
       listener: cheburashkaPhotoListener,
       builder: (context, cheburashkaPhotoState) {
-        return Scaffold(
+        return CustomScaffold(
+          appBar: const CustomAppBar(),
           body: SafeArea(
             child: cheburashkaPhotoState.cameraController != null &&
                     cheburashkaPhotoState.cameraController!.value.isInitialized
@@ -44,55 +47,56 @@ class CheburashkaPhotoScreen extends HookWidget {
                         Column(
                           children: [
                             Text(
+                              'Сделайте фото',
+                              textAlign: TextAlign.center,
+                              style: AppTextStyles.notoSans24SemiBold(
+                                color: AppColors.primaryText,
+                              ),
+                            ),
+                            Gap(4.r),
+                            Text(
                               'Найдите хорошо освещенное место и сфотографируйтесь с паспортом так, как показано ниже',
                               textAlign: TextAlign.center,
-                              style: AppTextStyles.notoSans18SemiBold(),
+                              style: AppTextStyles.notoSans16Regular(),
                             ),
                             Assets.icons.cheburashkaPhoto.svg(
                               width: 140.r,
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                top: 40.r,
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional.topCenter,
-                                child: SizedBox(
-                                  width: 1.sw / 1.5,
-                                  height: 1.sw / 1.2,
-                                  child: FittedBox(
-                                    fit: BoxFit.cover,
-                                    child: Container(
-                                      width: cheburashkaPhotoState
-                                          .cameraController!
-                                          .value
-                                          .previewSize!
-                                          .height,
-                                      height: cheburashkaPhotoState
-                                          .cameraController!
-                                          .value
-                                          .previewSize!
-                                          .width,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(80.r),
-                                      ),
-                                      clipBehavior: Clip.hardEdge,
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(80.r),
-                                        child: cheburashkaPhotoState
-                                                    .capturedImage ==
-                                                null
-                                            ? CameraPreview(
-                                                cheburashkaPhotoState
-                                                    .cameraController!,
-                                              )
-                                            : Image.memory(
-                                                cheburashkaPhotoState
-                                                    .capturedImage!,
-                                              ),
-                                      ),
+                            Gap(8.r),
+                            Align(
+                              alignment: AlignmentDirectional.topCenter,
+                              child: SizedBox(
+                                width: 230.r,
+                                child: FittedBox(
+                                  fit: BoxFit.cover,
+                                  child: Container(
+                                    width: cheburashkaPhotoState
+                                        .cameraController!
+                                        .value
+                                        .previewSize!
+                                        .height,
+                                    height: cheburashkaPhotoState
+                                        .cameraController!
+                                        .value
+                                        .previewSize!
+                                        .width,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(80.r),
+                                    ),
+                                    clipBehavior: Clip.hardEdge,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(80.r),
+                                      child:
+                                          cheburashkaPhotoState.capturedImage ==
+                                                  null
+                                              ? CameraPreview(
+                                                  cheburashkaPhotoState
+                                                      .cameraController!,
+                                                )
+                                              : Image.memory(
+                                                  cheburashkaPhotoState
+                                                      .capturedImage!,
+                                                ),
                                     ),
                                   ),
                                 ),
