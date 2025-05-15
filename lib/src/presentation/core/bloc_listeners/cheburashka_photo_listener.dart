@@ -9,7 +9,7 @@ void cheburashkaPhotoListener(
 ) {
   final compareResult = cheburashkaPhotoState.compareResult;
 
-  if (compareResult != null) {
+  if (compareResult != null && cheburashkaPhotoState.capturedImage != null) {
     compareResult.fold(
       (l) {
         Utils.showSnackBar(

@@ -9,7 +9,7 @@ part 'passport_actor_event.dart';
 part 'passport_actor_state.dart';
 part 'passport_actor_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class PassportActorBloc extends Bloc<PassportActorEvent, PassportActorState> {
   PassportActorBloc(this._passportRepository)
       : super(const PassportActorState.initial()) {

@@ -12,7 +12,7 @@ part 'video_recording_during_identification_event.dart';
 part 'video_recording_during_identification_state.dart';
 part 'video_recording_during_identification_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class VideoRecordingDuringIdentificationBloc extends Bloc<
     VideoRecordingDuringIdentificationEvent,
     VideoRecordingDuringIdentificationState> {
@@ -20,71 +20,70 @@ class VideoRecordingDuringIdentificationBloc extends Bloc<
       : super(VideoRecordingDuringIdentificationState.initial()) {
     on<VideoRecordingDuringIdentificationEvent>(
       (event, emit) async {
-        await event.map(
-          initialized: (e) async {
-            final cameras = await availableCameras();
-            if (cameras.isNotEmpty) {
-              final frontCamera = cameras.firstWhere(
-                (camera) => camera.lensDirection == CameraLensDirection.front,
-                orElse: () => cameras[0],
-              );
+        await event.map(initialized: (e) async {
+          final cameras = await availableCameras();
+          if (cameras.isNotEmpty) {
+            final frontCamera = cameras.firstWhere(
+              (camera) => camera.lensDirection == CameraLensDirection.front,
+              orElse: () => cameras[0],
+            );
 
-              final controller = CameraController(
-                frontCamera,
-                ResolutionPreset.medium,
-              );
+            final controller = CameraController(
+              frontCamera,
+              ResolutionPreset.medium,
+            );
 
-              if (!(controller.value.isInitialized)) {
-                await controller.initialize();
-              }
-
-              emit(
-                state.copyWith(
-                  controller: controller,
-                ),
-              );
-            } else {
-              Utils.liveness_detectionPrint('Нет доступных камер');
+            if (!(controller.value.isInitialized)) {
+              await controller.initialize();
             }
-          },
-          recordingStarted: (e) async {
-            if (!state.controller!.value.isInitialized) return;
-            // final path = await _getVideoPath();
-            await state.controller!.startVideoRecording();
 
             emit(
               state.copyWith(
-                isRecording: true,
+                controller: controller,
+                capturedVideo: null,
               ),
             );
-          },
-          recordingStoped: (e) async {
-            if (!state.controller!.value.isRecordingVideo) return;
-            final xFile = await state.controller!.stopVideoRecording();
-            final file = File(xFile.path);
+          } else {
+            Utils.liveness_detectionPrint('Нет доступных камер');
+          }
+        }, recordingStarted: (e) async {
+          if (!state.controller!.value.isInitialized) return;
+          // final path = await _getVideoPath();
+          await state.controller!.startVideoRecording();
 
-            getIt<PassportFormBloc>().add(
-              PassportFormEvent.confirmationVideoAdded(
-                confirmationVideo: file,
-              ),
-            );
+          emit(
+            state.copyWith(
+              isRecording: true,
+            ),
+          );
+        }, recordingStoped: (e) async {
+          if (!state.controller!.value.isRecordingVideo) return;
+          final xFile = await state.controller!.stopVideoRecording();
+          final file = File(xFile.path);
 
-            getIt<LivenessDetectionBloc>().add(
-              LivenessDetectionEvent.confirmationVideoCaptured(
-                capturedVideo: file,
-              ),
-            );
+          getIt<PassportFormBloc>().add(
+            PassportFormEvent.confirmationVideoAdded(
+              confirmationVideo: file,
+            ),
+          );
 
-            emit(
-              state.copyWith(
-                isRecording: false,
-                capturedVideo: file,
-              ),
-            );
+          getIt<LivenessDetectionBloc>().add(
+            LivenessDetectionEvent.confirmationVideoCaptured(
+              capturedVideo: file,
+            ),
+          );
 
-            Utils.liveness_detectionLog('Записано видео: ${xFile.path}');
-          },
-        );
+          emit(
+            state.copyWith(
+              isRecording: false,
+              capturedVideo: file,
+            ),
+          );
+
+          Utils.liveness_detectionLog('Записано видео: ${xFile.path}');
+        }, retryButtonPressed: (_) {
+          add(const VideoRecordingDuringIdentificationEvent.initialized());
+        });
       },
     );
   }

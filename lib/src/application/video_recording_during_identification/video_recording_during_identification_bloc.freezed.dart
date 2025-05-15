@@ -21,6 +21,7 @@ mixin _$VideoRecordingDuringIdentificationEvent {
     required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
+    required TResult Function() retryButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$VideoRecordingDuringIdentificationEvent {
     TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
+    TResult? Function()? retryButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$VideoRecordingDuringIdentificationEvent {
     TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
+    TResult Function()? retryButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$VideoRecordingDuringIdentificationEvent {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_RecordingStarted value) recordingStarted,
     required TResult Function(_RecordingStoped value) recordingStoped,
+    required TResult Function(_RetryButtonPressed value) retryButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$VideoRecordingDuringIdentificationEvent {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_RecordingStarted value)? recordingStarted,
     TResult? Function(_RecordingStoped value)? recordingStoped,
+    TResult? Function(_RetryButtonPressed value)? retryButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$VideoRecordingDuringIdentificationEvent {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_RecordingStarted value)? recordingStarted,
     TResult Function(_RecordingStoped value)? recordingStoped,
+    TResult Function(_RetryButtonPressed value)? retryButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +137,7 @@ class _$InitializedImpl implements _Initialized {
     required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
+    required TResult Function() retryButtonPressed,
   }) {
     return initialized();
   }
@@ -141,6 +148,7 @@ class _$InitializedImpl implements _Initialized {
     TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
+    TResult? Function()? retryButtonPressed,
   }) {
     return initialized?.call();
   }
@@ -151,6 +159,7 @@ class _$InitializedImpl implements _Initialized {
     TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
+    TResult Function()? retryButtonPressed,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -165,6 +174,7 @@ class _$InitializedImpl implements _Initialized {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_RecordingStarted value) recordingStarted,
     required TResult Function(_RecordingStoped value) recordingStoped,
+    required TResult Function(_RetryButtonPressed value) retryButtonPressed,
   }) {
     return initialized(this);
   }
@@ -175,6 +185,7 @@ class _$InitializedImpl implements _Initialized {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_RecordingStarted value)? recordingStarted,
     TResult? Function(_RecordingStoped value)? recordingStoped,
+    TResult? Function(_RetryButtonPressed value)? retryButtonPressed,
   }) {
     return initialized?.call(this);
   }
@@ -185,6 +196,7 @@ class _$InitializedImpl implements _Initialized {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_RecordingStarted value)? recordingStarted,
     TResult Function(_RecordingStoped value)? recordingStoped,
+    TResult Function(_RetryButtonPressed value)? retryButtonPressed,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -243,6 +255,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
     required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
+    required TResult Function() retryButtonPressed,
   }) {
     return recordingStarted();
   }
@@ -253,6 +266,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
     TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
+    TResult? Function()? retryButtonPressed,
   }) {
     return recordingStarted?.call();
   }
@@ -263,6 +277,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
     TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
+    TResult Function()? retryButtonPressed,
     required TResult orElse(),
   }) {
     if (recordingStarted != null) {
@@ -277,6 +292,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_RecordingStarted value) recordingStarted,
     required TResult Function(_RecordingStoped value) recordingStoped,
+    required TResult Function(_RetryButtonPressed value) retryButtonPressed,
   }) {
     return recordingStarted(this);
   }
@@ -287,6 +303,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_RecordingStarted value)? recordingStarted,
     TResult? Function(_RecordingStoped value)? recordingStoped,
+    TResult? Function(_RetryButtonPressed value)? retryButtonPressed,
   }) {
     return recordingStarted?.call(this);
   }
@@ -297,6 +314,7 @@ class _$RecordingStartedImpl implements _RecordingStarted {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_RecordingStarted value)? recordingStarted,
     TResult Function(_RecordingStoped value)? recordingStoped,
+    TResult Function(_RetryButtonPressed value)? retryButtonPressed,
     required TResult orElse(),
   }) {
     if (recordingStarted != null) {
@@ -355,6 +373,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
     required TResult Function() initialized,
     required TResult Function() recordingStarted,
     required TResult Function() recordingStoped,
+    required TResult Function() retryButtonPressed,
   }) {
     return recordingStoped();
   }
@@ -365,6 +384,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
     TResult? Function()? initialized,
     TResult? Function()? recordingStarted,
     TResult? Function()? recordingStoped,
+    TResult? Function()? retryButtonPressed,
   }) {
     return recordingStoped?.call();
   }
@@ -375,6 +395,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
     TResult Function()? initialized,
     TResult Function()? recordingStarted,
     TResult Function()? recordingStoped,
+    TResult Function()? retryButtonPressed,
     required TResult orElse(),
   }) {
     if (recordingStoped != null) {
@@ -389,6 +410,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_RecordingStarted value) recordingStarted,
     required TResult Function(_RecordingStoped value) recordingStoped,
+    required TResult Function(_RetryButtonPressed value) retryButtonPressed,
   }) {
     return recordingStoped(this);
   }
@@ -399,6 +421,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_RecordingStarted value)? recordingStarted,
     TResult? Function(_RecordingStoped value)? recordingStoped,
+    TResult? Function(_RetryButtonPressed value)? retryButtonPressed,
   }) {
     return recordingStoped?.call(this);
   }
@@ -409,6 +432,7 @@ class _$RecordingStopedImpl implements _RecordingStoped {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_RecordingStarted value)? recordingStarted,
     TResult Function(_RecordingStoped value)? recordingStoped,
+    TResult Function(_RetryButtonPressed value)? retryButtonPressed,
     required TResult orElse(),
   }) {
     if (recordingStoped != null) {
@@ -421,6 +445,125 @@ class _$RecordingStopedImpl implements _RecordingStoped {
 abstract class _RecordingStoped
     implements VideoRecordingDuringIdentificationEvent {
   const factory _RecordingStoped() = _$RecordingStopedImpl;
+}
+
+/// @nodoc
+abstract class _$$RetryButtonPressedImplCopyWith<$Res> {
+  factory _$$RetryButtonPressedImplCopyWith(_$RetryButtonPressedImpl value,
+          $Res Function(_$RetryButtonPressedImpl) then) =
+      __$$RetryButtonPressedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RetryButtonPressedImplCopyWithImpl<$Res>
+    extends _$VideoRecordingDuringIdentificationEventCopyWithImpl<$Res,
+        _$RetryButtonPressedImpl>
+    implements _$$RetryButtonPressedImplCopyWith<$Res> {
+  __$$RetryButtonPressedImplCopyWithImpl(_$RetryButtonPressedImpl _value,
+      $Res Function(_$RetryButtonPressedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of VideoRecordingDuringIdentificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RetryButtonPressedImpl implements _RetryButtonPressed {
+  const _$RetryButtonPressedImpl();
+
+  @override
+  String toString() {
+    return 'VideoRecordingDuringIdentificationEvent.retryButtonPressed()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RetryButtonPressedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() recordingStarted,
+    required TResult Function() recordingStoped,
+    required TResult Function() retryButtonPressed,
+  }) {
+    return retryButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialized,
+    TResult? Function()? recordingStarted,
+    TResult? Function()? recordingStoped,
+    TResult? Function()? retryButtonPressed,
+  }) {
+    return retryButtonPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? recordingStarted,
+    TResult Function()? recordingStoped,
+    TResult Function()? retryButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (retryButtonPressed != null) {
+      return retryButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_RecordingStarted value) recordingStarted,
+    required TResult Function(_RecordingStoped value) recordingStoped,
+    required TResult Function(_RetryButtonPressed value) retryButtonPressed,
+  }) {
+    return retryButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? initialized,
+    TResult? Function(_RecordingStarted value)? recordingStarted,
+    TResult? Function(_RecordingStoped value)? recordingStoped,
+    TResult? Function(_RetryButtonPressed value)? retryButtonPressed,
+  }) {
+    return retryButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_RecordingStarted value)? recordingStarted,
+    TResult Function(_RecordingStoped value)? recordingStoped,
+    TResult Function(_RetryButtonPressed value)? retryButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (retryButtonPressed != null) {
+      return retryButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RetryButtonPressed
+    implements VideoRecordingDuringIdentificationEvent {
+  const factory _RetryButtonPressed() = _$RetryButtonPressedImpl;
 }
 
 /// @nodoc

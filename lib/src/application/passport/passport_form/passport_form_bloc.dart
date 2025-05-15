@@ -10,7 +10,7 @@ part 'passport_form_event.dart';
 part 'passport_form_state.dart';
 part 'passport_form_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class PassportFormBloc extends Bloc<PassportFormEvent, PassportFormState> {
   PassportFormBloc() : super(PassportFormState.initial()) {
     on<PassportFormEvent>(

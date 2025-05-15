@@ -18,192 +18,199 @@ class ConfirmationVideoRecordingScreen extends HookWidget {
   Widget build(BuildContext context) {
     final videoPlayerController = useState<VideoPlayerController?>(null);
 
-    useEffect(
-      () {
-        context.read<VideoRecordingDuringIdentificationBloc>().add(
-              const VideoRecordingDuringIdentificationEvent.initialized(),
-            );
-        return () {};
-      },
-      [],
-    );
-
-    return BlocBuilder<VideoRecordingDuringIdentificationBloc,
-        VideoRecordingDuringIdentificationState>(
-      builder: (context, videoRecordingDuringIdentificationState) {
-        return CustomScaffold(
-          appBar: const CustomAppBar(),
-          body: SafeArea(
-            child: videoRecordingDuringIdentificationState.controller != null &&
-                    videoRecordingDuringIdentificationState
-                        .controller!.value.isInitialized
-                ? Stack(
-                    children: [
-                      Builder(
-                        builder: (context) {
-                          final cameraPreviewOvalWidget = Padding(
-                            padding: EdgeInsets.only(
-                              top: 1.sh / 2.8,
-                            ),
-                            child: Align(
-                              alignment: AlignmentDirectional.topCenter,
-                              child: SizedBox(
-                                width: 1.sw / 1.5,
-                                height: 1.sw / 1.2,
-                                child: ClipOval(
-                                  child: FittedBox(
-                                    fit: BoxFit.cover,
-                                    child: SizedBox(
-                                      width:
-                                          videoRecordingDuringIdentificationState
-                                              .controller!
-                                              .value
-                                              .previewSize!
-                                              .height,
-                                      height:
-                                          videoRecordingDuringIdentificationState
-                                              .controller!
-                                              .value
-                                              .previewSize!
-                                              .width,
-                                      child: CameraPreview(
-                                        videoRecordingDuringIdentificationState
-                                            .controller!,
+    return BlocProvider(
+      create: (context) => VideoRecordingDuringIdentificationBloc()
+        ..add(
+          const VideoRecordingDuringIdentificationEvent.initialized(),
+        ),
+      child: Builder(builder: (context) {
+        return BlocBuilder<VideoRecordingDuringIdentificationBloc,
+            VideoRecordingDuringIdentificationState>(
+          builder: (context, videoRecordingDuringIdentificationState) {
+            return CustomScaffold(
+              appBar: const CustomAppBar(),
+              body: SafeArea(
+                child: videoRecordingDuringIdentificationState.controller !=
+                            null &&
+                        videoRecordingDuringIdentificationState
+                            .controller!.value.isInitialized
+                    ? Stack(
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              final cameraPreviewOvalWidget = Padding(
+                                padding: EdgeInsets.only(
+                                  top: 1.sh / 2.8,
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional.topCenter,
+                                  child: SizedBox(
+                                    width: 1.sw / 1.5,
+                                    height: 1.sw / 1.2,
+                                    child: ClipOval(
+                                      child: FittedBox(
+                                        fit: BoxFit.cover,
+                                        child: SizedBox(
+                                          width:
+                                              videoRecordingDuringIdentificationState
+                                                  .controller!
+                                                  .value
+                                                  .previewSize!
+                                                  .height,
+                                          height:
+                                              videoRecordingDuringIdentificationState
+                                                  .controller!
+                                                  .value
+                                                  .previewSize!
+                                                  .width,
+                                          child: CameraPreview(
+                                            videoRecordingDuringIdentificationState
+                                                .controller!,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ),
-                          );
+                              );
 
-                          if (videoRecordingDuringIdentificationState
-                                  .capturedVideo ==
-                              null) {
-                            return cameraPreviewOvalWidget;
-                          } else {
-                            return Padding(
-                              padding: EdgeInsets.only(
-                                top: 40.r,
-                                bottom: 40.r,
-                                right: 20.r,
-                                left: 20.r,
-                              ),
+                              if (videoRecordingDuringIdentificationState
+                                      .capturedVideo ==
+                                  null) {
+                                return cameraPreviewOvalWidget;
+                              } else {
+                                return Padding(
+                                  padding: EdgeInsets.only(
+                                    top: 40.r,
+                                    bottom: 40.r,
+                                    right: 20.r,
+                                    left: 20.r,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      PreviewVideo(
+                                        capturedVideo:
+                                            videoRecordingDuringIdentificationState
+                                                .capturedVideo!,
+                                        onVideoPlayerControllerInitialized:
+                                            (value) {
+                                          videoPlayerController.value = value;
+                                        },
+                                      ),
+                                      Gap(20.r),
+                                      CustomButton(
+                                        text: 'Повторить запись',
+                                        onTap: () {
+                                          context
+                                              .read<
+                                                  VideoRecordingDuringIdentificationBloc>()
+                                              .add(
+                                                const VideoRecordingDuringIdentificationEvent
+                                                    .retryButtonPressed(),
+                                              );
+                                        },
+                                        backgroundColor: AppColors.failure,
+                                      ),
+                                      const Spacer(),
+                                      CustomButton(
+                                        text: 'Продолжить',
+                                        onTap: () {
+                                          videoPlayerController.value?.pause();
+
+                                          AppNavigator.push(
+                                            context,
+                                            const ConfirmCodeScreen(),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
                               child: Column(
                                 children: [
-                                  PreviewVideo(
-                                    capturedVideo:
-                                        videoRecordingDuringIdentificationState
-                                            .capturedVideo!,
-                                    onVideoPlayerControllerInitialized:
-                                        (value) {
-                                      videoPlayerController.value = value;
-                                    },
-                                  ),
-                                  Gap(20.r),
-                                  CustomButton(
-                                    text: 'Повторить запись',
-                                    onTap: () {},
-                                    backgroundColor: AppColors.failure,
-                                  ),
+                                  if (videoRecordingDuringIdentificationState
+                                          .capturedVideo ==
+                                      null) ...[
+                                    Text(
+                                      'Запишите видео',
+                                      textAlign: TextAlign.center,
+                                      style: AppTextStyles.notoSans24SemiBold(
+                                        color: AppColors.primaryText,
+                                      ),
+                                    ),
+                                    Gap(4.r),
+                                    Text(
+                                      'Глядя в камеру, чётко и без пауз произнесите текст подтверждения.\n\nЯ, [ФИО], подтверждаю свою личность и добровольно подписываю данный документ с использованием электронной цифровой подписи. Я ознакомлен(а) с содержанием документа, понимаю его значение и подтверждаю своё согласие на подписание.',
+                                      style: AppTextStyles.notoSans16Regular(),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
                                   const Spacer(),
-                                  CustomButton(
-                                    text: 'Продолжить',
-                                    onTap: () {
-                                      videoPlayerController.value?.pause();
-
-                                      AppNavigator.push(
-                                        context,
-                                        const ConfirmCodeScreen(),
-                                      );
+                                  BlocBuilder<
+                                      VideoRecordingDuringIdentificationBloc,
+                                      VideoRecordingDuringIdentificationState>(
+                                    builder: (context,
+                                        videoRecordingDuringIdentificationState) {
+                                      if (videoRecordingDuringIdentificationState
+                                              .capturedVideo ==
+                                          null) {
+                                        return Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Gap(30.r),
+                                            if (!videoRecordingDuringIdentificationState
+                                                .isRecording)
+                                              CaptureButton.captureVideo(
+                                                onTap: () {
+                                                  context
+                                                      .read<
+                                                          VideoRecordingDuringIdentificationBloc>()
+                                                      .add(
+                                                        const VideoRecordingDuringIdentificationEvent
+                                                            .recordingStarted(),
+                                                      );
+                                                },
+                                              )
+                                            else
+                                              CaptureButton.stopVideo(
+                                                onTap: () {
+                                                  context
+                                                      .read<
+                                                          VideoRecordingDuringIdentificationBloc>()
+                                                      .add(
+                                                        const VideoRecordingDuringIdentificationEvent
+                                                            .recordingStoped(),
+                                                      );
+                                                },
+                                              ),
+                                          ],
+                                        );
+                                      } else {
+                                        return Container();
+                                      }
                                     },
                                   ),
                                 ],
                               ),
-                            );
-                          }
-                        },
-                      ),
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            children: [
-                              if (videoRecordingDuringIdentificationState
-                                      .capturedVideo ==
-                                  null) ...[
-                                Text(
-                                  'Запишите видео',
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyles.notoSans24SemiBold(
-                                    color: AppColors.primaryText,
-                                  ),
-                                ),
-                                Gap(4.r),
-                                Text(
-                                  'Глядя в камеру, чётко и без пауз произнесите текст подтверждения.\n\nЯ, [ФИО], подтверждаю свою личность и добровольно подписываю данный документ с использованием электронной цифровой подписи. Я ознакомлен(а) с содержанием документа, понимаю его значение и подтверждаю своё согласие на подписание.',
-                                  style: AppTextStyles.notoSans16Regular(),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                              const Spacer(),
-                              BlocBuilder<
-                                  VideoRecordingDuringIdentificationBloc,
-                                  VideoRecordingDuringIdentificationState>(
-                                builder: (context,
-                                    videoRecordingDuringIdentificationState) {
-                                  if (videoRecordingDuringIdentificationState
-                                          .capturedVideo ==
-                                      null) {
-                                    return Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Gap(30.r),
-                                        if (!videoRecordingDuringIdentificationState
-                                            .isRecording)
-                                          CaptureButton.captureVideo(
-                                            onTap: () {
-                                              context
-                                                  .read<
-                                                      VideoRecordingDuringIdentificationBloc>()
-                                                  .add(
-                                                    const VideoRecordingDuringIdentificationEvent
-                                                        .recordingStarted(),
-                                                  );
-                                            },
-                                          )
-                                        else
-                                          CaptureButton.stopVideo(
-                                            onTap: () {
-                                              context
-                                                  .read<
-                                                      VideoRecordingDuringIdentificationBloc>()
-                                                  .add(
-                                                    const VideoRecordingDuringIdentificationEvent
-                                                        .recordingStoped(),
-                                                  );
-                                            },
-                                          ),
-                                      ],
-                                    );
-                                  } else {
-                                    return Container();
-                                  }
-                                },
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
+                        ],
+                      )
+                    : const Center(
+                        child: CustomCircularProgressIndicator(),
                       ),
-                    ],
-                  )
-                : const Center(
-                    child: CustomCircularProgressIndicator(),
-                  ),
-          ),
+              ),
+            );
+          },
         );
-      },
+      }),
     );
   }
 }

@@ -47,11 +47,11 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final firebaseInjectableModule = _$FirebaseInjectableModule();
-    gh.lazySingleton<_i97.VideoRecordingDuringIdentificationBloc>(
+    gh.factory<_i97.VideoRecordingDuringIdentificationBloc>(
         () => _i97.VideoRecordingDuringIdentificationBloc());
+    gh.factory<_i3.PassportFormBloc>(() => _i3.PassportFormBloc());
     gh.lazySingleton<_i1003.LivenessDetectionBloc>(
         () => _i1003.LivenessDetectionBloc());
-    gh.lazySingleton<_i3.PassportFormBloc>(() => _i3.PassportFormBloc());
     gh.lazySingleton<_i286.AppSizes>(() => _i286.AppSizes());
     gh.lazySingleton<_i1033.Errors>(() => _i1033.Errors());
     gh.lazySingleton<_i361.Dio>(
@@ -63,9 +63,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i853.OtpBloc>(() => _i853.OtpBloc(gh<_i795.IOtpRepository>()));
     gh.lazySingleton<_i795.IPassportRepository>(() =>
         _i957.PassportRepository(gh<_i361.Dio>(instanceName: 'livenessDio')));
-    gh.lazySingleton<_i117.CheburashkaPhotoBloc>(
+    gh.factory<_i117.CheburashkaPhotoBloc>(
         () => _i117.CheburashkaPhotoBloc(gh<_i91.IPassportRepository>()));
-    gh.lazySingleton<_i386.PassportActorBloc>(
+    gh.factory<_i386.PassportActorBloc>(
         () => _i386.PassportActorBloc(gh<_i795.IPassportRepository>()));
     return this;
   }

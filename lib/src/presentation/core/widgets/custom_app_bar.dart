@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.customTitle,
     this.leading,
     this.actions,
+    this.onPop,
   }) : assert(customTitle == null || title == null);
 
   final bool centerTitle;
@@ -17,6 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? customTitle;
   final Widget? leading;
   final List<Widget>? actions;
+  final Future<void>? Function()? onPop;
 
   Widget? get titleWidget {
     if (customTitle != null) {
@@ -46,7 +48,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             (ModalRoute.of(context)?.canPop ?? false
                 ? IconButton(
                     icon: Assets.icons.back.svg(),
-                    onPressed: () {
+                    onPressed: () async {
+                      await onPop?.call();
+
+                      if (!context.mounted) return;
+
                       Navigator.of(context).pop();
                     },
                   )

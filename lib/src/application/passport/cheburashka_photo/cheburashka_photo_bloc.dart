@@ -12,7 +12,7 @@ part 'cheburashka_photo_event.dart';
 part 'cheburashka_photo_state.dart';
 part 'cheburashka_photo_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class CheburashkaPhotoBloc
     extends Bloc<CheburashkaPhotoEvent, CheburashkaPhotoState> {
   CheburashkaPhotoBloc(this.passportRepository)
@@ -38,7 +38,7 @@ class CheburashkaPhotoBloc
               }
 
               emit(
-                state.copyWith(
+                CheburashkaPhotoState.initial().copyWith(
                   cameraController: controller,
                 ),
               );
@@ -58,11 +58,7 @@ class CheburashkaPhotoBloc
             }
           },
           retryButtonPressed: (e) async {
-            emit(
-              state.copyWith(
-                capturedImage: null,
-              ),
-            );
+            add(const CheburashkaPhotoEvent.initialized());
           },
           confirmButtonPressed: (e) async {
             final capturedImage = state.capturedImage;

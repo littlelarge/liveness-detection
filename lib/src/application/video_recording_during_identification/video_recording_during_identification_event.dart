@@ -9,4 +9,6 @@ class VideoRecordingDuringIdentificationEvent
       _RecordingStarted;
   const factory VideoRecordingDuringIdentificationEvent.recordingStoped() =
       _RecordingStoped;
+  const factory VideoRecordingDuringIdentificationEvent.retryButtonPressed() =
+      _RetryButtonPressed;
 }

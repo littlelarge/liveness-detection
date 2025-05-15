@@ -16,6 +16,7 @@ class ConfirmCodeScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final textEditingController = useTextEditingController();
+    final previosRoute = useState<String?>('');
 
     return BlocProvider(
       create: (context) => getIt<OtpBloc>()
@@ -102,9 +103,19 @@ class ConfirmCodeScreen extends HookWidget {
                                   CustomButton(
                                     text: 'Продолжить',
                                     onTap: () {
-                                      AppNavigator.pushReplacement(
+                                      AppNavigator.pushAndRemoveUntil(
                                         context,
                                         const WebViewScreen(),
+                                        predicate: (route) {
+                                          if (previosRoute.value == null) {
+                                            return true;
+                                          }
+
+                                          previosRoute.value =
+                                              route.settings.name;
+
+                                          return false;
+                                        },
                                       );
                                     },
                                   ),
