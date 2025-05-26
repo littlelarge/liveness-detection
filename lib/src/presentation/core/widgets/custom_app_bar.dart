@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? customTitle;
   final Widget? leading;
   final List<Widget>? actions;
-  final Future<void>? Function()? onPop;
+  final Future<void> Function()? onPop;
 
   Widget? get titleWidget {
     if (customTitle != null) {

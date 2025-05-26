@@ -9,6 +9,7 @@ abstract class PassportFailure with _$PassportFailure {
     Utils.liveness_detectionPrint(error);
   }
 
+  factory PassportFailure.csrfFailed(Object error) = _CSRFFailed;
   factory PassportFailure.serverError(Object error) = _ServerError;
   factory PassportFailure.unexpectedError(Object error) = _UnexpectedError;
 }

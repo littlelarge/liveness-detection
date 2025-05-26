@@ -19,18 +19,21 @@ mixin _$PassportFailure {
   Object get error => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
     required TResult orElse(),
@@ -38,18 +41,21 @@ mixin _$PassportFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
     required TResult orElse(),
@@ -93,6 +99,155 @@ class _$PassportFailureCopyWithImpl<$Res, $Val extends PassportFailure>
       error: null == error ? _value.error : error,
     ) as $Val);
   }
+}
+
+/// @nodoc
+abstract class _$$CSRFFailedImplCopyWith<$Res>
+    implements $PassportFailureCopyWith<$Res> {
+  factory _$$CSRFFailedImplCopyWith(
+          _$CSRFFailedImpl value, $Res Function(_$CSRFFailedImpl) then) =
+      __$$CSRFFailedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Object error});
+}
+
+/// @nodoc
+class __$$CSRFFailedImplCopyWithImpl<$Res>
+    extends _$PassportFailureCopyWithImpl<$Res, _$CSRFFailedImpl>
+    implements _$$CSRFFailedImplCopyWith<$Res> {
+  __$$CSRFFailedImplCopyWithImpl(
+      _$CSRFFailedImpl _value, $Res Function(_$CSRFFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PassportFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$CSRFFailedImpl(
+      null == error ? _value.error : error,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CSRFFailedImpl extends _CSRFFailed {
+  _$CSRFFailedImpl(this.error) : super._();
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'PassportFailure.csrfFailed(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CSRFFailedImpl &&
+            const DeepCollectionEquality().equals(other.error, error));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  /// Create a copy of PassportFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CSRFFailedImplCopyWith<_$CSRFFailedImpl> get copyWith =>
+      __$$CSRFFailedImplCopyWithImpl<_$CSRFFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Object error) csrfFailed,
+    required TResult Function(Object error) serverError,
+    required TResult Function(Object error) unexpectedError,
+  }) {
+    return csrfFailed(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Object error)? csrfFailed,
+    TResult? Function(Object error)? serverError,
+    TResult? Function(Object error)? unexpectedError,
+  }) {
+    return csrfFailed?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Object error)? csrfFailed,
+    TResult Function(Object error)? serverError,
+    TResult Function(Object error)? unexpectedError,
+    required TResult orElse(),
+  }) {
+    if (csrfFailed != null) {
+      return csrfFailed(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CSRFFailed value) csrfFailed,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnexpectedError value) unexpectedError,
+  }) {
+    return csrfFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CSRFFailed value)? csrfFailed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+  }) {
+    return csrfFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CSRFFailed value)? csrfFailed,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    required TResult orElse(),
+  }) {
+    if (csrfFailed != null) {
+      return csrfFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CSRFFailed extends PassportFailure {
+  factory _CSRFFailed(final Object error) = _$CSRFFailedImpl;
+  _CSRFFailed._() : super._();
+
+  @override
+  Object get error;
+
+  /// Create a copy of PassportFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CSRFFailedImplCopyWith<_$CSRFFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -163,6 +318,7 @@ class _$ServerErrorImpl extends _ServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
   }) {
@@ -172,6 +328,7 @@ class _$ServerErrorImpl extends _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
   }) {
@@ -181,6 +338,7 @@ class _$ServerErrorImpl extends _ServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
     required TResult orElse(),
@@ -194,6 +352,7 @@ class _$ServerErrorImpl extends _ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
   }) {
@@ -203,6 +362,7 @@ class _$ServerErrorImpl extends _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
   }) {
@@ -212,6 +372,7 @@ class _$ServerErrorImpl extends _ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
     required TResult orElse(),
@@ -307,6 +468,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
   }) {
@@ -316,6 +478,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
   }) {
@@ -325,6 +488,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
     required TResult orElse(),
@@ -338,6 +502,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
   }) {
@@ -347,6 +512,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
   }) {
@@ -356,6 +522,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
     required TResult orElse(),

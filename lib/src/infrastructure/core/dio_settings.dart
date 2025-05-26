@@ -3,9 +3,12 @@ import 'package:dio/dio.dart';
 class DioSettings {
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'https://146.190.145.30',
+      baseUrl: 'https://sign.signillion.site',
       responseType: ResponseType.json,
       contentType: "application/json; charset=utf-8",
+      headers: {
+        'Authorization': 'Token 222222',
+      },
       validateStatus: (status) {
         return status != 403;
       },

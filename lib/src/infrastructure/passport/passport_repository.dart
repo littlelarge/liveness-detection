@@ -69,7 +69,16 @@ final class PassportRepository implements IPassportRepository {
 
       //   return left(PassportFailure.missingPhoto());
       // }
-      return left(PassportFailure.serverError(e));
+      const detail = 'detail';
+      final errorMessage = e.response?.data is Map<String, dynamic> &&
+              e.response!.data.containsKey(detail)
+          ? e.response!.data[detail] as String
+          : null;
+      if (errorMessage != null) {
+        return left(PassportFailure.csrfFailed(errorMessage));
+      } else {
+        return left(PassportFailure.serverError(e));
+      }
     } catch (e) {
       return left(PassportFailure.unexpectedError(e));
     }

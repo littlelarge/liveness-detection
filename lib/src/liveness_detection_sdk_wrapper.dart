@@ -3,7 +3,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/cheburashka_photo_screen.dart';
 
 class LivenessDetectionSdk extends HookWidget {
   const LivenessDetectionSdk({Key? key}) : super(key: key);
@@ -40,8 +39,7 @@ class LivenessDetectionSdk extends HookWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     locale: const Locale('ru'),
-                    // child: const WebViewScreen(),
-                    child: const CheburashkaPhotoScreen(),
+                    child: const WebViewScreen(),
                   );
                 },
               );

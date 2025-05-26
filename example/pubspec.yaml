@@ -11,6 +11,9 @@ dependencies:
     sdk: flutter
   liveness_detection:
     path: ../
+    # git:
+    #   url: https://github.com/littlelarge/liveness-detection.git
+    #   ref: main
 
   cupertino_icons: ^1.0.8
 

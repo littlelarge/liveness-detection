@@ -7,6 +7,7 @@ extension PassportFailureMapper on PassportFailure {
     return map(
       serverError: (_) => context.errors.serverError,
       unexpectedError: (_) => context.errors.unexpectedError,
+      csrfFailed: (failure) => failure.error.toString(),
     );
   }
 }

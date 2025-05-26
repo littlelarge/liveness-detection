@@ -13,8 +13,10 @@ void cheburashkaPhotoListener(
     compareResult.fold(
       (l) {
         Utils.showSnackBar(
-            context: context,
-            text: 'Произошла ошибка при сверении фото, попробуйте еще раз!');
+          context: context,
+          text:
+              'Произошла ошибка при сверении фото, попробуйте еще раз!\n\n${l.autoMap(context: context)}',
+        );
       },
       (r) {
         AppNavigator.push(

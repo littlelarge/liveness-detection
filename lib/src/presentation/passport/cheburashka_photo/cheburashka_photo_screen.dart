@@ -12,6 +12,19 @@ import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold
 class CheburashkaPhotoScreen extends StatelessWidget {
   const CheburashkaPhotoScreen({super.key});
 
+  Future<void> _disposeCamera(
+    BuildContext context,
+    CameraController? cameraController,
+  ) async {
+    if (cameraController?.value.isInitialized ?? false) {
+      await cameraController?.dispose();
+
+      if (!context.mounted) return;
+
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -23,14 +36,20 @@ class CheburashkaPhotoScreen extends StatelessWidget {
           builder: (context, cheburashkaPhotoState) {
             return WillPopScope(
               onWillPop: () async {
-                await cheburashkaPhotoState.cameraController?.dispose();
+                await _disposeCamera(
+                  context,
+                  cheburashkaPhotoState.cameraController,
+                );
 
-                return true;
+                return false;
               },
               child: CustomScaffold(
                 appBar: CustomAppBar(
-                  onPop: () {
-                    return cheburashkaPhotoState.cameraController?.dispose();
+                  onPop: () async {
+                    await _disposeCamera(
+                      context,
+                      cheburashkaPhotoState.cameraController,
+                    );
                   },
                 ),
                 body: SafeArea(
