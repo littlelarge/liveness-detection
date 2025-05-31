@@ -1,5 +1,7 @@
-import 'package:example/presentation/liveness_detection_screen/liveness_detection_screen.dart';
+import 'package:example/presentation/liveness_detection_screen/liveness_detection_screen.dart'
+    as example;
 import 'package:flutter/material.dart';
+import 'package:liveness_detection/liveness_detection_sdk.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +18,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      localizationsDelegates: [
+        ...livenessLocalizationDelegates,
+        ...livenessLocalizationDelegates,
+        ...livenessLocalizationDelegates,
+      ],
+      supportedLocales: const [
+        Locale(AppLocales.english),
+        Locale(AppLocales.russian),
+      ],
+      locale: Locale(AppLocales.russian),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -35,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => LivenessDetectionScreen(),
+        builder: (context) => example.LivenessDetectionScreen(),
       ),
     );
   }

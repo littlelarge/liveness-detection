@@ -1,8 +1,8 @@
 arb-dir: assets/translations
 template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart
-output-class: AppLocalizations
+output-class: LivenessLocalizations
 nullable-getter: false
-untranslated-messages-file: lib/common/l10n/untranslated_strings.arb
+untranslated-messages-file: lib/src/common/l10n/untranslated_strings.arb
 synthetic-package: false
-output-dir: lib/common/l10n/gen_l10n
+output-dir: lib/src/common/l10n/gen_l10n

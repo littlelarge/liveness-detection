@@ -2,11 +2,13 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:camera/camera.dart';
+import 'package:ffmpeg_kit_flutter_new/ffmpeg_kit.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:liveness_detection/src/application/application.dart';
 import 'package:liveness_detection/src/common/common.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
+import 'package:path_provider/path_provider.dart';
 
 part 'video_recording_during_identification_event.dart';
 part 'video_recording_during_identification_state.dart';
@@ -20,70 +22,77 @@ class VideoRecordingDuringIdentificationBloc extends Bloc<
       : super(VideoRecordingDuringIdentificationState.initial()) {
     on<VideoRecordingDuringIdentificationEvent>(
       (event, emit) async {
-        await event.map(initialized: (e) async {
-          final cameras = await availableCameras();
-          if (cameras.isNotEmpty) {
-            final frontCamera = cameras.firstWhere(
-              (camera) => camera.lensDirection == CameraLensDirection.front,
-              orElse: () => cameras[0],
-            );
+        await event.map(
+          initialized: (e) async {
+            final cameras = await availableCameras();
+            if (cameras.isNotEmpty) {
+              final frontCamera = cameras.firstWhere(
+                (camera) => camera.lensDirection == CameraLensDirection.front,
+                orElse: () => cameras[0],
+              );
 
-            final controller = CameraController(
-              frontCamera,
-              ResolutionPreset.medium,
-            );
+              final controller = CameraController(
+                frontCamera,
+                ResolutionPreset.medium,
+              );
 
-            if (!(controller.value.isInitialized)) {
-              await controller.initialize();
+              if (!(controller.value.isInitialized)) {
+                await controller.initialize();
+              }
+
+              emit(
+                state.copyWith(
+                  controller: controller,
+                  capturedVideo: null,
+                ),
+              );
+            } else {
+              Utils.liveness_detectionPrint('Нет доступных камер');
             }
+          },
+          recordingStarted: (e) async {
+            if (!state.controller!.value.isInitialized) return;
+            // final path = await _getVideoPath();
+            await state.controller!.startVideoRecording();
 
             emit(
               state.copyWith(
-                controller: controller,
-                capturedVideo: null,
+                isRecording: true,
               ),
             );
-          } else {
-            Utils.liveness_detectionPrint('Нет доступных камер');
-          }
-        }, recordingStarted: (e) async {
-          if (!state.controller!.value.isInitialized) return;
-          // final path = await _getVideoPath();
-          await state.controller!.startVideoRecording();
+          },
+          recordingStoped: (e) async {
+            if (!state.controller!.value.isRecordingVideo) return;
+            final xFile = await state.controller!.stopVideoRecording();
+            final tempFile = File(xFile.path);
 
-          emit(
-            state.copyWith(
-              isRecording: true,
-            ),
-          );
-        }, recordingStoped: (e) async {
-          if (!state.controller!.value.isRecordingVideo) return;
-          final xFile = await state.controller!.stopVideoRecording();
-          final file = File(xFile.path);
+            final mp4File = await _convertToMp4(tempFile);
 
-          getIt<PassportFormBloc>().add(
-            PassportFormEvent.confirmationVideoAdded(
-              confirmationVideo: file,
-            ),
-          );
+            getIt<PassportFormBloc>().add(
+              PassportFormEvent.confirmationVideoAdded(
+                confirmationVideo: mp4File,
+              ),
+            );
 
-          getIt<LivenessDetectionBloc>().add(
-            LivenessDetectionEvent.confirmationVideoCaptured(
-              capturedVideo: file,
-            ),
-          );
+            getIt<LivenessDetectionBloc>().add(
+              LivenessDetectionEvent.confirmationVideoCaptured(
+                capturedVideo: mp4File,
+              ),
+            );
 
-          emit(
-            state.copyWith(
-              isRecording: false,
-              capturedVideo: file,
-            ),
-          );
+            emit(
+              state.copyWith(
+                isRecording: false,
+                capturedVideo: mp4File,
+              ),
+            );
 
-          Utils.liveness_detectionLog('Записано видео: ${xFile.path}');
-        }, retryButtonPressed: (_) {
-          add(const VideoRecordingDuringIdentificationEvent.initialized());
-        });
+            Utils.liveness_detectionLog('Записано видео: ${xFile.path}');
+          },
+          retryButtonPressed: (_) {
+            add(const VideoRecordingDuringIdentificationEvent.initialized());
+          },
+        );
       },
     );
   }
@@ -92,5 +101,18 @@ class VideoRecordingDuringIdentificationBloc extends Bloc<
   Future<void> close() {
     state.controller!.dispose();
     return super.close();
+  }
+
+  Future<File> _convertToMp4(File inputFile) async {
+    final appDir = await getApplicationDocumentsDirectory();
+    final outputPath =
+        '${appDir.path}/output_${DateTime.now().millisecondsSinceEpoch}.mp4';
+
+    final command =
+        '-i "${inputFile.path}" -c:v libx264 -preset ultrafast -crf 23 "$outputPath"';
+
+    await FFmpegKit.execute(command);
+
+    return File(outputPath);
   }
 }

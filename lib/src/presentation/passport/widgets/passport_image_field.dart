@@ -36,8 +36,8 @@ class PassportImageField extends StatelessWidget {
           children: [
             Text(
               side == PassportSide.face
-                  ? AppLocalizations.of(context).front_side
-                  : AppLocalizations.of(context).back_side,
+                  ? LivenessLocalizations.of(context).front_side
+                  : LivenessLocalizations.of(context).back_side,
               style: AppTextStyles.notoSans14Regular(),
               textAlign: TextAlign.center,
             ),

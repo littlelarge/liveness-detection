@@ -43,7 +43,7 @@ class PassportFormScreen extends HookWidget {
                 children: [
                   Gap(60.r),
                   Text(
-                    AppLocalizations.of(context)
+                    LivenessLocalizations.of(context)
                         .passport_photo_instruction_form,
                     style: AppTextStyles.notoSans18SemiBold(),
                     textAlign: TextAlign.center,
@@ -96,7 +96,7 @@ class PassportFormScreen extends HookWidget {
                                 );
                           }
                         : null,
-                    text: AppLocalizations.of(context).continuee,
+                    text: LivenessLocalizations.of(context).continuee,
                   ),
                   Gap(24.r),
                 ],

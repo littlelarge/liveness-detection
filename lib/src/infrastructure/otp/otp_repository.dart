@@ -9,19 +9,27 @@ final class OtpRepository implements IOtpRepository {
 
   final Dio _dio;
 
+  bool _isWrongCodeError(dynamic responseData) {
+    return responseData is Map &&
+        responseData.containsKey('detail') &&
+        responseData['detail'] == 'Wrong code';
+  }
+
   @override
   Future<TOtpResult> checkSmsCode({
     required String code,
   }) async {
     try {
-      final payload = {
-        'code': code,
-      };
-
-      final response = _dio.post(
+      final response = await _dio.post(
         '/api/check-sms-code/',
-        data: payload,
+        data: {
+          'code': code,
+        },
       );
+
+      if (_isWrongCodeError(response.data)) {
+        return left(OtpFailure.wrongCodeError('Wrong code'));
+      }
 
       return right(unit);
     } on DioException catch (e) {
@@ -34,7 +42,7 @@ final class OtpRepository implements IOtpRepository {
   @override
   Future<TOtpResult> sendSmsCode() async {
     try {
-      final response = _dio.get(
+      final response = await _dio.post(
         '/api/send-sms-code/',
       );
 

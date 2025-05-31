@@ -3,8 +3,8 @@ import 'app_localizations.dart';
 // ignore_for_file: type=lint
 
 /// The translations for Russian (`ru`).
-class LivenessLocalizationsRu extends LivenessLocalizations {
-  LivenessLocalizationsRu([String locale = 'ru']) : super(locale);
+class AppLocalizationsRu extends AppLocalizations {
+  AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
   String get front_side => 'Лицевая сторона';
@@ -74,13 +74,4 @@ class LivenessLocalizationsRu extends LivenessLocalizations {
 
   @override
   String get image_must_contain_two_faces => 'Изображение должно содержать два лица.';
-
-  @override
-  String get invalid_video_format => 'Допустимы только видеофайлы в формате .mp4.';
-
-  @override
-  String get video_too_large => 'Видео слишком большое. Максимальный размер — 100 МБ.';
-
-  @override
-  String get wrong_code => 'Неверный код.';
 }

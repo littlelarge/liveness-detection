@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
@@ -43,44 +44,73 @@ final class PassportRepository implements IPassportRepository {
     required Uint8List image,
   }) async {
     try {
-      final payloada = {
-        'photo': image,
+      final imageBase64String = base64Encode(image);
+
+      final payload = {
+        'photo': imageBase64String,
       };
 
       final response = await _dio.post(
         '/api/upload-pasport-photo/',
+        data: payload,
       );
+
+      final data = response.data;
+
+      if (data is Map<String, dynamic>) {
+        final status = data['status']?.toString();
+        final facetagrStatus = data['facetagr_status']?.toString();
+
+        if (status != 'success' && facetagrStatus != null) {
+          return left(_mapFacetagrErrorToFailure(facetagrStatus, data));
+        }
+      }
 
       return right(unit);
     } on DioException catch (e) {
-      //    400: Missing base64 photo
-
-      // 400: Only .jpg/.jpeg and .png are allowed
-
-      // 413: File too large. Max size is 5 MB.
-
-      // 502: Facetagr error: ...
-
-      // 500: Внутренняя ошибка
-
-      // final statusCode = e.response?.statusCode;
-      // final message = e.message;
-      // if (statusCode == 400) {
-
-      //   return left(PassportFailure.missingPhoto());
-      // }
-      const detail = 'detail';
-      final errorMessage = e.response?.data is Map<String, dynamic> &&
-              e.response!.data.containsKey(detail)
-          ? e.response!.data[detail] as String
-          : null;
-      if (errorMessage != null) {
-        return left(PassportFailure.csrfFailed(errorMessage));
-      } else {
-        return left(PassportFailure.serverError(e));
-      }
+      return left(PassportFailure.serverError(e));
     } catch (e) {
       return left(PassportFailure.unexpectedError(e));
+    }
+  }
+
+  PassportFailure _mapFacetagrErrorToFailure(String code, Object error) {
+    switch (code) {
+      case '1001':
+        return PassportFailure.verificationSuccess(error);
+      case '2002':
+        return PassportFailure.authenticationFailed(error);
+      case '4001':
+        return PassportFailure.noFaceInLive(error);
+      case '4002':
+        return PassportFailure.faceTooSmallLive(error);
+      case '4003':
+        return PassportFailure.faceBlurryLive(error);
+      case '4005':
+        return PassportFailure.faceNotCenteredLive(error);
+      case '4006':
+        return PassportFailure.invalidImageFormatLive(error);
+      case '4007':
+        return PassportFailure.livenessCheckFailed(error);
+      case '4008':
+        return PassportFailure.invalidJson(error);
+      case '4009':
+        return PassportFailure.noFaceInIdCard(error);
+      case '4010':
+        return PassportFailure.faceTooSmallInIdCard(error);
+      case '4011':
+        return PassportFailure.faceBlurryInIdCard(error);
+      case '4012':
+        return PassportFailure.faceNotVisibleInIdCard(error);
+      case '4013':
+        return PassportFailure.invalidImageFormatIdCard(error);
+      case '6001':
+        return PassportFailure.imageIsEmpty(error);
+      case '6002':
+        return PassportFailure.imageMustContainTwoFaces(error);
+      default:
+        return PassportFailure.unexpectedError(
+            'Unknown facetagr_status: $code');
     }
   }
 }

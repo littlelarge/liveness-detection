@@ -11,4 +11,5 @@ abstract class OtpFailure with _$OtpFailure {
 
   factory OtpFailure.serverError(Object error) = _ServerError;
   factory OtpFailure.unexpectedError(Object error) = _UnexpectedError;
+  factory OtpFailure.wrongCodeError(Object error) = _WrongCodeError;
 }

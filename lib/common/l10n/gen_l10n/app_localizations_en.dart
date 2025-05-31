@@ -3,8 +3,8 @@ import 'app_localizations.dart';
 // ignore_for_file: type=lint
 
 /// The translations for English (`en`).
-class LivenessLocalizationsEn extends LivenessLocalizations {
-  LivenessLocalizationsEn([String locale = 'en']) : super(locale);
+class AppLocalizationsEn extends AppLocalizations {
+  AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
   String get front_side => 'Front side';
@@ -74,13 +74,4 @@ class LivenessLocalizationsEn extends LivenessLocalizations {
 
   @override
   String get image_must_contain_two_faces => 'The image must contain two faces.';
-
-  @override
-  String get invalid_video_format => 'Only .mp4 video files are allowed.';
-
-  @override
-  String get video_too_large => 'The video is too large. Maximum allowed size is 100 MB.';
-
-  @override
-  String get wrong_code => 'Wrong code.';
 }

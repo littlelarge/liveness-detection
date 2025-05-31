@@ -140,7 +140,7 @@ class CameraOverlayScreen extends HookWidget {
                       top: 1.sh / 10,
                     ),
                     child: Text(
-                      AppLocalizations.of(context).passport_photo_instruction,
+                      LivenessLocalizations.of(context).passport_photo_instruction,
                       style: AppTextStyles.notoSans16SemiBold(
                         color: AppColors.white,
                       ),

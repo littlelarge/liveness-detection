@@ -7,7 +7,7 @@ class DioSettings {
       responseType: ResponseType.json,
       contentType: "application/json; charset=utf-8",
       headers: {
-        'Authorization': 'Token 222222',
+        'Authorization': 'Bearer 222222',
       },
       validateStatus: (status) {
         return status != 403;

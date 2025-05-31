@@ -10,10 +10,10 @@ import 'app_localizations_ru.dart';
 
 // ignore_for_file: type=lint
 
-/// Callers can lookup localized strings with an instance of LivenessLocalizations
-/// returned by `LivenessLocalizations.of(context)`.
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
 ///
-/// Applications need to include `LivenessLocalizations.delegate()` in their app's
+/// Applications need to include `AppLocalizations.delegate()` in their app's
 /// `localizationDelegates` list, and the locales they support in the app's
 /// `supportedLocales` list. For example:
 ///
@@ -21,8 +21,8 @@ import 'app_localizations_ru.dart';
 /// import 'gen_l10n/app_localizations.dart';
 ///
 /// return MaterialApp(
-///   localizationsDelegates: LivenessLocalizations.localizationsDelegates,
-///   supportedLocales: LivenessLocalizations.supportedLocales,
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
 ///   home: MyApplicationHome(),
 /// );
 /// ```
@@ -59,18 +59,18 @@ import 'app_localizations_ru.dart';
 /// Select and expand the newly-created Localizations item then, for each
 /// locale your application supports, add a new item and select the locale
 /// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the LivenessLocalizations.supportedLocales
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
-abstract class LivenessLocalizations {
-  LivenessLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+abstract class AppLocalizations {
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
-  static LivenessLocalizations of(BuildContext context) {
-    return Localizations.of<LivenessLocalizations>(context, LivenessLocalizations)!;
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
-  static const LocalizationsDelegate<LivenessLocalizations> delegate = _LivenessLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -232,52 +232,34 @@ abstract class LivenessLocalizations {
   /// In en, this message translates to:
   /// **'The image must contain two faces.'**
   String get image_must_contain_two_faces;
-
-  /// No description provided for @invalid_video_format.
-  ///
-  /// In en, this message translates to:
-  /// **'Only .mp4 video files are allowed.'**
-  String get invalid_video_format;
-
-  /// No description provided for @video_too_large.
-  ///
-  /// In en, this message translates to:
-  /// **'The video is too large. Maximum allowed size is 100 MB.'**
-  String get video_too_large;
-
-  /// No description provided for @wrong_code.
-  ///
-  /// In en, this message translates to:
-  /// **'Wrong code.'**
-  String get wrong_code;
 }
 
-class _LivenessLocalizationsDelegate extends LocalizationsDelegate<LivenessLocalizations> {
-  const _LivenessLocalizationsDelegate();
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizationsDelegate();
 
   @override
-  Future<LivenessLocalizations> load(Locale locale) {
-    return SynchronousFuture<LivenessLocalizations>(lookupLivenessLocalizations(locale));
+  Future<AppLocalizations> load(Locale locale) {
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
   }
 
   @override
   bool isSupported(Locale locale) => <String>['en', 'ru'].contains(locale.languageCode);
 
   @override
-  bool shouldReload(_LivenessLocalizationsDelegate old) => false;
+  bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
-LivenessLocalizations lookupLivenessLocalizations(Locale locale) {
+AppLocalizations lookupAppLocalizations(Locale locale) {
 
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return LivenessLocalizationsEn();
-    case 'ru': return LivenessLocalizationsRu();
+    case 'en': return AppLocalizationsEn();
+    case 'ru': return AppLocalizationsRu();
   }
 
   throw FlutterError(
-    'LivenessLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
     'that was used.'

@@ -24,12 +24,16 @@ import 'package:liveness_detection/src/application/passport/passport_form/passpo
 import 'package:liveness_detection/src/application/video_recording_during_identification/video_recording_during_identification_bloc.dart'
     as _i97;
 import 'package:liveness_detection/src/domain/domain.dart' as _i795;
+import 'package:liveness_detection/src/domain/video/i_video_identification_repository.dart'
+    as _i957;
 import 'package:liveness_detection/src/infrastructure/core/injectable_modules.dart'
     as _i622;
 import 'package:liveness_detection/src/infrastructure/otp/otp_repository.dart'
     as _i1019;
 import 'package:liveness_detection/src/infrastructure/passport/passport_repository.dart'
     as _i957;
+import 'package:liveness_detection/src/infrastructure/video/video_identification_repository.dart'
+    as _i948;
 import 'package:liveness_detection/src/presentation/core/app_sizes.dart'
     as _i286;
 import 'package:liveness_detection/src/presentation/core/errors/errors.dart'
@@ -58,9 +62,13 @@ extension GetItInjectableX on _i174.GetIt {
       () => firebaseInjectableModule.dio,
       instanceName: 'livenessDio',
     );
+    gh.lazySingleton<_i957.IVideoIdentificationRepository>(() =>
+        _i948.VideoIdentificationRepository(
+            gh<_i361.Dio>(instanceName: 'livenessDio')));
     gh.lazySingleton<_i91.IOtpRepository>(
         () => _i1019.OtpRepository(gh<_i361.Dio>(instanceName: 'livenessDio')));
-    gh.factory<_i853.OtpBloc>(() => _i853.OtpBloc(gh<_i795.IOtpRepository>()));
+    gh.lazySingleton<_i853.OtpBloc>(
+        () => _i853.OtpBloc(gh<_i795.IOtpRepository>()));
     gh.lazySingleton<_i795.IPassportRepository>(() =>
         _i957.PassportRepository(gh<_i361.Dio>(instanceName: 'livenessDio')));
     gh.factory<_i117.CheburashkaPhotoBloc>(

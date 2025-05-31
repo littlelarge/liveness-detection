@@ -8,7 +8,7 @@ part 'otp_event.dart';
 part 'otp_state.dart';
 part 'otp_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class OtpBloc extends Bloc<OtpEvent, OtpState> {
   OtpBloc(this._otpRepository) : super(OtpState.initial()) {
     on<OtpEvent>(
