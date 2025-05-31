@@ -145,6 +145,8 @@ class CheburashkaPhotoScreen extends StatelessWidget {
                                           }
                                         },
                                       )
+                                    else if (cheburashkaPhotoState.inProgress)
+                                      const CustomCircularProgressIndicator()
                                     else
                                       Row(
                                         mainAxisAlignment:

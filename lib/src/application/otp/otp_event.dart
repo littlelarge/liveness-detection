@@ -6,4 +6,5 @@ class OtpEvent with _$OtpEvent {
   const factory OtpEvent.codeChecked({
     required String code,
   }) = _CodeChecked;
+  const factory OtpEvent.resetCheckResult() = _ResetCheckResult;
 }

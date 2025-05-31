@@ -20,18 +20,21 @@ mixin _$OtpEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() codeSended,
     required TResult Function(String code) codeChecked,
+    required TResult Function() resetCheckResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? codeSended,
     TResult? Function(String code)? codeChecked,
+    TResult? Function()? resetCheckResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? codeSended,
     TResult Function(String code)? codeChecked,
+    TResult Function()? resetCheckResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$OtpEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_CodeSended value) codeSended,
     required TResult Function(_CodeChecked value) codeChecked,
+    required TResult Function(_ResetCheckResult value) resetCheckResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CodeSended value)? codeSended,
     TResult? Function(_CodeChecked value)? codeChecked,
+    TResult? Function(_ResetCheckResult value)? resetCheckResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CodeSended value)? codeSended,
     TResult Function(_CodeChecked value)? codeChecked,
+    TResult Function(_ResetCheckResult value)? resetCheckResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +125,7 @@ class _$CodeSendedImpl implements _CodeSended {
   TResult when<TResult extends Object?>({
     required TResult Function() codeSended,
     required TResult Function(String code) codeChecked,
+    required TResult Function() resetCheckResult,
   }) {
     return codeSended();
   }
@@ -128,6 +135,7 @@ class _$CodeSendedImpl implements _CodeSended {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? codeSended,
     TResult? Function(String code)? codeChecked,
+    TResult? Function()? resetCheckResult,
   }) {
     return codeSended?.call();
   }
@@ -137,6 +145,7 @@ class _$CodeSendedImpl implements _CodeSended {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? codeSended,
     TResult Function(String code)? codeChecked,
+    TResult Function()? resetCheckResult,
     required TResult orElse(),
   }) {
     if (codeSended != null) {
@@ -150,6 +159,7 @@ class _$CodeSendedImpl implements _CodeSended {
   TResult map<TResult extends Object?>({
     required TResult Function(_CodeSended value) codeSended,
     required TResult Function(_CodeChecked value) codeChecked,
+    required TResult Function(_ResetCheckResult value) resetCheckResult,
   }) {
     return codeSended(this);
   }
@@ -159,6 +169,7 @@ class _$CodeSendedImpl implements _CodeSended {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CodeSended value)? codeSended,
     TResult? Function(_CodeChecked value)? codeChecked,
+    TResult? Function(_ResetCheckResult value)? resetCheckResult,
   }) {
     return codeSended?.call(this);
   }
@@ -168,6 +179,7 @@ class _$CodeSendedImpl implements _CodeSended {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CodeSended value)? codeSended,
     TResult Function(_CodeChecked value)? codeChecked,
+    TResult Function(_ResetCheckResult value)? resetCheckResult,
     required TResult orElse(),
   }) {
     if (codeSended != null) {
@@ -251,6 +263,7 @@ class _$CodeCheckedImpl implements _CodeChecked {
   TResult when<TResult extends Object?>({
     required TResult Function() codeSended,
     required TResult Function(String code) codeChecked,
+    required TResult Function() resetCheckResult,
   }) {
     return codeChecked(code);
   }
@@ -260,6 +273,7 @@ class _$CodeCheckedImpl implements _CodeChecked {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? codeSended,
     TResult? Function(String code)? codeChecked,
+    TResult? Function()? resetCheckResult,
   }) {
     return codeChecked?.call(code);
   }
@@ -269,6 +283,7 @@ class _$CodeCheckedImpl implements _CodeChecked {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? codeSended,
     TResult Function(String code)? codeChecked,
+    TResult Function()? resetCheckResult,
     required TResult orElse(),
   }) {
     if (codeChecked != null) {
@@ -282,6 +297,7 @@ class _$CodeCheckedImpl implements _CodeChecked {
   TResult map<TResult extends Object?>({
     required TResult Function(_CodeSended value) codeSended,
     required TResult Function(_CodeChecked value) codeChecked,
+    required TResult Function(_ResetCheckResult value) resetCheckResult,
   }) {
     return codeChecked(this);
   }
@@ -291,6 +307,7 @@ class _$CodeCheckedImpl implements _CodeChecked {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CodeSended value)? codeSended,
     TResult? Function(_CodeChecked value)? codeChecked,
+    TResult? Function(_ResetCheckResult value)? resetCheckResult,
   }) {
     return codeChecked?.call(this);
   }
@@ -300,6 +317,7 @@ class _$CodeCheckedImpl implements _CodeChecked {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CodeSended value)? codeSended,
     TResult Function(_CodeChecked value)? codeChecked,
+    TResult Function(_ResetCheckResult value)? resetCheckResult,
     required TResult orElse(),
   }) {
     if (codeChecked != null) {
@@ -322,11 +340,123 @@ abstract class _CodeChecked implements OtpEvent {
 }
 
 /// @nodoc
+abstract class _$$ResetCheckResultImplCopyWith<$Res> {
+  factory _$$ResetCheckResultImplCopyWith(_$ResetCheckResultImpl value,
+          $Res Function(_$ResetCheckResultImpl) then) =
+      __$$ResetCheckResultImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetCheckResultImplCopyWithImpl<$Res>
+    extends _$OtpEventCopyWithImpl<$Res, _$ResetCheckResultImpl>
+    implements _$$ResetCheckResultImplCopyWith<$Res> {
+  __$$ResetCheckResultImplCopyWithImpl(_$ResetCheckResultImpl _value,
+      $Res Function(_$ResetCheckResultImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OtpEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetCheckResultImpl implements _ResetCheckResult {
+  const _$ResetCheckResultImpl();
+
+  @override
+  String toString() {
+    return 'OtpEvent.resetCheckResult()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetCheckResultImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() codeSended,
+    required TResult Function(String code) codeChecked,
+    required TResult Function() resetCheckResult,
+  }) {
+    return resetCheckResult();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? codeSended,
+    TResult? Function(String code)? codeChecked,
+    TResult? Function()? resetCheckResult,
+  }) {
+    return resetCheckResult?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? codeSended,
+    TResult Function(String code)? codeChecked,
+    TResult Function()? resetCheckResult,
+    required TResult orElse(),
+  }) {
+    if (resetCheckResult != null) {
+      return resetCheckResult();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CodeSended value) codeSended,
+    required TResult Function(_CodeChecked value) codeChecked,
+    required TResult Function(_ResetCheckResult value) resetCheckResult,
+  }) {
+    return resetCheckResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CodeSended value)? codeSended,
+    TResult? Function(_CodeChecked value)? codeChecked,
+    TResult? Function(_ResetCheckResult value)? resetCheckResult,
+  }) {
+    return resetCheckResult?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CodeSended value)? codeSended,
+    TResult Function(_CodeChecked value)? codeChecked,
+    TResult Function(_ResetCheckResult value)? resetCheckResult,
+    required TResult orElse(),
+  }) {
+    if (resetCheckResult != null) {
+      return resetCheckResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetCheckResult implements OtpEvent {
+  const factory _ResetCheckResult() = _$ResetCheckResultImpl;
+}
+
+/// @nodoc
 mixin _$OtpState {
   Either<OtpFailure, Unit>? get sendResult =>
       throw _privateConstructorUsedError;
   Either<OtpFailure, Unit>? get checkResult =>
       throw _privateConstructorUsedError;
+  bool get inProgress => throw _privateConstructorUsedError;
 
   /// Create a copy of OtpState
   /// with the given fields replaced by the non-null parameter values.
@@ -342,7 +472,8 @@ abstract class $OtpStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Either<OtpFailure, Unit>? sendResult,
-      Either<OtpFailure, Unit>? checkResult});
+      Either<OtpFailure, Unit>? checkResult,
+      bool inProgress});
 }
 
 /// @nodoc
@@ -362,6 +493,7 @@ class _$OtpStateCopyWithImpl<$Res, $Val extends OtpState>
   $Res call({
     Object? sendResult = freezed,
     Object? checkResult = freezed,
+    Object? inProgress = null,
   }) {
     return _then(_value.copyWith(
       sendResult: freezed == sendResult
@@ -372,6 +504,10 @@ class _$OtpStateCopyWithImpl<$Res, $Val extends OtpState>
           ? _value.checkResult
           : checkResult // ignore: cast_nullable_to_non_nullable
               as Either<OtpFailure, Unit>?,
+      inProgress: null == inProgress
+          ? _value.inProgress
+          : inProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -386,7 +522,8 @@ abstract class _$$OtpStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {Either<OtpFailure, Unit>? sendResult,
-      Either<OtpFailure, Unit>? checkResult});
+      Either<OtpFailure, Unit>? checkResult,
+      bool inProgress});
 }
 
 /// @nodoc
@@ -404,6 +541,7 @@ class __$$OtpStateImplCopyWithImpl<$Res>
   $Res call({
     Object? sendResult = freezed,
     Object? checkResult = freezed,
+    Object? inProgress = null,
   }) {
     return _then(_$OtpStateImpl(
       sendResult: freezed == sendResult
@@ -414,6 +552,10 @@ class __$$OtpStateImplCopyWithImpl<$Res>
           ? _value.checkResult
           : checkResult // ignore: cast_nullable_to_non_nullable
               as Either<OtpFailure, Unit>?,
+      inProgress: null == inProgress
+          ? _value.inProgress
+          : inProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -421,16 +563,20 @@ class __$$OtpStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OtpStateImpl implements _OtpState {
-  const _$OtpStateImpl({this.sendResult, this.checkResult});
+  const _$OtpStateImpl(
+      {this.sendResult, this.checkResult, this.inProgress = false});
 
   @override
   final Either<OtpFailure, Unit>? sendResult;
   @override
   final Either<OtpFailure, Unit>? checkResult;
+  @override
+  @JsonKey()
+  final bool inProgress;
 
   @override
   String toString() {
-    return 'OtpState(sendResult: $sendResult, checkResult: $checkResult)';
+    return 'OtpState(sendResult: $sendResult, checkResult: $checkResult, inProgress: $inProgress)';
   }
 
   @override
@@ -441,11 +587,14 @@ class _$OtpStateImpl implements _OtpState {
             (identical(other.sendResult, sendResult) ||
                 other.sendResult == sendResult) &&
             (identical(other.checkResult, checkResult) ||
-                other.checkResult == checkResult));
+                other.checkResult == checkResult) &&
+            (identical(other.inProgress, inProgress) ||
+                other.inProgress == inProgress));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, sendResult, checkResult);
+  int get hashCode =>
+      Object.hash(runtimeType, sendResult, checkResult, inProgress);
 
   /// Create a copy of OtpState
   /// with the given fields replaced by the non-null parameter values.
@@ -459,12 +608,15 @@ class _$OtpStateImpl implements _OtpState {
 abstract class _OtpState implements OtpState {
   const factory _OtpState(
       {final Either<OtpFailure, Unit>? sendResult,
-      final Either<OtpFailure, Unit>? checkResult}) = _$OtpStateImpl;
+      final Either<OtpFailure, Unit>? checkResult,
+      final bool inProgress}) = _$OtpStateImpl;
 
   @override
   Either<OtpFailure, Unit>? get sendResult;
   @override
   Either<OtpFailure, Unit>? get checkResult;
+  @override
+  bool get inProgress;
 
   /// Create a copy of OtpState
   /// with the given fields replaced by the non-null parameter values.

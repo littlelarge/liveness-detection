@@ -4,6 +4,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:liveness_detection/liveness_detection_sdk.dart';
+import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
+import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/presentation/core/core.dart';
 import 'package:liveness_detection/src/presentation/core/mappers/otp_failure_mapper.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
@@ -29,8 +31,14 @@ class OtpScreen extends HookWidget {
                     context: context,
                   ),
                 );
+
+                context.read<OtpBloc>().add(const OtpEvent.resetCheckResult());
               },
               (r) {
+                getIt<WebViewBloc>().add(
+                  const WebViewEvent.indentificationPassed(),
+                );
+
                 AppNavigator.pushAndRemoveUntil(
                   context,
                   const WebViewScreen(),
@@ -130,6 +138,7 @@ class OtpScreen extends HookWidget {
                                           ),
                                         );
                                   },
+                                  isLoading: otpState.inProgress,
                                 ),
                               ],
                             );

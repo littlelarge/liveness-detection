@@ -14,16 +14,24 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
     on<OtpEvent>(
       (event, emit) async {
         await event.map(
+          resetCheckResult: (e) {
+            emit(state.copyWith(checkResult: null));
+          },
           codeSended: (e) async {
+            emit(state.copyWith(inProgress: true));
+
             final failureOrSuccess = await _otpRepository.sendSmsCode();
 
             emit(
               state.copyWith(
                 sendResult: failureOrSuccess,
+                inProgress: false,
               ),
             );
           },
           codeChecked: (e) async {
+            emit(state.copyWith(inProgress: true));
+
             final failureOrSuccess = await _otpRepository.checkSmsCode(
               code: e.code,
             );
@@ -31,6 +39,7 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
             emit(
               state.copyWith(
                 checkResult: failureOrSuccess,
+                inProgress: false,
               ),
             );
           },

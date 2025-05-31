@@ -23,6 +23,8 @@ import 'package:liveness_detection/src/application/passport/passport_form/passpo
     as _i3;
 import 'package:liveness_detection/src/application/video_recording_during_identification/video_recording_during_identification_bloc.dart'
     as _i97;
+import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart'
+    as _i223;
 import 'package:liveness_detection/src/domain/domain.dart' as _i795;
 import 'package:liveness_detection/src/domain/video/i_video_identification_repository.dart'
     as _i957;
@@ -58,6 +60,7 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1003.LivenessDetectionBloc());
     gh.lazySingleton<_i286.AppSizes>(() => _i286.AppSizes());
     gh.lazySingleton<_i1033.Errors>(() => _i1033.Errors());
+    gh.lazySingleton<_i223.WebViewBloc>(() => _i223.WebViewBloc());
     gh.lazySingleton<_i361.Dio>(
       () => firebaseInjectableModule.dio,
       instanceName: 'livenessDio',

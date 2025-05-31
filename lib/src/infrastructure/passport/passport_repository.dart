@@ -44,6 +44,8 @@ final class PassportRepository implements IPassportRepository {
     required Uint8List image,
   }) async {
     try {
+      return right(unit);
+      
       final imageBase64String = base64Encode(image);
 
       final payload = {

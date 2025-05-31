@@ -6,6 +6,7 @@ class CheburashkaPhotoState with _$CheburashkaPhotoState {
     CameraController? cameraController,
     Uint8List? capturedImage,
     TPassportResult? compareResult,
+    @Default(false) bool inProgress,
   }) = _CheburashkaPhotoState;
 
   factory CheburashkaPhotoState.initial() => const CheburashkaPhotoState();

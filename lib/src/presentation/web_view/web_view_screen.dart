@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
+import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/presentation/core/router/app_router.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/cheburashka_photo_screen.dart';
@@ -14,12 +16,13 @@ class WebViewScreen extends HookWidget {
     final hasNavigated = useRef(false);
 
     useEffect(() {
+      final webViewBloc = getIt<WebViewBloc>();
+      
       webViewController
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
         ..setNavigationDelegate(
           NavigationDelegate(
             onPageFinished: (String url) async {
-              // 1. Инъекция текста
               await webViewController.runJavaScript('''
                 let intervalId = null;
                 function checkText() {
@@ -31,7 +34,6 @@ class WebViewScreen extends HookWidget {
                 intervalId = setInterval(checkText, 100);
               ''');
 
-              // 2. Инъекция кнопки с классом .btn-primary
               await webViewController.runJavaScript('''
                 const btn = document.querySelector('.btn-primary');
                 if (btn) {
@@ -60,7 +62,7 @@ class WebViewScreen extends HookWidget {
         )
         ..loadRequest(
           Uri.parse(
-            'https://sign.signillion.site/documents/sign_document/397e0317-b687-4d3c-b8c1-6da1fe8c9e97/?mobile=true',
+            webViewBloc.state.link,
           ),
         );
       return null;

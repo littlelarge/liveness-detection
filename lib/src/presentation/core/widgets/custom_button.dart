@@ -50,6 +50,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: isLoading
             ? CustomCircularProgressIndicator(
+                color: AppColors.white,
                 radius: 30.r,
                 strokeWidth: 3.r,
               )

@@ -25,46 +25,55 @@ class PreviewVideoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: 40.r,
-        bottom: 40.r,
-        right: 20.r,
-        left: 20.r,
-      ),
-      child: Column(
-        children: [
-          PreviewVideo(
-            capturedVideo: capturedVideo,
-            onVideoPlayerControllerInitialized:
-                onVideoPlayerControllerInitialized,
+    return BlocBuilder<VideoIdentificationActorBloc,
+        VideoIdentificationActorState>(
+      builder: (context, videoIdentificationActorState) {
+        return Padding(
+          padding: EdgeInsets.only(
+            top: 40.r,
+            bottom: 40.r,
+            right: 20.r,
+            left: 20.r,
           ),
-          Gap(20.r),
-          CustomButton(
-            text: 'Повторить запись',
-            onTap: () {
-              context.read<VideoRecordingDuringIdentificationBloc>().add(
-                    const VideoRecordingDuringIdentificationEvent
-                        .retryButtonPressed(),
-                  );
-            },
-            backgroundColor: AppColors.failure,
-          ),
-          const Spacer(),
-          CustomButton(
-            text: 'Продолжить',
-            onTap: () {
-              videoPlayerController?.pause();
+          child: Column(
+            children: [
+              PreviewVideo(
+                capturedVideo: capturedVideo,
+                onVideoPlayerControllerInitialized:
+                    onVideoPlayerControllerInitialized,
+              ),
+              Gap(20.r),
+              CustomButton(
+                text: 'Повторить запись',
+                onTap: () {
+                  context.read<VideoRecordingDuringIdentificationBloc>().add(
+                        const VideoRecordingDuringIdentificationEvent
+                            .retryButtonPressed(),
+                      );
+                },
+                backgroundColor: AppColors.failure,
+              ),
+              const Spacer(),
+              CustomButton(
+                text: 'Продолжить',
+                onTap: () {
+                  videoPlayerController?.pause();
 
-              context.read<VideoIdentificationActorBloc>().add(
-                    VideoIdentificationActorEvent.videoUploadRequested(
-                      video: capturedVideo,
-                    ),
-                  );
-            },
+                  context.read<VideoIdentificationActorBloc>().add(
+                        VideoIdentificationActorEvent.videoUploadRequested(
+                          video: capturedVideo,
+                        ),
+                      );
+                },
+                isLoading: videoIdentificationActorState.maybeWhen(
+                  inProgress: () => true,
+                  orElse: () => false,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

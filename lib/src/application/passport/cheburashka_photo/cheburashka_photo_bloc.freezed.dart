@@ -575,6 +575,7 @@ mixin _$CheburashkaPhotoState {
   Uint8List? get capturedImage => throw _privateConstructorUsedError;
   Either<PassportFailure, Unit>? get compareResult =>
       throw _privateConstructorUsedError;
+  bool get inProgress => throw _privateConstructorUsedError;
 
   /// Create a copy of CheburashkaPhotoState
   /// with the given fields replaced by the non-null parameter values.
@@ -592,7 +593,8 @@ abstract class $CheburashkaPhotoStateCopyWith<$Res> {
   $Res call(
       {CameraController? cameraController,
       Uint8List? capturedImage,
-      Either<PassportFailure, Unit>? compareResult});
+      Either<PassportFailure, Unit>? compareResult,
+      bool inProgress});
 }
 
 /// @nodoc
@@ -614,6 +616,7 @@ class _$CheburashkaPhotoStateCopyWithImpl<$Res,
     Object? cameraController = freezed,
     Object? capturedImage = freezed,
     Object? compareResult = freezed,
+    Object? inProgress = null,
   }) {
     return _then(_value.copyWith(
       cameraController: freezed == cameraController
@@ -628,6 +631,10 @@ class _$CheburashkaPhotoStateCopyWithImpl<$Res,
           ? _value.compareResult
           : compareResult // ignore: cast_nullable_to_non_nullable
               as Either<PassportFailure, Unit>?,
+      inProgress: null == inProgress
+          ? _value.inProgress
+          : inProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -644,7 +651,8 @@ abstract class _$$CheburashkaPhotoStateImplCopyWith<$Res>
   $Res call(
       {CameraController? cameraController,
       Uint8List? capturedImage,
-      Either<PassportFailure, Unit>? compareResult});
+      Either<PassportFailure, Unit>? compareResult,
+      bool inProgress});
 }
 
 /// @nodoc
@@ -664,6 +672,7 @@ class __$$CheburashkaPhotoStateImplCopyWithImpl<$Res>
     Object? cameraController = freezed,
     Object? capturedImage = freezed,
     Object? compareResult = freezed,
+    Object? inProgress = null,
   }) {
     return _then(_$CheburashkaPhotoStateImpl(
       cameraController: freezed == cameraController
@@ -678,6 +687,10 @@ class __$$CheburashkaPhotoStateImplCopyWithImpl<$Res>
           ? _value.compareResult
           : compareResult // ignore: cast_nullable_to_non_nullable
               as Either<PassportFailure, Unit>?,
+      inProgress: null == inProgress
+          ? _value.inProgress
+          : inProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -686,7 +699,10 @@ class __$$CheburashkaPhotoStateImplCopyWithImpl<$Res>
 
 class _$CheburashkaPhotoStateImpl implements _CheburashkaPhotoState {
   const _$CheburashkaPhotoStateImpl(
-      {this.cameraController, this.capturedImage, this.compareResult});
+      {this.cameraController,
+      this.capturedImage,
+      this.compareResult,
+      this.inProgress = false});
 
   @override
   final CameraController? cameraController;
@@ -694,10 +710,13 @@ class _$CheburashkaPhotoStateImpl implements _CheburashkaPhotoState {
   final Uint8List? capturedImage;
   @override
   final Either<PassportFailure, Unit>? compareResult;
+  @override
+  @JsonKey()
+  final bool inProgress;
 
   @override
   String toString() {
-    return 'CheburashkaPhotoState(cameraController: $cameraController, capturedImage: $capturedImage, compareResult: $compareResult)';
+    return 'CheburashkaPhotoState(cameraController: $cameraController, capturedImage: $capturedImage, compareResult: $compareResult, inProgress: $inProgress)';
   }
 
   @override
@@ -710,12 +729,18 @@ class _$CheburashkaPhotoStateImpl implements _CheburashkaPhotoState {
             const DeepCollectionEquality()
                 .equals(other.capturedImage, capturedImage) &&
             (identical(other.compareResult, compareResult) ||
-                other.compareResult == compareResult));
+                other.compareResult == compareResult) &&
+            (identical(other.inProgress, inProgress) ||
+                other.inProgress == inProgress));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cameraController,
-      const DeepCollectionEquality().hash(capturedImage), compareResult);
+  int get hashCode => Object.hash(
+      runtimeType,
+      cameraController,
+      const DeepCollectionEquality().hash(capturedImage),
+      compareResult,
+      inProgress);
 
   /// Create a copy of CheburashkaPhotoState
   /// with the given fields replaced by the non-null parameter values.
@@ -729,10 +754,10 @@ class _$CheburashkaPhotoStateImpl implements _CheburashkaPhotoState {
 
 abstract class _CheburashkaPhotoState implements CheburashkaPhotoState {
   const factory _CheburashkaPhotoState(
-          {final CameraController? cameraController,
-          final Uint8List? capturedImage,
-          final Either<PassportFailure, Unit>? compareResult}) =
-      _$CheburashkaPhotoStateImpl;
+      {final CameraController? cameraController,
+      final Uint8List? capturedImage,
+      final Either<PassportFailure, Unit>? compareResult,
+      final bool inProgress}) = _$CheburashkaPhotoStateImpl;
 
   @override
   CameraController? get cameraController;
@@ -740,6 +765,8 @@ abstract class _CheburashkaPhotoState implements CheburashkaPhotoState {
   Uint8List? get capturedImage;
   @override
   Either<PassportFailure, Unit>? get compareResult;
+  @override
+  bool get inProgress;
 
   /// Create a copy of CheburashkaPhotoState
   /// with the given fields replaced by the non-null parameter values.

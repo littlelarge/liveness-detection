@@ -62,7 +62,10 @@ class CheburashkaPhotoBloc
           },
           confirmButtonPressed: (e) async {
             final capturedImage = state.capturedImage;
+
             if (capturedImage != null) {
+              emit(state.copyWith(inProgress: true));
+
               final failureOrSuccess =
                   await passportRepository.compareCheburashkaPhoto(
                 image: capturedImage,
@@ -71,6 +74,7 @@ class CheburashkaPhotoBloc
               emit(
                 state.copyWith(
                   compareResult: failureOrSuccess,
+                  inProgress: false,
                 ),
               );
             }

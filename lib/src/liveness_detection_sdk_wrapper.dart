@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/application/passport/passport_form/passport_form_bloc.dart';
 import 'package:liveness_detection/src/application/passport/passport_actor/passport_actor_bloc.dart';
@@ -28,6 +29,7 @@ class LivenessDetectionSdk extends HookWidget {
               //   create: (context) => getIt<VideoRecordingDuringIdentificationBloc>(),
               // ),
               // BlocProvider(create: (context) => getIt<LivenessDetectionBloc>()),
+              BlocProvider(create: (context) => getIt<WebViewBloc>()),
               BlocProvider(create: (context) => getIt<OtpBloc>()),
             ],
             child: Navigator(
