@@ -20,8 +20,6 @@ class MyApp extends StatelessWidget {
       ),
       localizationsDelegates: [
         ...livenessLocalizationDelegates,
-        ...livenessLocalizationDelegates,
-        ...livenessLocalizationDelegates,
       ],
       supportedLocales: const [
         Locale(AppLocales.english),
