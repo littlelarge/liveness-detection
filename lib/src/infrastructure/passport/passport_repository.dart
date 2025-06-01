@@ -62,7 +62,11 @@ final class PassportRepository implements IPassportRepository {
         final facetagrStatus = data['facetagr_status']?.toString();
 
         if (status != 'success' && facetagrStatus != null) {
-          return left(_mapFacetagrErrorToFailure(facetagrStatus, data));
+          if (facetagrStatus != '1001') {
+            return left(_mapFacetagrErrorToFailure(facetagrStatus, data));
+          } else {
+            return right(unit);
+          }
         }
       }
 
@@ -76,8 +80,6 @@ final class PassportRepository implements IPassportRepository {
 
   PassportFailure _mapFacetagrErrorToFailure(String code, Object error) {
     switch (code) {
-      case '1001':
-        return PassportFailure.verificationSuccess(error);
       case '2002':
         return PassportFailure.authenticationFailed(error);
       case '4001':

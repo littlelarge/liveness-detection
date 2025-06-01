@@ -10,7 +10,7 @@ import 'package:liveness_detection/src/application/video_identification_actor/vi
 import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/domain/video/i_video_identification_repository.dart';
 import 'package:liveness_detection/src/presentation/otp/otp_screen.dart';
-import 'package:liveness_detection/src/presentation/core/bloc_listeners/video_recording_during_identification_listener.dart';
+import 'package:liveness_detection/src/presentation/core/bloc_listeners/video_identification_actor_listener.dart';
 import 'package:liveness_detection/src/presentation/core/core.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/confirmation_video_recording/widgets/preview_video_widget.dart';

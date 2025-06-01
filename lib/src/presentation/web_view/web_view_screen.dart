@@ -23,16 +23,16 @@ class WebViewScreen extends HookWidget {
         ..setNavigationDelegate(
           NavigationDelegate(
             onPageFinished: (String url) async {
-              await webViewController.runJavaScript('''
-                let intervalId = null;
-                function checkText() {
-                  if (document.body.innerText.includes('Signillion')) {
-                    window.flutter_injected.postMessage('text-found');
-                    clearInterval(intervalId);
-                  }
-                }
-                intervalId = setInterval(checkText, 100);
-              ''');
+              // await webViewController.runJavaScript('''
+              //   let intervalId = null;
+              //   function checkText() {
+              //     if (document.body.innerText.includes('Signillion')) {
+              //       window.flutter_injected.postMessage('text-found');
+              //       clearInterval(intervalId);
+              //     }
+              //   }
+              //   intervalId = setInterval(checkText, 100);
+              // ''');
 
               await webViewController.runJavaScript('''
                 const btn = document.querySelector('.btn-primary');
