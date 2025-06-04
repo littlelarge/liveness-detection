@@ -17,7 +17,7 @@ class WebViewScreen extends HookWidget {
 
     useEffect(() {
       final webViewBloc = getIt<WebViewBloc>();
-      
+
       webViewController
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
         ..setNavigationDelegate(
@@ -62,8 +62,9 @@ class WebViewScreen extends HookWidget {
         )
         ..loadRequest(
           Uri.parse(
-            webViewBloc.state.link,
+            webViewBloc.state.link, 
           ),
+          headers: {'Authorization': 'Bearer 222222'}
         );
       return null;
     }, []);

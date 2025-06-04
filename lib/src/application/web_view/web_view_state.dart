@@ -1,7 +1,6 @@
 part of 'web_view_bloc.dart';
 
-const _defaultLink =
-    'https://sign.signillion.site/documents/sign_document/ae447b66-bb23-46bc-88f4-dface279b0f5/?mobile=true';
+const _defaultLink = 'https://sign.signillion.site/documents/?mobile=true';
 
 @freezed
 class WebViewState with _$WebViewState {
