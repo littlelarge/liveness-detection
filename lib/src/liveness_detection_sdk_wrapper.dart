@@ -6,11 +6,6 @@ import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
-import 'package:liveness_detection/src/application/passport/passport_form/passport_form_bloc.dart';
-import 'package:liveness_detection/src/application/passport/passport_actor/passport_actor_bloc.dart';
-import 'package:liveness_detection/src/application/video_recording_during_identification/video_recording_during_identification_bloc.dart';
-import 'package:liveness_detection/src/application/liveness_detection/liveness_detection_bloc.dart';
-import 'package:liveness_detection/src/application/otp/otp_bloc.dart';
 
 class LivenessDetectionSdk extends HookWidget {
   const LivenessDetectionSdk({Key? key}) : super(key: key);

@@ -1,3 +1,4 @@
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
@@ -8,7 +9,9 @@ import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/c
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewScreen extends HookWidget {
-  const WebViewScreen({super.key});
+  const WebViewScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +26,6 @@ class WebViewScreen extends HookWidget {
         ..setNavigationDelegate(
           NavigationDelegate(
             onPageFinished: (String url) async {
-              // await webViewController.runJavaScript('''
-              //   let intervalId = null;
-              //   function checkText() {
-              //     if (document.body.innerText.includes('Signillion')) {
-              //       window.flutter_injected.postMessage('text-found');
-              //       clearInterval(intervalId);
-              //     }
-              //   }
-              //   intervalId = setInterval(checkText, 100);
-              // ''');
-
               await webViewController.runJavaScript('''
                 const btn = document.querySelector('.btn-primary');
                 if (btn) {
@@ -52,7 +44,6 @@ class WebViewScreen extends HookWidget {
                 (message.message == 'text-found' ||
                     message.message == 'btn-primary-clicked')) {
               hasNavigated.value = true;
-
               AppNavigator.push(
                 context,
                 const CheburashkaPhotoScreen(),
@@ -61,12 +52,31 @@ class WebViewScreen extends HookWidget {
           },
         )
         ..loadRequest(
-          Uri.parse(
-            webViewBloc.state.link, 
-          ),
-          headers: {'Authorization': 'Bearer 222222'}
+          Uri.parse(webViewBloc.state.link),
+          headers: {'Authorization': 'Bearer 222222'},
         );
-      return null;
+
+      bool backInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+        () async {
+          final canGoBack = await webViewController.canGoBack();
+
+          if (!context.mounted) return;
+
+          if (canGoBack) {
+            await webViewController.goBack();
+          } else {
+            Navigator.of(context, rootNavigator: true).pop();
+          }
+        }();
+
+        return true;
+      }
+
+      BackButtonInterceptor.add(backInterceptor);
+
+      return () {
+        BackButtonInterceptor.remove(backInterceptor);
+      };
     }, []);
 
     return CustomScaffold(
