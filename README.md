@@ -16,11 +16,40 @@
          ref: main
    ```
 
-2. **Создайте отдельный экран**
+2. **Настройте локализацию в MaterialApp**
+
+   В главном файле приложения (например, `main.dart`) обновите `MaterialApp`, добавив делегаты локализации и поддерживаемые локали для Liveness Detection SDK:
+
+   ```dart
+   import 'package:liveness_detection/liveness_detection_sdk.dart';
+
+   void main() {
+     runApp(MyApp());
+   }
+
+   class MyApp extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return MaterialApp(
+         localizationsDelegates: [
+           ...livenessLocalizationDelegates, // Делегаты локализации SDK
+         ],
+         supportedLocales: const [
+           Locale(AppLocales.english), // Поддержка английского языка
+           Locale(AppLocales.russian), // Поддержка русского языка
+         ],
+         locale: Locale(AppLocales.russian), // Установка русского языка по умолчанию
+         home: HomeScreen(), // Ваш начальный экран
+       );
+     }
+   }
+   ```
+
+3. **Создайте отдельный экран**
 
    Создайте новый экран Flutter (например, `LivenessDetectionScreen`) для работы с SDK.
 
-3. **Импортируйте SDK**
+4. **Импортируйте SDK**
 
    В файле экрана импортируйте Liveness Detection SDK:
 
@@ -28,7 +57,7 @@
    import 'package:liveness_detection/liveness_detection_sdk.dart';
    ```
 
-4. **Верните виджет SDK**
+5. **Верните виджет SDK**
 
    В методе `build` вашего экрана верните виджет `LivenessDetectionSdk`:
 
@@ -39,7 +68,7 @@
    }
    ```
 
-5. **Перенаправьте на экран**
+6. **Перенаправьте на экран**
 
    Из вашего приложения выполните переход на экран `LivenessDetectionScreen`:
 
