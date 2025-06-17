@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:camera/camera.dart';
-import 'package:ffmpeg_kit_flutter_new/ffmpeg_kit.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:liveness_detection/src/application/application.dart';
@@ -66,24 +65,24 @@ class VideoRecordingDuringIdentificationBloc extends Bloc<
             final xFile = await state.controller!.stopVideoRecording();
             final tempFile = File(xFile.path);
 
-            final mp4File = await _convertToMp4(tempFile);
+            // final mp4File = await _convertToMp4(tempFile);
 
             getIt<PassportFormBloc>().add(
               PassportFormEvent.confirmationVideoAdded(
-                confirmationVideo: mp4File,
+                confirmationVideo: tempFile,
               ),
             );
 
             getIt<LivenessDetectionBloc>().add(
               LivenessDetectionEvent.confirmationVideoCaptured(
-                capturedVideo: mp4File,
+                capturedVideo: tempFile,
               ),
             );
 
             emit(
               state.copyWith(
                 isRecording: false,
-                capturedVideo: mp4File,
+                capturedVideo: tempFile,
               ),
             );
 
@@ -103,16 +102,16 @@ class VideoRecordingDuringIdentificationBloc extends Bloc<
     return super.close();
   }
 
-  Future<File> _convertToMp4(File inputFile) async {
-    final appDir = await getApplicationDocumentsDirectory();
-    final outputPath =
-        '${appDir.path}/output_${DateTime.now().millisecondsSinceEpoch}.mp4';
+  // Future<File> _convertToMp4(File inputFile) async {
+  //   final appDir = await getApplicationDocumentsDirectory();
+  //   final outputPath =
+  //       '${appDir.path}/output_${DateTime.now().millisecondsSinceEpoch}.mp4';
 
-    final command =
-        '-i "${inputFile.path}" -c:v libx264 -preset ultrafast -crf 23 "$outputPath"';
+  //   final command =
+  //       '-i "${inputFile.path}" -c:v libx264 -preset ultrafast -crf 23 "$outputPath"';
 
-    await FFmpegKit.execute(command);
+  //   await FFmpegKit.execute(command);
 
-    return File(outputPath);
-  }
+  //   return File(outputPath);
+  // }
 }
