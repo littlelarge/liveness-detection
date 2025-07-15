@@ -8,12 +8,20 @@ import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 
 class LivenessDetectionSdk extends HookWidget {
-  const LivenessDetectionSdk({Key? key}) : super(key: key);
+  /// In url enter your domain in the format your.domain.com
+  const LivenessDetectionSdk({
+    required this.url,
+    super.key,
+  });
+
+  final String url;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: LivenessDetectionSdkInitializer.initialize(),
+      future: LivenessDetectionSdkInitializer.initialize(
+        url: url,
+      ),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiBlocProvider(

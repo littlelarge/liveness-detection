@@ -6,6 +6,8 @@ class LivenessDetectionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LivenessDetectionSdk();
+    return LivenessDetectionSdk(
+      url: 'sign.signillion.site',
+    );
   }
 }

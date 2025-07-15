@@ -64,7 +64,9 @@
    ```dart
    @override
    Widget build(BuildContext context) {
-     return LivenessDetectionSdk();
+     return LivenessDetectionSdk(
+      url: 'your.domain.com',
+     );
    }
    ```
 

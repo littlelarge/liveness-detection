@@ -296,10 +296,9 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl({this.link = _defaultLink});
+  const _$InitialImpl({required this.link});
 
   @override
-  @JsonKey()
   final String link;
 
   @override
@@ -390,7 +389,7 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements WebViewState {
-  const factory _Initial({final String link}) = _$InitialImpl;
+  const factory _Initial({required final String link}) = _$InitialImpl;
 
   @override
   String get link;
@@ -441,10 +440,9 @@ class __$$CheckedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CheckedImpl implements _Checked {
-  const _$CheckedImpl({this.link = '$_defaultLink&checked=true'});
+  const _$CheckedImpl({required this.link});
 
   @override
-  @JsonKey()
   final String link;
 
   @override
@@ -535,7 +533,7 @@ class _$CheckedImpl implements _Checked {
 }
 
 abstract class _Checked implements WebViewState {
-  const factory _Checked({final String link}) = _$CheckedImpl;
+  const factory _Checked({required final String link}) = _$CheckedImpl;
 
   @override
   String get link;

@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -13,10 +15,12 @@ class LivenessLocalizationsRu extends LivenessLocalizations {
   String get back_side => 'Обратная сторона';
 
   @override
-  String get passport_photo_instruction => 'Выберите место с хорошим освещением.\nРазместите паспорт в обозначенной зоне и сделайте снимок, убедившись, что все данные четко видны.';
+  String get passport_photo_instruction =>
+      'Выберите место с хорошим освещением.\nРазместите паспорт в обозначенной зоне и сделайте снимок, убедившись, что все данные четко видны.';
 
   @override
-  String get passport_photo_instruction_form => 'Загрузите фотографию вашего паспорта с обеих сторон';
+  String get passport_photo_instruction_form =>
+      'Загрузите фотографию вашего паспорта с обеих сторон';
 
   @override
   String get continuee => 'Продолжить';
@@ -31,13 +35,15 @@ class LivenessLocalizationsRu extends LivenessLocalizations {
   String get verification_success => 'Проверка прошла успешно.';
 
   @override
-  String get authentication_failed => 'Ошибка аутентификации. Проверьте свои данные.';
+  String get authentication_failed =>
+      'Ошибка аутентификации. Проверьте свои данные.';
 
   @override
   String get no_face_in_live => 'На живом фото не обнаружено лицо.';
 
   @override
-  String get face_too_small_live => 'Лицо на живом фото слишком маленькое для обработки.';
+  String get face_too_small_live =>
+      'Лицо на живом фото слишком маленькое для обработки.';
 
   @override
   String get face_blurry_live => 'Лицо на живом фото размыто или нечетко.';
@@ -46,7 +52,8 @@ class LivenessLocalizationsRu extends LivenessLocalizations {
   String get face_not_centered_live => 'Пожалуйста, смотрите прямо в камеру.';
 
   @override
-  String get invalid_image_format_live => 'Недопустимый формат изображения для живого фото.';
+  String get invalid_image_format_live =>
+      'Недопустимый формат изображения для живого фото.';
 
   @override
   String get liveness_check_failed => 'Проверка на живость не пройдена.';
@@ -55,31 +62,39 @@ class LivenessLocalizationsRu extends LivenessLocalizations {
   String get invalid_json => 'Неверный формат входных данных.';
 
   @override
-  String get no_face_in_id_card => 'На фото удостоверения личности не обнаружено лицо.';
+  String get no_face_in_id_card =>
+      'На фото удостоверения личности не обнаружено лицо.';
 
   @override
-  String get face_too_small_in_id_card => 'Лицо на удостоверении слишком маленькое для обработки.';
+  String get face_too_small_in_id_card =>
+      'Лицо на удостоверении слишком маленькое для обработки.';
 
   @override
-  String get face_blurry_in_id_card => 'Лицо на удостоверении личности размыто или нечетко.';
+  String get face_blurry_in_id_card =>
+      'Лицо на удостоверении личности размыто или нечетко.';
 
   @override
-  String get face_not_visible_in_id_card => 'Лицо на удостоверении личности должно быть чётко видно.';
+  String get face_not_visible_in_id_card =>
+      'Лицо на удостоверении личности должно быть чётко видно.';
 
   @override
-  String get invalid_image_format_id_card => 'Недопустимый формат изображения удостоверения личности.';
+  String get invalid_image_format_id_card =>
+      'Недопустимый формат изображения удостоверения личности.';
 
   @override
   String get image_is_empty => 'Загруженное изображение пустое.';
 
   @override
-  String get image_must_contain_two_faces => 'Изображение должно содержать два лица.';
+  String get image_must_contain_two_faces =>
+      'Изображение должно содержать два лица.';
 
   @override
-  String get invalid_video_format => 'Допустимы только видеофайлы в формате .mp4.';
+  String get invalid_video_format =>
+      'Допустимы только видеофайлы в формате .mp4.';
 
   @override
-  String get video_too_large => 'Видео слишком большое. Максимальный размер — 100 МБ.';
+  String get video_too_large =>
+      'Видео слишком большое. Максимальный размер — 100 МБ.';
 
   @override
   String get wrong_code => 'Неверный код.';
