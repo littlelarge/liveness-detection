@@ -8,6 +8,7 @@ class LivenessDetectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LivenessDetectionSdk(
       url: 'sign.signillion.site',
+      authorizationToken: 'Bearer 222222',
     );
   }
 }

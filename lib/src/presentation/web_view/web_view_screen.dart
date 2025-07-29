@@ -1,8 +1,10 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
+import 'package:liveness_detection/src/common/storage_keys.dart';
 import 'package:liveness_detection/src/presentation/core/router/app_router.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/cheburashka_photo_screen.dart';
@@ -13,13 +15,24 @@ class WebViewScreen extends HookWidget {
     super.key,
   });
 
+  static late final String _token;
+
   @override
   Widget build(BuildContext context) {
     final webViewController = useMemoized(() => WebViewController(), []);
     final hasNavigated = useRef(false);
 
     useEffect(() {
-      final webViewBloc = getIt<WebViewBloc>();
+      // getToken() async {
+      //   final storage = getIt<FlutterSecureStorage>();
+
+      //   _token = await getIt<FlutterSecureStorage>().read(
+      //         key: StorageKeys.authorizationToken,
+      //       ) ??
+      //       '';
+      // }
+
+      // getToken();
 
       webViewController
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -50,10 +63,6 @@ class WebViewScreen extends HookWidget {
               );
             }
           },
-        )
-        ..loadRequest(
-          Uri.parse(webViewBloc.state.link),
-          headers: {'Authorization': 'Bearer 222222'},
         );
 
       bool backInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
@@ -79,12 +88,36 @@ class WebViewScreen extends HookWidget {
       };
     }, []);
 
-    return CustomScaffold(
-      body: SafeArea(
-        child: WebViewWidget(
-          controller: webViewController,
-        ),
+    return FutureBuilder(
+      future: getIt<FlutterSecureStorage>()
+          .read(
+        key: StorageKeys.authorizationToken,
+      )
+          .then(
+        (value) async {
+          final webViewBloc = getIt<WebViewBloc>();
+
+          await webViewController.loadRequest(
+            Uri.parse(webViewBloc.state.link),
+            headers: {'Authorization': _token},
+          );
+        },
       ),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return CustomScaffold(
+            body: SafeArea(
+              child: WebViewWidget(
+                controller: webViewController,
+              ),
+            ),
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 }

@@ -11,16 +11,19 @@ class LivenessDetectionSdk extends HookWidget {
   /// In url enter your domain in the format your.domain.com
   const LivenessDetectionSdk({
     required this.url,
+    required this.authorizationToken,
     super.key,
   });
 
   final String url;
+  final String authorizationToken;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: LivenessDetectionSdkInitializer.initialize(
         url: url,
+        authorizationToken: authorizationToken,
       ),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
