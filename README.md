@@ -66,6 +66,7 @@
    Widget build(BuildContext context) {
      return LivenessDetectionSdk(
       url: 'your.domain.com',
+      authorizationToken: 'your_bearer_token',
      );
    }
    ```
