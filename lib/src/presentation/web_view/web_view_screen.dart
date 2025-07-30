@@ -15,8 +15,6 @@ class WebViewScreen extends HookWidget {
     super.key,
   });
 
-  static late final String _token;
-
   @override
   Widget build(BuildContext context) {
     final webViewController = useMemoized(() => WebViewController(), []);
@@ -99,7 +97,7 @@ class WebViewScreen extends HookWidget {
 
           await webViewController.loadRequest(
             Uri.parse(webViewBloc.state.link),
-            headers: {'Authorization': _token},
+            headers: {'Authorization': value!},
           );
         },
       ),
