@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/common/storage_keys.dart';
@@ -19,6 +22,18 @@ class WebViewScreen extends HookWidget {
   Widget build(BuildContext context) {
     final webViewController = useMemoized(() => WebViewController(), []);
     final hasNavigated = useRef(false);
+
+    String decodeWebViewHtml(Object rawHtml) {
+      var raw = rawHtml.toString().trim();
+
+      // Убираем внешние кавычки, если они есть
+      if (raw.startsWith('"') && raw.endsWith('"')) {
+        raw = raw.substring(1, raw.length - 1);
+      }
+
+      // Декодируем JSON-эскейп-последовательности (\u003C, \n и т.д.)
+      return jsonDecode('"$raw"').toString();
+    }
 
     useEffect(() {
       // getToken() async {
@@ -46,6 +61,24 @@ class WebViewScreen extends HookWidget {
                 }
               ''');
             },
+            onUrlChange: (change) async {
+              Utils.liveness_detectionLog(
+                change.url,
+                extraTag: 'web-view-current-url',
+              );
+
+              final rawHtml =
+                  await webViewController.runJavaScriptReturningResult(
+                "window.document.documentElement.outerHTML;",
+              );
+
+              final cleanHtml = decodeWebViewHtml(rawHtml);
+
+              Utils.liveness_detectionLog(
+                cleanHtml,
+                extraTag: 'web-view-html',
+              );
+            },
           ),
         )
         ..addJavaScriptChannel(
@@ -55,6 +88,7 @@ class WebViewScreen extends HookWidget {
                 (message.message == 'text-found' ||
                     message.message == 'btn-primary-clicked')) {
               hasNavigated.value = true;
+
               AppNavigator.push(
                 context,
                 const CheburashkaPhotoScreen(),
