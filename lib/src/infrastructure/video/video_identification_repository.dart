@@ -22,13 +22,13 @@ final class VideoIdentificationRepository
 
       final fileName = video.path.split('/').last;
 
-      if (!fileName.endsWith('.mp4')) {
-        return left(
-          VideoIdentificationUploadFailure.invalidFormat(
-            'Only .mp4 files are allowed',
-          ),
-        );
-      }
+      // if (!fileName.endsWith('.mp4')) {
+      //   return left(
+      //     VideoIdentificationUploadFailure.invalidFormat(
+      //       'Only .mp4 files are allowed',
+      //     ),
+      //   );
+      // }
 
       final fileLength = await video.length();
       if (fileLength > 100 * 1024 * 1024) {

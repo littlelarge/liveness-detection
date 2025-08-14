@@ -35,9 +35,9 @@ class OtpScreen extends HookWidget {
                 context.read<OtpBloc>().add(const OtpEvent.resetCheckResult());
               },
               (r) {
-                getIt<WebViewBloc>().add(
-                  const WebViewEvent.indentificationPassed(),
-                );
+                context.read<WebViewBloc>().add(
+                      const WebViewEvent.indentificationPassed(),
+                    );
 
                 AppNavigator.pushAndRemoveUntil(
                   context,

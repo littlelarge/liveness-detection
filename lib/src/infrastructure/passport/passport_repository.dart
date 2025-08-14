@@ -57,17 +57,24 @@ final class PassportRepository implements IPassportRepository {
 
       final data = response.data;
 
-      if (data is Map<String, dynamic>) {
-        final status = data['status']?.toString();
-        final facetagrStatus = data['facetagr_status']?.toString();
+      // if (data is Map<String, dynamic>) {
+      //   final status = data['status']?.toString();
+      //   final facetagrStatus = data['facetagr_status']?.toString();
 
-        if (status != 'success' && facetagrStatus != null) {
-          if (facetagrStatus != '1001') {
-            return left(_mapFacetagrErrorToFailure(facetagrStatus, data));
-          } else {
-            return right(unit);
-          }
-        }
+      //   if ((status != 'success' || status != 'photo_valid')) {
+      //     if (facetagrStatus != null) {
+      //       if (facetagrStatus != '1001' || facetagrStatus != 'photo valid') {
+      //         return left(_mapFacetagrErrorToFailure(facetagrStatus, data));
+      //       }
+      //     }
+      //   }
+      // }
+      if (response.statusCode != 200) {
+        return left(
+          PassportFailure.uploadAndCheckError(
+            'Ошибка загрузки и проверки изображения',
+          ),
+        );
       }
 
       return right(unit);
@@ -112,7 +119,8 @@ final class PassportRepository implements IPassportRepository {
         return PassportFailure.imageMustContainTwoFaces(error);
       default:
         return PassportFailure.unexpectedError(
-            'Unknown facetagr_status: $code');
+          'Unknown facetagr_status: $code',
+        );
     }
   }
 }

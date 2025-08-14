@@ -32,6 +32,9 @@ class LivenessLocalizationsEn extends LivenessLocalizations {
   String get unexpected_error => 'Unexpected error occurred';
 
   @override
+  String get upload_and_check_error => 'Error uploading and checking image';
+
+  @override
   String get verification_success => 'Verification successful.';
 
   @override

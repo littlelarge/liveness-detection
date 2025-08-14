@@ -18,6 +18,8 @@ class Errors {
   String get serverError => LivenessLocalizations.of(context).server_error;
   String get unexpectedError =>
       LivenessLocalizations.of(context).unexpected_error;
+  String get uploadAndCheckError =>
+      LivenessLocalizations.of(context).upload_and_check_error;
 
   String get verificationSuccess =>
       LivenessLocalizations.of(context).verification_success; // 1001

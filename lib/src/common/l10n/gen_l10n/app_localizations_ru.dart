@@ -32,6 +32,9 @@ class LivenessLocalizationsRu extends LivenessLocalizations {
   String get unexpected_error => 'Произошла неожиданная ошибка';
 
   @override
+  String get upload_and_check_error => 'Ошибка загрузки и проверки изображения';
+
+  @override
   String get verification_success => 'Проверка прошла успешно.';
 
   @override

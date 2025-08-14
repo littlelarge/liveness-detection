@@ -68,10 +68,8 @@ extension GetItInjectableX on _i174.GetIt {
       () => firebaseInjectableModule.dio,
       instanceName: 'livenessDio',
     );
-    gh.lazySingleton<String>(
-      () => firebaseInjectableModule.checkedLink,
-      instanceName: 'checkedLink',
-    );
+    gh.factory<_i223.WebViewBloc>(
+        () => _i223.WebViewBloc(gh<String>(instanceName: 'defaultLink')));
     gh.lazySingleton<_i957.IVideoIdentificationRepository>(() =>
         _i948.VideoIdentificationRepository(
             gh<_i361.Dio>(instanceName: 'livenessDio')));
@@ -81,10 +79,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i853.OtpBloc(gh<_i795.IOtpRepository>()));
     gh.lazySingleton<_i795.IPassportRepository>(() =>
         _i957.PassportRepository(gh<_i361.Dio>(instanceName: 'livenessDio')));
-    gh.lazySingleton<_i223.WebViewBloc>(() => _i223.WebViewBloc(
-          gh<String>(instanceName: 'defaultLink'),
-          gh<String>(instanceName: 'checkedLink'),
-        ));
     gh.factory<_i117.CheburashkaPhotoBloc>(
         () => _i117.CheburashkaPhotoBloc(gh<_i91.IPassportRepository>()));
     gh.factory<_i386.PassportActorBloc>(

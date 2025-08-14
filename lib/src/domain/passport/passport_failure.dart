@@ -13,6 +13,9 @@ abstract class PassportFailure with _$PassportFailure {
   factory PassportFailure.serverError(Object error) = _ServerError;
   factory PassportFailure.unexpectedError(Object error) = _UnexpectedError;
 
+  factory PassportFailure.uploadAndCheckError(Object error) =
+      _UploadAndCheckError;
+
   // facetagr errors
   factory PassportFailure.verificationSuccess(Object error) =
       _VerificationSuccess; // 1001

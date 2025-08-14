@@ -18,33 +18,42 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WebViewEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String link) currentDocumentLinkInitialized,
     required TResult Function() indentificationPassed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String link)? currentDocumentLinkInitialized,
     TResult? Function()? indentificationPassed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String link)? currentDocumentLinkInitialized,
     TResult Function()? indentificationPassed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CurrentDocumentLinkInitialized value)
+        currentDocumentLinkInitialized,
     required TResult Function(_IndentificationPassed value)
         indentificationPassed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CurrentDocumentLinkInitialized value)?
+        currentDocumentLinkInitialized,
     TResult? Function(_IndentificationPassed value)? indentificationPassed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CurrentDocumentLinkInitialized value)?
+        currentDocumentLinkInitialized,
     TResult Function(_IndentificationPassed value)? indentificationPassed,
     required TResult orElse(),
   }) =>
@@ -70,6 +79,158 @@ class _$WebViewEventCopyWithImpl<$Res, $Val extends WebViewEvent>
 
   /// Create a copy of WebViewEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$CurrentDocumentLinkInitializedImplCopyWith<$Res> {
+  factory _$$CurrentDocumentLinkInitializedImplCopyWith(
+          _$CurrentDocumentLinkInitializedImpl value,
+          $Res Function(_$CurrentDocumentLinkInitializedImpl) then) =
+      __$$CurrentDocumentLinkInitializedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String link});
+}
+
+/// @nodoc
+class __$$CurrentDocumentLinkInitializedImplCopyWithImpl<$Res>
+    extends _$WebViewEventCopyWithImpl<$Res,
+        _$CurrentDocumentLinkInitializedImpl>
+    implements _$$CurrentDocumentLinkInitializedImplCopyWith<$Res> {
+  __$$CurrentDocumentLinkInitializedImplCopyWithImpl(
+      _$CurrentDocumentLinkInitializedImpl _value,
+      $Res Function(_$CurrentDocumentLinkInitializedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of WebViewEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? link = null,
+  }) {
+    return _then(_$CurrentDocumentLinkInitializedImpl(
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CurrentDocumentLinkInitializedImpl
+    implements _CurrentDocumentLinkInitialized {
+  const _$CurrentDocumentLinkInitializedImpl({required this.link});
+
+  @override
+  final String link;
+
+  @override
+  String toString() {
+    return 'WebViewEvent.currentDocumentLinkInitialized(link: $link)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CurrentDocumentLinkInitializedImpl &&
+            (identical(other.link, link) || other.link == link));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, link);
+
+  /// Create a copy of WebViewEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CurrentDocumentLinkInitializedImplCopyWith<
+          _$CurrentDocumentLinkInitializedImpl>
+      get copyWith => __$$CurrentDocumentLinkInitializedImplCopyWithImpl<
+          _$CurrentDocumentLinkInitializedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String link) currentDocumentLinkInitialized,
+    required TResult Function() indentificationPassed,
+  }) {
+    return currentDocumentLinkInitialized(link);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String link)? currentDocumentLinkInitialized,
+    TResult? Function()? indentificationPassed,
+  }) {
+    return currentDocumentLinkInitialized?.call(link);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String link)? currentDocumentLinkInitialized,
+    TResult Function()? indentificationPassed,
+    required TResult orElse(),
+  }) {
+    if (currentDocumentLinkInitialized != null) {
+      return currentDocumentLinkInitialized(link);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CurrentDocumentLinkInitialized value)
+        currentDocumentLinkInitialized,
+    required TResult Function(_IndentificationPassed value)
+        indentificationPassed,
+  }) {
+    return currentDocumentLinkInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CurrentDocumentLinkInitialized value)?
+        currentDocumentLinkInitialized,
+    TResult? Function(_IndentificationPassed value)? indentificationPassed,
+  }) {
+    return currentDocumentLinkInitialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CurrentDocumentLinkInitialized value)?
+        currentDocumentLinkInitialized,
+    TResult Function(_IndentificationPassed value)? indentificationPassed,
+    required TResult orElse(),
+  }) {
+    if (currentDocumentLinkInitialized != null) {
+      return currentDocumentLinkInitialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CurrentDocumentLinkInitialized implements WebViewEvent {
+  const factory _CurrentDocumentLinkInitialized({required final String link}) =
+      _$CurrentDocumentLinkInitializedImpl;
+
+  String get link;
+
+  /// Create a copy of WebViewEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CurrentDocumentLinkInitializedImplCopyWith<
+          _$CurrentDocumentLinkInitializedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -115,6 +276,7 @@ class _$IndentificationPassedImpl implements _IndentificationPassed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String link) currentDocumentLinkInitialized,
     required TResult Function() indentificationPassed,
   }) {
     return indentificationPassed();
@@ -123,6 +285,7 @@ class _$IndentificationPassedImpl implements _IndentificationPassed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String link)? currentDocumentLinkInitialized,
     TResult? Function()? indentificationPassed,
   }) {
     return indentificationPassed?.call();
@@ -131,6 +294,7 @@ class _$IndentificationPassedImpl implements _IndentificationPassed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String link)? currentDocumentLinkInitialized,
     TResult Function()? indentificationPassed,
     required TResult orElse(),
   }) {
@@ -143,6 +307,8 @@ class _$IndentificationPassedImpl implements _IndentificationPassed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CurrentDocumentLinkInitialized value)
+        currentDocumentLinkInitialized,
     required TResult Function(_IndentificationPassed value)
         indentificationPassed,
   }) {
@@ -152,6 +318,8 @@ class _$IndentificationPassedImpl implements _IndentificationPassed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CurrentDocumentLinkInitialized value)?
+        currentDocumentLinkInitialized,
     TResult? Function(_IndentificationPassed value)? indentificationPassed,
   }) {
     return indentificationPassed?.call(this);
@@ -160,6 +328,8 @@ class _$IndentificationPassedImpl implements _IndentificationPassed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CurrentDocumentLinkInitialized value)?
+        currentDocumentLinkInitialized,
     TResult Function(_IndentificationPassed value)? indentificationPassed,
     required TResult orElse(),
   }) {
@@ -177,22 +347,23 @@ abstract class _IndentificationPassed implements WebViewEvent {
 /// @nodoc
 mixin _$WebViewState {
   String get link => throw _privateConstructorUsedError;
+  String get currentDocumentLink => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String link) initial,
-    required TResult Function(String link) checked,
+    required TResult Function(String link, String currentDocumentLink) initial,
+    required TResult Function(String link, String currentDocumentLink) checked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String link)? initial,
-    TResult? Function(String link)? checked,
+    TResult? Function(String link, String currentDocumentLink)? initial,
+    TResult? Function(String link, String currentDocumentLink)? checked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String link)? initial,
-    TResult Function(String link)? checked,
+    TResult Function(String link, String currentDocumentLink)? initial,
+    TResult Function(String link, String currentDocumentLink)? checked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -229,7 +400,7 @@ abstract class $WebViewStateCopyWith<$Res> {
           WebViewState value, $Res Function(WebViewState) then) =
       _$WebViewStateCopyWithImpl<$Res, WebViewState>;
   @useResult
-  $Res call({String link});
+  $Res call({String link, String currentDocumentLink});
 }
 
 /// @nodoc
@@ -248,11 +419,16 @@ class _$WebViewStateCopyWithImpl<$Res, $Val extends WebViewState>
   @override
   $Res call({
     Object? link = null,
+    Object? currentDocumentLink = null,
   }) {
     return _then(_value.copyWith(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
+              as String,
+      currentDocumentLink: null == currentDocumentLink
+          ? _value.currentDocumentLink
+          : currentDocumentLink // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -266,7 +442,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String link});
+  $Res call({String link, String currentDocumentLink});
 }
 
 /// @nodoc
@@ -283,11 +459,16 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? link = null,
+    Object? currentDocumentLink = null,
   }) {
     return _then(_$InitialImpl(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
+              as String,
+      currentDocumentLink: null == currentDocumentLink
+          ? _value.currentDocumentLink
+          : currentDocumentLink // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -296,14 +477,16 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl({required this.link});
+  const _$InitialImpl({required this.link, required this.currentDocumentLink});
 
   @override
   final String link;
+  @override
+  final String currentDocumentLink;
 
   @override
   String toString() {
-    return 'WebViewState.initial(link: $link)';
+    return 'WebViewState.initial(link: $link, currentDocumentLink: $currentDocumentLink)';
   }
 
   @override
@@ -311,11 +494,13 @@ class _$InitialImpl implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
-            (identical(other.link, link) || other.link == link));
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.currentDocumentLink, currentDocumentLink) ||
+                other.currentDocumentLink == currentDocumentLink));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, link);
+  int get hashCode => Object.hash(runtimeType, link, currentDocumentLink);
 
   /// Create a copy of WebViewState
   /// with the given fields replaced by the non-null parameter values.
@@ -328,30 +513,30 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String link) initial,
-    required TResult Function(String link) checked,
+    required TResult Function(String link, String currentDocumentLink) initial,
+    required TResult Function(String link, String currentDocumentLink) checked,
   }) {
-    return initial(link);
+    return initial(link, currentDocumentLink);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String link)? initial,
-    TResult? Function(String link)? checked,
+    TResult? Function(String link, String currentDocumentLink)? initial,
+    TResult? Function(String link, String currentDocumentLink)? checked,
   }) {
-    return initial?.call(link);
+    return initial?.call(link, currentDocumentLink);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String link)? initial,
-    TResult Function(String link)? checked,
+    TResult Function(String link, String currentDocumentLink)? initial,
+    TResult Function(String link, String currentDocumentLink)? checked,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(link);
+      return initial(link, currentDocumentLink);
     }
     return orElse();
   }
@@ -389,10 +574,14 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements WebViewState {
-  const factory _Initial({required final String link}) = _$InitialImpl;
+  const factory _Initial(
+      {required final String link,
+      required final String currentDocumentLink}) = _$InitialImpl;
 
   @override
   String get link;
+  @override
+  String get currentDocumentLink;
 
   /// Create a copy of WebViewState
   /// with the given fields replaced by the non-null parameter values.
@@ -410,7 +599,7 @@ abstract class _$$CheckedImplCopyWith<$Res>
       __$$CheckedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String link});
+  $Res call({String link, String currentDocumentLink});
 }
 
 /// @nodoc
@@ -427,11 +616,16 @@ class __$$CheckedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? link = null,
+    Object? currentDocumentLink = null,
   }) {
     return _then(_$CheckedImpl(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
+              as String,
+      currentDocumentLink: null == currentDocumentLink
+          ? _value.currentDocumentLink
+          : currentDocumentLink // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -440,14 +634,16 @@ class __$$CheckedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CheckedImpl implements _Checked {
-  const _$CheckedImpl({required this.link});
+  const _$CheckedImpl({required this.link, required this.currentDocumentLink});
 
   @override
   final String link;
+  @override
+  final String currentDocumentLink;
 
   @override
   String toString() {
-    return 'WebViewState.checked(link: $link)';
+    return 'WebViewState.checked(link: $link, currentDocumentLink: $currentDocumentLink)';
   }
 
   @override
@@ -455,11 +651,13 @@ class _$CheckedImpl implements _Checked {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CheckedImpl &&
-            (identical(other.link, link) || other.link == link));
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.currentDocumentLink, currentDocumentLink) ||
+                other.currentDocumentLink == currentDocumentLink));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, link);
+  int get hashCode => Object.hash(runtimeType, link, currentDocumentLink);
 
   /// Create a copy of WebViewState
   /// with the given fields replaced by the non-null parameter values.
@@ -472,30 +670,30 @@ class _$CheckedImpl implements _Checked {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String link) initial,
-    required TResult Function(String link) checked,
+    required TResult Function(String link, String currentDocumentLink) initial,
+    required TResult Function(String link, String currentDocumentLink) checked,
   }) {
-    return checked(link);
+    return checked(link, currentDocumentLink);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String link)? initial,
-    TResult? Function(String link)? checked,
+    TResult? Function(String link, String currentDocumentLink)? initial,
+    TResult? Function(String link, String currentDocumentLink)? checked,
   }) {
-    return checked?.call(link);
+    return checked?.call(link, currentDocumentLink);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String link)? initial,
-    TResult Function(String link)? checked,
+    TResult Function(String link, String currentDocumentLink)? initial,
+    TResult Function(String link, String currentDocumentLink)? checked,
     required TResult orElse(),
   }) {
     if (checked != null) {
-      return checked(link);
+      return checked(link, currentDocumentLink);
     }
     return orElse();
   }
@@ -533,10 +731,14 @@ class _$CheckedImpl implements _Checked {
 }
 
 abstract class _Checked implements WebViewState {
-  const factory _Checked({required final String link}) = _$CheckedImpl;
+  const factory _Checked(
+      {required final String link,
+      required final String currentDocumentLink}) = _$CheckedImpl;
 
   @override
   String get link;
+  @override
+  String get currentDocumentLink;
 
   /// Create a copy of WebViewState
   /// with the given fields replaced by the non-null parameter values.

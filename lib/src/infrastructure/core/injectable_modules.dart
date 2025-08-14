@@ -11,10 +11,6 @@ abstract class FirebaseInjectableModule {
   String get defaultLink =>
       'https://${getIt<DioSettings>().url}/documents/?mobile=true';
 
-  @Named(UrlNames.checkedLink)
-  @lazySingleton
-  String get checkedLink => '$defaultLink&checked=true';
-
   @Named(DioNames.dio)
   @lazySingleton
   Dio get dio => getIt<DioSettings>().dio;

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:liveness_detection/liveness_detection_sdk.dart';
@@ -9,7 +10,6 @@ import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/common/storage_keys.dart';
 import 'package:liveness_detection/src/presentation/core/core.dart';
-import 'package:liveness_detection/src/presentation/core/router/app_router.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/cheburashka_photo_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -30,7 +30,9 @@ class WebViewScreen extends HookWidget {
       final token = await getIt<FlutterSecureStorage>().read(
         key: StorageKeys.authorizationToken,
       );
-      final webViewBloc = getIt<WebViewBloc>();
+      if (!context.mounted) return;
+      
+      final webViewBloc = context.read<WebViewBloc>();
       await webViewController.loadRequest(
         Uri.parse(webViewBloc.state.link),
         headers: {'Authorization': token!},
@@ -57,10 +59,20 @@ class WebViewScreen extends HookWidget {
             ''');
             },
             onUrlChange: (change) async {
+              final url = change.url ?? '';
+
               Utils.liveness_detectionLog(
-                change.url,
+                url,
                 extraTag: 'web-view-current-url',
               );
+
+              if (url.contains('sign_document')) {
+                context.read<WebViewBloc>().add(
+                      WebViewEvent.currentDocumentLinkInitialized(
+                        link: url,
+                      ),
+                    );
+              }
             },
           ),
         )

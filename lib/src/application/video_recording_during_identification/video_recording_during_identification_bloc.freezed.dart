@@ -572,6 +572,8 @@ mixin _$VideoRecordingDuringIdentificationState {
   bool get isRecording => throw _privateConstructorUsedError;
   CameraDescription? get camera => throw _privateConstructorUsedError;
   File? get capturedVideo => throw _privateConstructorUsedError;
+  String? get videoPath => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of VideoRecordingDuringIdentificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -593,7 +595,9 @@ abstract class $VideoRecordingDuringIdentificationStateCopyWith<$Res> {
       {CameraController? controller,
       bool isRecording,
       CameraDescription? camera,
-      File? capturedVideo});
+      File? capturedVideo,
+      String? videoPath,
+      String? error});
 }
 
 /// @nodoc
@@ -617,6 +621,8 @@ class _$VideoRecordingDuringIdentificationStateCopyWithImpl<$Res,
     Object? isRecording = null,
     Object? camera = freezed,
     Object? capturedVideo = freezed,
+    Object? videoPath = freezed,
+    Object? error = freezed,
   }) {
     return _then(_value.copyWith(
       controller: freezed == controller
@@ -635,6 +641,14 @@ class _$VideoRecordingDuringIdentificationStateCopyWithImpl<$Res,
           ? _value.capturedVideo
           : capturedVideo // ignore: cast_nullable_to_non_nullable
               as File?,
+      videoPath: freezed == videoPath
+          ? _value.videoPath
+          : videoPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -652,7 +666,9 @@ abstract class _$$VideoRecordingDuringIdentificationStateImplCopyWith<$Res>
       {CameraController? controller,
       bool isRecording,
       CameraDescription? camera,
-      File? capturedVideo});
+      File? capturedVideo,
+      String? videoPath,
+      String? error});
 }
 
 /// @nodoc
@@ -674,6 +690,8 @@ class __$$VideoRecordingDuringIdentificationStateImplCopyWithImpl<$Res>
     Object? isRecording = null,
     Object? camera = freezed,
     Object? capturedVideo = freezed,
+    Object? videoPath = freezed,
+    Object? error = freezed,
   }) {
     return _then(_$VideoRecordingDuringIdentificationStateImpl(
       controller: freezed == controller
@@ -692,6 +710,14 @@ class __$$VideoRecordingDuringIdentificationStateImplCopyWithImpl<$Res>
           ? _value.capturedVideo
           : capturedVideo // ignore: cast_nullable_to_non_nullable
               as File?,
+      videoPath: freezed == videoPath
+          ? _value.videoPath
+          : videoPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -704,7 +730,9 @@ class _$VideoRecordingDuringIdentificationStateImpl
       {this.controller,
       this.isRecording = false,
       this.camera,
-      this.capturedVideo});
+      this.capturedVideo,
+      this.videoPath,
+      this.error});
 
   @override
   final CameraController? controller;
@@ -715,10 +743,14 @@ class _$VideoRecordingDuringIdentificationStateImpl
   final CameraDescription? camera;
   @override
   final File? capturedVideo;
+  @override
+  final String? videoPath;
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'VideoRecordingDuringIdentificationState(controller: $controller, isRecording: $isRecording, camera: $camera, capturedVideo: $capturedVideo)';
+    return 'VideoRecordingDuringIdentificationState(controller: $controller, isRecording: $isRecording, camera: $camera, capturedVideo: $capturedVideo, videoPath: $videoPath, error: $error)';
   }
 
   @override
@@ -732,12 +764,15 @@ class _$VideoRecordingDuringIdentificationStateImpl
                 other.isRecording == isRecording) &&
             (identical(other.camera, camera) || other.camera == camera) &&
             (identical(other.capturedVideo, capturedVideo) ||
-                other.capturedVideo == capturedVideo));
+                other.capturedVideo == capturedVideo) &&
+            (identical(other.videoPath, videoPath) ||
+                other.videoPath == videoPath) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, controller, isRecording, camera, capturedVideo);
+  int get hashCode => Object.hash(runtimeType, controller, isRecording, camera,
+      capturedVideo, videoPath, error);
 
   /// Create a copy of VideoRecordingDuringIdentificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -754,11 +789,12 @@ class _$VideoRecordingDuringIdentificationStateImpl
 abstract class _VideoRecordingDuringIdentificationState
     implements VideoRecordingDuringIdentificationState {
   const factory _VideoRecordingDuringIdentificationState(
-          {final CameraController? controller,
-          final bool isRecording,
-          final CameraDescription? camera,
-          final File? capturedVideo}) =
-      _$VideoRecordingDuringIdentificationStateImpl;
+      {final CameraController? controller,
+      final bool isRecording,
+      final CameraDescription? camera,
+      final File? capturedVideo,
+      final String? videoPath,
+      final String? error}) = _$VideoRecordingDuringIdentificationStateImpl;
 
   @override
   CameraController? get controller;
@@ -768,6 +804,10 @@ abstract class _VideoRecordingDuringIdentificationState
   CameraDescription? get camera;
   @override
   File? get capturedVideo;
+  @override
+  String? get videoPath;
+  @override
+  String? get error;
 
   /// Create a copy of VideoRecordingDuringIdentificationState
   /// with the given fields replaced by the non-null parameter values.

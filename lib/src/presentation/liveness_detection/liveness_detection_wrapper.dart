@@ -35,20 +35,24 @@ class LivenessDetectionWrapper extends StatelessWidget {
               BlocProvider(create: (context) => getIt<WebViewBloc>()),
               BlocProvider(create: (context) => getIt<OtpBloc>()),
             ],
-            child: Navigator(
-              onGenerateRoute: (_) => MaterialPageRoute(
-                builder: (context) => ScreenUtilInit(
-                  designSize: const Size(
-                    390,
-                    844,
+            child: Builder(
+              builder: (context) {
+                return Navigator(
+                  onGenerateRoute: (_) => MaterialPageRoute(
+                    builder: (context) => ScreenUtilInit(
+                      designSize: const Size(
+                        390,
+                        844,
+                      ),
+                      minTextAdapt: true,
+                      splitScreenMode: true,
+                      builder: (context, child) {
+                        return const WebViewScreen();
+                      },
+                    ),
                   ),
-                  minTextAdapt: true,
-                  splitScreenMode: true,
-                  builder: (context, child) {
-                    return const WebViewScreen();
-                  },
-                ),
-              ),
+                );
+              },
             ),
           );
         } else {

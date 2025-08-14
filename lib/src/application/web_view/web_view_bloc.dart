@@ -7,17 +7,31 @@ part 'web_view_event.dart';
 part 'web_view_state.dart';
 part 'web_view_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class WebViewBloc extends Bloc<WebViewEvent, WebViewState> {
   WebViewBloc(
     @Named(UrlNames.defaultLink) this.defaultLink,
-    @Named(UrlNames.checkedLink) this.checkedLink,
-  ) : super(WebViewState.initial(link: defaultLink)) {
+  ) : super(WebViewState.initial(
+          link: defaultLink,
+          currentDocumentLink: '',
+        )) {
     on<WebViewEvent>(
       (event, emit) {
         event.map(
+          currentDocumentLinkInitialized: (e) {
+            emit(
+              state.copyWith(
+                currentDocumentLink: e.link,
+              ),
+            );
+          },
           indentificationPassed: (e) {
-            emit(WebViewState.checked(link: checkedLink));
+            emit(
+              WebViewState.checked(
+                link: '${state.currentDocumentLink}&checked=true',
+                currentDocumentLink: state.currentDocumentLink,
+              ),
+            );
           },
         );
       },
@@ -25,5 +39,4 @@ class WebViewBloc extends Bloc<WebViewEvent, WebViewState> {
   }
 
   final String defaultLink;
-  final String checkedLink;
 }

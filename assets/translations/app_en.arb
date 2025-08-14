@@ -6,6 +6,7 @@
     "continuee": "Continue",
     "server_error": "Server error occurred",
     "unexpected_error": "Unexpected error occurred",
+    "upload_and_check_error": "Error uploading and checking image",
     "verification_success": "Verification successful.",
     "authentication_failed": "Authentication failed. Please check your credentials.",
     "no_face_in_live": "No face detected in the live photo.",

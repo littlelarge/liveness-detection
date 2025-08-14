@@ -22,6 +22,7 @@ mixin _$PassportFailure {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -45,6 +46,7 @@ mixin _$PassportFailure {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -68,6 +70,7 @@ mixin _$PassportFailure {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -92,6 +95,7 @@ mixin _$PassportFailure {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -119,6 +123,7 @@ mixin _$PassportFailure {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -144,6 +149,7 @@ mixin _$PassportFailure {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -274,6 +280,7 @@ class _$CSRFFailedImpl extends _CSRFFailed {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -300,6 +307,7 @@ class _$CSRFFailedImpl extends _CSRFFailed {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -326,6 +334,7 @@ class _$CSRFFailedImpl extends _CSRFFailed {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -356,6 +365,7 @@ class _$CSRFFailedImpl extends _CSRFFailed {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -386,6 +396,7 @@ class _$CSRFFailedImpl extends _CSRFFailed {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -414,6 +425,7 @@ class _$CSRFFailedImpl extends _CSRFFailed {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -525,6 +537,7 @@ class _$ServerErrorImpl extends _ServerError {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -551,6 +564,7 @@ class _$ServerErrorImpl extends _ServerError {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -577,6 +591,7 @@ class _$ServerErrorImpl extends _ServerError {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -607,6 +622,7 @@ class _$ServerErrorImpl extends _ServerError {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -637,6 +653,7 @@ class _$ServerErrorImpl extends _ServerError {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -665,6 +682,7 @@ class _$ServerErrorImpl extends _ServerError {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -777,6 +795,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -803,6 +822,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -829,6 +849,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -859,6 +880,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -889,6 +911,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -917,6 +940,7 @@ class _$UnexpectedErrorImpl extends _UnexpectedError {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -954,6 +978,264 @@ abstract class _UnexpectedError extends PassportFailure {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnexpectedErrorImplCopyWith<_$UnexpectedErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadAndCheckErrorImplCopyWith<$Res>
+    implements $PassportFailureCopyWith<$Res> {
+  factory _$$UploadAndCheckErrorImplCopyWith(_$UploadAndCheckErrorImpl value,
+          $Res Function(_$UploadAndCheckErrorImpl) then) =
+      __$$UploadAndCheckErrorImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Object error});
+}
+
+/// @nodoc
+class __$$UploadAndCheckErrorImplCopyWithImpl<$Res>
+    extends _$PassportFailureCopyWithImpl<$Res, _$UploadAndCheckErrorImpl>
+    implements _$$UploadAndCheckErrorImplCopyWith<$Res> {
+  __$$UploadAndCheckErrorImplCopyWithImpl(_$UploadAndCheckErrorImpl _value,
+      $Res Function(_$UploadAndCheckErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PassportFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$UploadAndCheckErrorImpl(
+      null == error ? _value.error : error,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UploadAndCheckErrorImpl extends _UploadAndCheckError {
+  _$UploadAndCheckErrorImpl(this.error) : super._();
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'PassportFailure.uploadAndCheckError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadAndCheckErrorImpl &&
+            const DeepCollectionEquality().equals(other.error, error));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  /// Create a copy of PassportFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadAndCheckErrorImplCopyWith<_$UploadAndCheckErrorImpl> get copyWith =>
+      __$$UploadAndCheckErrorImplCopyWithImpl<_$UploadAndCheckErrorImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Object error) csrfFailed,
+    required TResult Function(Object error) serverError,
+    required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
+    required TResult Function(Object error) verificationSuccess,
+    required TResult Function(Object error) authenticationFailed,
+    required TResult Function(Object error) noFaceInLive,
+    required TResult Function(Object error) faceTooSmallLive,
+    required TResult Function(Object error) faceBlurryLive,
+    required TResult Function(Object error) faceNotCenteredLive,
+    required TResult Function(Object error) invalidImageFormatLive,
+    required TResult Function(Object error) livenessCheckFailed,
+    required TResult Function(Object error) invalidJson,
+    required TResult Function(Object error) noFaceInIdCard,
+    required TResult Function(Object error) faceTooSmallInIdCard,
+    required TResult Function(Object error) faceBlurryInIdCard,
+    required TResult Function(Object error) faceNotVisibleInIdCard,
+    required TResult Function(Object error) invalidImageFormatIdCard,
+    required TResult Function(Object error) imageIsEmpty,
+    required TResult Function(Object error) imageMustContainTwoFaces,
+  }) {
+    return uploadAndCheckError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Object error)? csrfFailed,
+    TResult? Function(Object error)? serverError,
+    TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
+    TResult? Function(Object error)? verificationSuccess,
+    TResult? Function(Object error)? authenticationFailed,
+    TResult? Function(Object error)? noFaceInLive,
+    TResult? Function(Object error)? faceTooSmallLive,
+    TResult? Function(Object error)? faceBlurryLive,
+    TResult? Function(Object error)? faceNotCenteredLive,
+    TResult? Function(Object error)? invalidImageFormatLive,
+    TResult? Function(Object error)? livenessCheckFailed,
+    TResult? Function(Object error)? invalidJson,
+    TResult? Function(Object error)? noFaceInIdCard,
+    TResult? Function(Object error)? faceTooSmallInIdCard,
+    TResult? Function(Object error)? faceBlurryInIdCard,
+    TResult? Function(Object error)? faceNotVisibleInIdCard,
+    TResult? Function(Object error)? invalidImageFormatIdCard,
+    TResult? Function(Object error)? imageIsEmpty,
+    TResult? Function(Object error)? imageMustContainTwoFaces,
+  }) {
+    return uploadAndCheckError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Object error)? csrfFailed,
+    TResult Function(Object error)? serverError,
+    TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
+    TResult Function(Object error)? verificationSuccess,
+    TResult Function(Object error)? authenticationFailed,
+    TResult Function(Object error)? noFaceInLive,
+    TResult Function(Object error)? faceTooSmallLive,
+    TResult Function(Object error)? faceBlurryLive,
+    TResult Function(Object error)? faceNotCenteredLive,
+    TResult Function(Object error)? invalidImageFormatLive,
+    TResult Function(Object error)? livenessCheckFailed,
+    TResult Function(Object error)? invalidJson,
+    TResult Function(Object error)? noFaceInIdCard,
+    TResult Function(Object error)? faceTooSmallInIdCard,
+    TResult Function(Object error)? faceBlurryInIdCard,
+    TResult Function(Object error)? faceNotVisibleInIdCard,
+    TResult Function(Object error)? invalidImageFormatIdCard,
+    TResult Function(Object error)? imageIsEmpty,
+    TResult Function(Object error)? imageMustContainTwoFaces,
+    required TResult orElse(),
+  }) {
+    if (uploadAndCheckError != null) {
+      return uploadAndCheckError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CSRFFailed value) csrfFailed,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
+    required TResult Function(_VerificationSuccess value) verificationSuccess,
+    required TResult Function(_AuthenticationFailed value) authenticationFailed,
+    required TResult Function(_NoFaceInLive value) noFaceInLive,
+    required TResult Function(_FaceTooSmallLive value) faceTooSmallLive,
+    required TResult Function(_FaceBlurryLive value) faceBlurryLive,
+    required TResult Function(_FaceNotCenteredLive value) faceNotCenteredLive,
+    required TResult Function(_InvalidImageFormatLive value)
+        invalidImageFormatLive,
+    required TResult Function(_LivenessCheckFailed value) livenessCheckFailed,
+    required TResult Function(_InvalidJson value) invalidJson,
+    required TResult Function(_NoFaceInIdCard value) noFaceInIdCard,
+    required TResult Function(_FaceTooSmallInIdCard value) faceTooSmallInIdCard,
+    required TResult Function(_FaceBlurryInIdCard value) faceBlurryInIdCard,
+    required TResult Function(_FaceNotVisibleInIdCard value)
+        faceNotVisibleInIdCard,
+    required TResult Function(_InvalidImageFormatIdCard value)
+        invalidImageFormatIdCard,
+    required TResult Function(_ImageIsEmpty value) imageIsEmpty,
+    required TResult Function(_ImageMustContainTwoFaces value)
+        imageMustContainTwoFaces,
+  }) {
+    return uploadAndCheckError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CSRFFailed value)? csrfFailed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
+    TResult? Function(_VerificationSuccess value)? verificationSuccess,
+    TResult? Function(_AuthenticationFailed value)? authenticationFailed,
+    TResult? Function(_NoFaceInLive value)? noFaceInLive,
+    TResult? Function(_FaceTooSmallLive value)? faceTooSmallLive,
+    TResult? Function(_FaceBlurryLive value)? faceBlurryLive,
+    TResult? Function(_FaceNotCenteredLive value)? faceNotCenteredLive,
+    TResult? Function(_InvalidImageFormatLive value)? invalidImageFormatLive,
+    TResult? Function(_LivenessCheckFailed value)? livenessCheckFailed,
+    TResult? Function(_InvalidJson value)? invalidJson,
+    TResult? Function(_NoFaceInIdCard value)? noFaceInIdCard,
+    TResult? Function(_FaceTooSmallInIdCard value)? faceTooSmallInIdCard,
+    TResult? Function(_FaceBlurryInIdCard value)? faceBlurryInIdCard,
+    TResult? Function(_FaceNotVisibleInIdCard value)? faceNotVisibleInIdCard,
+    TResult? Function(_InvalidImageFormatIdCard value)?
+        invalidImageFormatIdCard,
+    TResult? Function(_ImageIsEmpty value)? imageIsEmpty,
+    TResult? Function(_ImageMustContainTwoFaces value)?
+        imageMustContainTwoFaces,
+  }) {
+    return uploadAndCheckError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CSRFFailed value)? csrfFailed,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
+    TResult Function(_VerificationSuccess value)? verificationSuccess,
+    TResult Function(_AuthenticationFailed value)? authenticationFailed,
+    TResult Function(_NoFaceInLive value)? noFaceInLive,
+    TResult Function(_FaceTooSmallLive value)? faceTooSmallLive,
+    TResult Function(_FaceBlurryLive value)? faceBlurryLive,
+    TResult Function(_FaceNotCenteredLive value)? faceNotCenteredLive,
+    TResult Function(_InvalidImageFormatLive value)? invalidImageFormatLive,
+    TResult Function(_LivenessCheckFailed value)? livenessCheckFailed,
+    TResult Function(_InvalidJson value)? invalidJson,
+    TResult Function(_NoFaceInIdCard value)? noFaceInIdCard,
+    TResult Function(_FaceTooSmallInIdCard value)? faceTooSmallInIdCard,
+    TResult Function(_FaceBlurryInIdCard value)? faceBlurryInIdCard,
+    TResult Function(_FaceNotVisibleInIdCard value)? faceNotVisibleInIdCard,
+    TResult Function(_InvalidImageFormatIdCard value)? invalidImageFormatIdCard,
+    TResult Function(_ImageIsEmpty value)? imageIsEmpty,
+    TResult Function(_ImageMustContainTwoFaces value)? imageMustContainTwoFaces,
+    required TResult orElse(),
+  }) {
+    if (uploadAndCheckError != null) {
+      return uploadAndCheckError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UploadAndCheckError extends PassportFailure {
+  factory _UploadAndCheckError(final Object error) = _$UploadAndCheckErrorImpl;
+  _UploadAndCheckError._() : super._();
+
+  @override
+  Object get error;
+
+  /// Create a copy of PassportFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UploadAndCheckErrorImplCopyWith<_$UploadAndCheckErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1029,6 +1311,7 @@ class _$VerificationSuccessImpl extends _VerificationSuccess {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -1055,6 +1338,7 @@ class _$VerificationSuccessImpl extends _VerificationSuccess {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -1081,6 +1365,7 @@ class _$VerificationSuccessImpl extends _VerificationSuccess {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -1111,6 +1396,7 @@ class _$VerificationSuccessImpl extends _VerificationSuccess {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -1141,6 +1427,7 @@ class _$VerificationSuccessImpl extends _VerificationSuccess {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -1169,6 +1456,7 @@ class _$VerificationSuccessImpl extends _VerificationSuccess {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -1282,6 +1570,7 @@ class _$AuthenticationFailedImpl extends _AuthenticationFailed {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -1308,6 +1597,7 @@ class _$AuthenticationFailedImpl extends _AuthenticationFailed {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -1334,6 +1624,7 @@ class _$AuthenticationFailedImpl extends _AuthenticationFailed {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -1364,6 +1655,7 @@ class _$AuthenticationFailedImpl extends _AuthenticationFailed {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -1394,6 +1686,7 @@ class _$AuthenticationFailedImpl extends _AuthenticationFailed {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -1422,6 +1715,7 @@ class _$AuthenticationFailedImpl extends _AuthenticationFailed {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -1534,6 +1828,7 @@ class _$NoFaceInLiveImpl extends _NoFaceInLive {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -1560,6 +1855,7 @@ class _$NoFaceInLiveImpl extends _NoFaceInLive {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -1586,6 +1882,7 @@ class _$NoFaceInLiveImpl extends _NoFaceInLive {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -1616,6 +1913,7 @@ class _$NoFaceInLiveImpl extends _NoFaceInLive {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -1646,6 +1944,7 @@ class _$NoFaceInLiveImpl extends _NoFaceInLive {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -1674,6 +1973,7 @@ class _$NoFaceInLiveImpl extends _NoFaceInLive {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -1786,6 +2086,7 @@ class _$FaceTooSmallLiveImpl extends _FaceTooSmallLive {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -1812,6 +2113,7 @@ class _$FaceTooSmallLiveImpl extends _FaceTooSmallLive {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -1838,6 +2140,7 @@ class _$FaceTooSmallLiveImpl extends _FaceTooSmallLive {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -1868,6 +2171,7 @@ class _$FaceTooSmallLiveImpl extends _FaceTooSmallLive {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -1898,6 +2202,7 @@ class _$FaceTooSmallLiveImpl extends _FaceTooSmallLive {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -1926,6 +2231,7 @@ class _$FaceTooSmallLiveImpl extends _FaceTooSmallLive {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -2038,6 +2344,7 @@ class _$FaceBlurryLiveImpl extends _FaceBlurryLive {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -2064,6 +2371,7 @@ class _$FaceBlurryLiveImpl extends _FaceBlurryLive {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -2090,6 +2398,7 @@ class _$FaceBlurryLiveImpl extends _FaceBlurryLive {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -2120,6 +2429,7 @@ class _$FaceBlurryLiveImpl extends _FaceBlurryLive {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -2150,6 +2460,7 @@ class _$FaceBlurryLiveImpl extends _FaceBlurryLive {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -2178,6 +2489,7 @@ class _$FaceBlurryLiveImpl extends _FaceBlurryLive {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -2290,6 +2602,7 @@ class _$FaceNotCenteredLiveImpl extends _FaceNotCenteredLive {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -2316,6 +2629,7 @@ class _$FaceNotCenteredLiveImpl extends _FaceNotCenteredLive {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -2342,6 +2656,7 @@ class _$FaceNotCenteredLiveImpl extends _FaceNotCenteredLive {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -2372,6 +2687,7 @@ class _$FaceNotCenteredLiveImpl extends _FaceNotCenteredLive {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -2402,6 +2718,7 @@ class _$FaceNotCenteredLiveImpl extends _FaceNotCenteredLive {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -2430,6 +2747,7 @@ class _$FaceNotCenteredLiveImpl extends _FaceNotCenteredLive {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -2544,6 +2862,7 @@ class _$InvalidImageFormatLiveImpl extends _InvalidImageFormatLive {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -2570,6 +2889,7 @@ class _$InvalidImageFormatLiveImpl extends _InvalidImageFormatLive {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -2596,6 +2916,7 @@ class _$InvalidImageFormatLiveImpl extends _InvalidImageFormatLive {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -2626,6 +2947,7 @@ class _$InvalidImageFormatLiveImpl extends _InvalidImageFormatLive {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -2656,6 +2978,7 @@ class _$InvalidImageFormatLiveImpl extends _InvalidImageFormatLive {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -2684,6 +3007,7 @@ class _$InvalidImageFormatLiveImpl extends _InvalidImageFormatLive {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -2797,6 +3121,7 @@ class _$LivenessCheckFailedImpl extends _LivenessCheckFailed {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -2823,6 +3148,7 @@ class _$LivenessCheckFailedImpl extends _LivenessCheckFailed {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -2849,6 +3175,7 @@ class _$LivenessCheckFailedImpl extends _LivenessCheckFailed {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -2879,6 +3206,7 @@ class _$LivenessCheckFailedImpl extends _LivenessCheckFailed {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -2909,6 +3237,7 @@ class _$LivenessCheckFailedImpl extends _LivenessCheckFailed {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -2937,6 +3266,7 @@ class _$LivenessCheckFailedImpl extends _LivenessCheckFailed {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -3048,6 +3378,7 @@ class _$InvalidJsonImpl extends _InvalidJson {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -3074,6 +3405,7 @@ class _$InvalidJsonImpl extends _InvalidJson {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -3100,6 +3432,7 @@ class _$InvalidJsonImpl extends _InvalidJson {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -3130,6 +3463,7 @@ class _$InvalidJsonImpl extends _InvalidJson {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -3160,6 +3494,7 @@ class _$InvalidJsonImpl extends _InvalidJson {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -3188,6 +3523,7 @@ class _$InvalidJsonImpl extends _InvalidJson {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -3300,6 +3636,7 @@ class _$NoFaceInIdCardImpl extends _NoFaceInIdCard {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -3326,6 +3663,7 @@ class _$NoFaceInIdCardImpl extends _NoFaceInIdCard {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -3352,6 +3690,7 @@ class _$NoFaceInIdCardImpl extends _NoFaceInIdCard {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -3382,6 +3721,7 @@ class _$NoFaceInIdCardImpl extends _NoFaceInIdCard {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -3412,6 +3752,7 @@ class _$NoFaceInIdCardImpl extends _NoFaceInIdCard {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -3440,6 +3781,7 @@ class _$NoFaceInIdCardImpl extends _NoFaceInIdCard {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -3553,6 +3895,7 @@ class _$FaceTooSmallInIdCardImpl extends _FaceTooSmallInIdCard {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -3579,6 +3922,7 @@ class _$FaceTooSmallInIdCardImpl extends _FaceTooSmallInIdCard {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -3605,6 +3949,7 @@ class _$FaceTooSmallInIdCardImpl extends _FaceTooSmallInIdCard {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -3635,6 +3980,7 @@ class _$FaceTooSmallInIdCardImpl extends _FaceTooSmallInIdCard {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -3665,6 +4011,7 @@ class _$FaceTooSmallInIdCardImpl extends _FaceTooSmallInIdCard {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -3693,6 +4040,7 @@ class _$FaceTooSmallInIdCardImpl extends _FaceTooSmallInIdCard {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -3806,6 +4154,7 @@ class _$FaceBlurryInIdCardImpl extends _FaceBlurryInIdCard {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -3832,6 +4181,7 @@ class _$FaceBlurryInIdCardImpl extends _FaceBlurryInIdCard {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -3858,6 +4208,7 @@ class _$FaceBlurryInIdCardImpl extends _FaceBlurryInIdCard {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -3888,6 +4239,7 @@ class _$FaceBlurryInIdCardImpl extends _FaceBlurryInIdCard {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -3918,6 +4270,7 @@ class _$FaceBlurryInIdCardImpl extends _FaceBlurryInIdCard {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -3946,6 +4299,7 @@ class _$FaceBlurryInIdCardImpl extends _FaceBlurryInIdCard {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -4060,6 +4414,7 @@ class _$FaceNotVisibleInIdCardImpl extends _FaceNotVisibleInIdCard {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -4086,6 +4441,7 @@ class _$FaceNotVisibleInIdCardImpl extends _FaceNotVisibleInIdCard {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -4112,6 +4468,7 @@ class _$FaceNotVisibleInIdCardImpl extends _FaceNotVisibleInIdCard {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -4142,6 +4499,7 @@ class _$FaceNotVisibleInIdCardImpl extends _FaceNotVisibleInIdCard {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -4172,6 +4530,7 @@ class _$FaceNotVisibleInIdCardImpl extends _FaceNotVisibleInIdCard {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -4200,6 +4559,7 @@ class _$FaceNotVisibleInIdCardImpl extends _FaceNotVisibleInIdCard {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -4315,6 +4675,7 @@ class _$InvalidImageFormatIdCardImpl extends _InvalidImageFormatIdCard {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -4341,6 +4702,7 @@ class _$InvalidImageFormatIdCardImpl extends _InvalidImageFormatIdCard {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -4367,6 +4729,7 @@ class _$InvalidImageFormatIdCardImpl extends _InvalidImageFormatIdCard {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -4397,6 +4760,7 @@ class _$InvalidImageFormatIdCardImpl extends _InvalidImageFormatIdCard {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -4427,6 +4791,7 @@ class _$InvalidImageFormatIdCardImpl extends _InvalidImageFormatIdCard {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -4455,6 +4820,7 @@ class _$InvalidImageFormatIdCardImpl extends _InvalidImageFormatIdCard {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -4567,6 +4933,7 @@ class _$ImageIsEmptyImpl extends _ImageIsEmpty {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -4593,6 +4960,7 @@ class _$ImageIsEmptyImpl extends _ImageIsEmpty {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -4619,6 +4987,7 @@ class _$ImageIsEmptyImpl extends _ImageIsEmpty {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -4649,6 +5018,7 @@ class _$ImageIsEmptyImpl extends _ImageIsEmpty {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -4679,6 +5049,7 @@ class _$ImageIsEmptyImpl extends _ImageIsEmpty {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -4707,6 +5078,7 @@ class _$ImageIsEmptyImpl extends _ImageIsEmpty {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,
@@ -4821,6 +5193,7 @@ class _$ImageMustContainTwoFacesImpl extends _ImageMustContainTwoFaces {
     required TResult Function(Object error) csrfFailed,
     required TResult Function(Object error) serverError,
     required TResult Function(Object error) unexpectedError,
+    required TResult Function(Object error) uploadAndCheckError,
     required TResult Function(Object error) verificationSuccess,
     required TResult Function(Object error) authenticationFailed,
     required TResult Function(Object error) noFaceInLive,
@@ -4847,6 +5220,7 @@ class _$ImageMustContainTwoFacesImpl extends _ImageMustContainTwoFaces {
     TResult? Function(Object error)? csrfFailed,
     TResult? Function(Object error)? serverError,
     TResult? Function(Object error)? unexpectedError,
+    TResult? Function(Object error)? uploadAndCheckError,
     TResult? Function(Object error)? verificationSuccess,
     TResult? Function(Object error)? authenticationFailed,
     TResult? Function(Object error)? noFaceInLive,
@@ -4873,6 +5247,7 @@ class _$ImageMustContainTwoFacesImpl extends _ImageMustContainTwoFaces {
     TResult Function(Object error)? csrfFailed,
     TResult Function(Object error)? serverError,
     TResult Function(Object error)? unexpectedError,
+    TResult Function(Object error)? uploadAndCheckError,
     TResult Function(Object error)? verificationSuccess,
     TResult Function(Object error)? authenticationFailed,
     TResult Function(Object error)? noFaceInLive,
@@ -4903,6 +5278,7 @@ class _$ImageMustContainTwoFacesImpl extends _ImageMustContainTwoFaces {
     required TResult Function(_CSRFFailed value) csrfFailed,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_UploadAndCheckError value) uploadAndCheckError,
     required TResult Function(_VerificationSuccess value) verificationSuccess,
     required TResult Function(_AuthenticationFailed value) authenticationFailed,
     required TResult Function(_NoFaceInLive value) noFaceInLive,
@@ -4933,6 +5309,7 @@ class _$ImageMustContainTwoFacesImpl extends _ImageMustContainTwoFaces {
     TResult? Function(_CSRFFailed value)? csrfFailed,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult? Function(_VerificationSuccess value)? verificationSuccess,
     TResult? Function(_AuthenticationFailed value)? authenticationFailed,
     TResult? Function(_NoFaceInLive value)? noFaceInLive,
@@ -4961,6 +5338,7 @@ class _$ImageMustContainTwoFacesImpl extends _ImageMustContainTwoFaces {
     TResult Function(_CSRFFailed value)? csrfFailed,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_UploadAndCheckError value)? uploadAndCheckError,
     TResult Function(_VerificationSuccess value)? verificationSuccess,
     TResult Function(_AuthenticationFailed value)? authenticationFailed,
     TResult Function(_NoFaceInLive value)? noFaceInLive,

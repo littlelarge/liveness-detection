@@ -63,15 +63,13 @@ import 'app_localizations_ru.dart';
 /// property.
 abstract class LivenessLocalizations {
   LivenessLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static LivenessLocalizations of(BuildContext context) {
     return Localizations.of<LivenessLocalizations>(
-      context,
-      LivenessLocalizations,
-    )!;
+        context, LivenessLocalizations)!;
   }
 
   static const LocalizationsDelegate<LivenessLocalizations> delegate =
@@ -89,16 +87,16 @@ abstract class LivenessLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('ru'),
+    Locale('ru')
   ];
 
   /// No description provided for @front_side.
@@ -142,6 +140,12 @@ abstract class LivenessLocalizations {
   /// In en, this message translates to:
   /// **'Unexpected error occurred'**
   String get unexpected_error;
+
+  /// No description provided for @upload_and_check_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error uploading and checking image'**
+  String get upload_and_check_error;
 
   /// No description provided for @verification_success.
   ///
@@ -265,8 +269,7 @@ class _LivenessLocalizationsDelegate
   @override
   Future<LivenessLocalizations> load(Locale locale) {
     return SynchronousFuture<LivenessLocalizations>(
-      lookupLivenessLocalizations(locale),
-    );
+        lookupLivenessLocalizations(locale));
   }
 
   @override
@@ -287,9 +290,8 @@ LivenessLocalizations lookupLivenessLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-    'LivenessLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
-  );
+      'LivenessLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

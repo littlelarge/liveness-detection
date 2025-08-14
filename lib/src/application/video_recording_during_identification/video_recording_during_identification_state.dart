@@ -8,6 +8,8 @@ class VideoRecordingDuringIdentificationState
     @Default(false) bool isRecording,
     CameraDescription? camera,
     File? capturedVideo,
+    String? videoPath, 
+    String? error,
   }) = _VideoRecordingDuringIdentificationState;
 
   factory VideoRecordingDuringIdentificationState.initial() =>

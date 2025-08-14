@@ -27,8 +27,8 @@ extension PassportFailureMapper on PassportFailure {
       invalidImageFormatIdCard: (_) =>
           context.errors.invalidImageFormatIdCard, // 4013
       imageIsEmpty: (_) => context.errors.imageIsEmpty, // 6001
-      imageMustContainTwoFaces: (_) =>
-          context.errors.imageMustContainTwoFaces, // 6002
+      imageMustContainTwoFaces: (_) => context.errors.imageMustContainTwoFaces, // 6002
+      uploadAndCheckError: (_) => context.errors.uploadAndCheckError,
     );
   }
 }
