@@ -8,6 +8,7 @@ import 'package:liveness_detection/liveness_detection_sdk.dart';
 import 'package:liveness_detection/src/application/web_view/web_view_bloc.dart';
 import 'package:liveness_detection/src/common/di/injection.dart';
 import 'package:liveness_detection/src/common/storage_keys.dart';
+import 'package:liveness_detection/src/presentation/core/core.dart';
 import 'package:liveness_detection/src/presentation/core/router/app_router.dart';
 import 'package:liveness_detection/src/presentation/core/widgets/custom_scaffold.dart';
 import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/cheburashka_photo_screen.dart';
@@ -22,61 +23,43 @@ class WebViewScreen extends HookWidget {
   Widget build(BuildContext context) {
     final webViewController = useMemoized(() => WebViewController(), []);
     final hasNavigated = useRef(false);
+    final isLoading = useState(true);
 
-    String decodeWebViewHtml(Object rawHtml) {
-      var raw = rawHtml.toString().trim();
-
-      // Убираем внешние кавычки, если они есть
-      if (raw.startsWith('"') && raw.endsWith('"')) {
-        raw = raw.substring(1, raw.length - 1);
-      }
-
-      // Декодируем JSON-эскейп-последовательности (\u003C, \n и т.д.)
-      return jsonDecode('"$raw"').toString();
-    }
+    // future вычисляем 1 раз при монтировании
+    final loadFuture = useMemoized(() async {
+      final token = await getIt<FlutterSecureStorage>().read(
+        key: StorageKeys.authorizationToken,
+      );
+      final webViewBloc = getIt<WebViewBloc>();
+      await webViewController.loadRequest(
+        Uri.parse(webViewBloc.state.link),
+        headers: {'Authorization': token!},
+      );
+    }, []);
 
     useEffect(() {
-      // getToken() async {
-      //   final storage = getIt<FlutterSecureStorage>();
-
-      //   _token = await getIt<FlutterSecureStorage>().read(
-      //         key: StorageKeys.authorizationToken,
-      //       ) ??
-      //       '';
-      // }
-
-      // getToken();
-
       webViewController
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
         ..setNavigationDelegate(
           NavigationDelegate(
+            onPageStarted: (String url) {
+              isLoading.value = true;
+            },
             onPageFinished: (String url) async {
+              isLoading.value = false;
               await webViewController.runJavaScript('''
-                const btn = document.querySelector('.btn-primary');
-                if (btn) {
-                  btn.addEventListener('click', function() {
-                    window.flutter_injected.postMessage('btn-primary-clicked');
-                  });
-                }
-              ''');
+              const btn = document.querySelector('.btn-primary');
+              if (btn) {
+                btn.addEventListener('click', function() {
+                  window.flutter_injected.postMessage('btn-primary-clicked');
+                });
+              }
+            ''');
             },
             onUrlChange: (change) async {
               Utils.liveness_detectionLog(
                 change.url,
                 extraTag: 'web-view-current-url',
-              );
-
-              final rawHtml =
-                  await webViewController.runJavaScriptReturningResult(
-                "window.document.documentElement.outerHTML;",
-              );
-
-              final cleanHtml = decodeWebViewHtml(rawHtml);
-
-              Utils.liveness_detectionLog(
-                cleanHtml,
-                extraTag: 'web-view-html',
               );
             },
           ),
@@ -88,7 +71,6 @@ class WebViewScreen extends HookWidget {
                 (message.message == 'text-found' ||
                     message.message == 'btn-primary-clicked')) {
               hasNavigated.value = true;
-
               AppNavigator.push(
                 context,
                 const CheburashkaPhotoScreen(),
@@ -100,55 +82,52 @@ class WebViewScreen extends HookWidget {
       bool backInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
         () async {
           final canGoBack = await webViewController.canGoBack();
-
           if (!context.mounted) return;
-
           if (canGoBack) {
             await webViewController.goBack();
           } else {
             Navigator.of(context, rootNavigator: true).pop();
           }
         }();
-
         return true;
       }
 
       BackButtonInterceptor.add(backInterceptor);
-
-      return () {
-        BackButtonInterceptor.remove(backInterceptor);
-      };
+      return () => BackButtonInterceptor.remove(backInterceptor);
     }, []);
 
-    return FutureBuilder(
-      future: getIt<FlutterSecureStorage>()
-          .read(
-        key: StorageKeys.authorizationToken,
-      )
-          .then(
-        (value) async {
-          final webViewBloc = getIt<WebViewBloc>();
-
-          await webViewController.loadRequest(
-            Uri.parse(webViewBloc.state.link),
-            headers: {'Authorization': value!},
-          );
-        },
-      ),
+    return FutureBuilder<void>(
+      future: loadFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return CustomScaffold(
             body: SafeArea(
-              child: WebViewWidget(
-                controller: webViewController,
+              child: Stack(
+                children: [
+                  WebViewWidget(controller: webViewController),
+                  if (isLoading.value)
+                    Positioned.fill(
+                      child: AbsorbPointer(
+                        absorbing: true,
+                        child: Container(
+                          color: Colors.black.withAlpha(
+                            20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  if (isLoading.value)
+                    Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.primary,
+                      ),
+                    ),
+                ],
               ),
             ),
           );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
         }
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }
