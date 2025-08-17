@@ -20,7 +20,6 @@ class CheburashkaPhotoScreen extends StatelessWidget {
       await cameraController?.dispose();
 
       if (!context.mounted) return;
-
       Navigator.of(context).pop();
     }
   }
@@ -40,7 +39,6 @@ class CheburashkaPhotoScreen extends StatelessWidget {
                   context,
                   cheburashkaPhotoState.cameraController,
                 );
-
                 return false;
               },
               child: CustomScaffold(
@@ -59,71 +57,81 @@ class CheburashkaPhotoScreen extends StatelessWidget {
                       ? Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: 20.r,
-                            vertical: 40.r,
+                            vertical: 20.r,
                           ),
-                          child: Stack(
+                          child: Column(
                             children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    'Сделайте фото',
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyles.notoSans24SemiBold(
-                                      color: AppColors.primaryText,
+                              Text(
+                                'Сделайте фото',
+                                textAlign: TextAlign.center,
+                                style: AppTextStyles.notoSans24SemiBold(
+                                  color: AppColors.primaryText,
+                                ),
+                              ),
+                              Gap(4.r),
+                              Text(
+                                'Поместите лицо и паспорт в рамки ниже',
+                                textAlign: TextAlign.center,
+                                style: AppTextStyles.notoSans16Regular(),
+                              ),
+                              Gap(8.r),
+                              Expanded(
+                                child: Stack(
+                                  children: [
+                                    Positioned.fill(
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(16.r),
+                                        child: cheburashkaPhotoState
+                                                    .capturedImage ==
+                                                null
+                                            ? CameraPreview(
+                                                cheburashkaPhotoState
+                                                    .cameraController!,
+                                              )
+                                            : Image.memory(
+                                                cheburashkaPhotoState
+                                                    .capturedImage!,
+                                                fit: BoxFit.cover,
+                                              ),
+                                      ),
                                     ),
-                                  ),
-                                  Gap(4.r),
-                                  Text(
-                                    'Найдите хорошо освещенное место и сфотографируйтесь с паспортом так, как показано ниже',
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyles.notoSans16Regular(),
-                                  ),
-                                  Assets.icons.cheburashkaPhoto.svg(
-                                    width: 140.r,
-                                  ),
-                                  Gap(8.r),
-                                  Align(
-                                    alignment: AlignmentDirectional.topCenter,
-                                    child: SizedBox(
-                                      width: 230.r,
-                                      child: FittedBox(
-                                        fit: BoxFit.cover,
-                                        child: Container(
-                                          width: cheburashkaPhotoState
-                                              .cameraController!
-                                              .value
-                                              .previewSize!
-                                              .height,
-                                          height: cheburashkaPhotoState
-                                              .cameraController!
-                                              .value
-                                              .previewSize!
-                                              .width,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(80.r),
-                                          ),
-                                          clipBehavior: Clip.hardEdge,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(80.r),
-                                            child: cheburashkaPhotoState
-                                                        .capturedImage ==
-                                                    null
-                                                ? CameraPreview(
-                                                    cheburashkaPhotoState
-                                                        .cameraController!,
-                                                  )
-                                                : Image.memory(
-                                                    cheburashkaPhotoState
-                                                        .capturedImage!,
-                                                  ),
-                                          ),
+                                    Positioned.fill(
+                                      child: CustomPaint(
+                                        painter: FaceFramePainter(),
+                                      ),
+                                    ),
+                                    Positioned.fill(
+                                      child: CustomPaint(
+                                        painter: PassportFramePainter(),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 24.r,
+                                      left: 0,
+                                      right: 0,
+                                      child: Text(
+                                        "Поместите лицо в овал",
+                                        textAlign: TextAlign.center,
+                                        style: AppTextStyles.notoSans16SemiBold(
+                                          color: Colors.green,
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Positioned(
+                                      bottom: 190.r,
+                                      left: 0,
+                                      right: 0,
+                                      child: Text(
+                                        "Поместите паспорт в рамку",
+                                        textAlign: TextAlign.center,
+                                        style: AppTextStyles.notoSans16SemiBold(
+                                          color: Colors.orange,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               Align(
                                 alignment: Alignment.bottomCenter,
@@ -204,4 +212,46 @@ class CheburashkaPhotoScreen extends StatelessWidget {
       }),
     );
   }
+}
+
+class FaceFramePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()
+      ..color = Colors.green
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3;
+
+    final Rect ovalRect = Rect.fromCenter(
+      center: Offset(size.width / 2, size.height * 0.35),
+      width: size.width * 0.6,
+      height: size.height * 0.5,
+    );
+
+    canvas.drawOval(ovalRect, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class PassportFramePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()
+      ..color = Colors.orange
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3;
+
+    final Rect rect = Rect.fromCenter(
+      center: Offset(size.width / 2, size.height * 0.8),
+      width: size.width * 0.65,
+      height: size.height * 0.25,
+    );
+
+    canvas.drawRect(rect, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
