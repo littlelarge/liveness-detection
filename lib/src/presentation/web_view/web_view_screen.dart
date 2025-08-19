@@ -15,9 +15,7 @@ import 'package:liveness_detection/src/presentation/passport/cheburashka_photo/c
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewScreen extends HookWidget {
-  const WebViewScreen({
-    super.key,
-  });
+  const WebViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,7 @@ class WebViewScreen extends HookWidget {
         key: StorageKeys.authorizationToken,
       );
       if (!context.mounted) return;
-      
+
       final webViewBloc = context.read<WebViewBloc>();
       await webViewController.loadRequest(
         Uri.parse(webViewBloc.state.link),
@@ -49,14 +47,25 @@ class WebViewScreen extends HookWidget {
             },
             onPageFinished: (String url) async {
               isLoading.value = false;
-              await webViewController.runJavaScript('''
-              const btn = document.querySelector('.btn-primary');
-              if (btn) {
-                btn.addEventListener('click', function() {
-                  window.flutter_injected.postMessage('btn-primary-clicked');
-                });
-              }
-            ''');
+
+              // Надёжная подписка на кнопку .btn-primary
+              await webViewController.runJavaScript(r'''
+                (function() {
+                  function attachListener() {
+                    const btn = document.querySelector('.btn-primary');
+                    if (btn && !btn.dataset.listenerAttached) {
+                      btn.dataset.listenerAttached = "true";
+                      btn.addEventListener('click', function(e) {
+                        e.preventDefault(); // предотвращаем submit
+                        window.flutter_injected.postMessage('btn-primary-clicked');
+                      });
+                    }
+                  }
+                  document.addEventListener("DOMContentLoaded", attachListener);
+                  // если кнопка подгружается позже через AJAX — проверяем каждую секунду
+                  setInterval(attachListener, 1000);
+                })();
+              ''');
             },
             onUrlChange: (change) async {
               final url = change.url ?? '';
@@ -122,9 +131,7 @@ class WebViewScreen extends HookWidget {
                       child: AbsorbPointer(
                         absorbing: true,
                         child: Container(
-                          color: Colors.black.withAlpha(
-                            20,
-                          ),
+                          color: Colors.black.withAlpha(20),
                         ),
                       ),
                     ),
