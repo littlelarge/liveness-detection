@@ -6,7 +6,7 @@ extension VideoIdentificationFailureMapper on VideoIdentificationUploadFailure {
   String autoMap({required BuildContext context}) {
     return map(
       serverError: (_) => context.errors.serverError,
-      unexpectedError: (_) => context.errors.unexpectedError,
+      unexpectedError: (e) => '${context.errors.unexpectedError}\n\n${e.error}',
       invalidFormat: (_) => context.errors.invalidVideoFormat,
       tooLarge: (_) => context.errors.videoTooLarge,
     );
